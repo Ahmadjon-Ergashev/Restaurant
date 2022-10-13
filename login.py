@@ -93,7 +93,7 @@ class Ui_Login(object):
         self.password = QtWidgets.QLineEdit(self.frame)
         self.password.setGeometry(QtCore.QRect(30, 200, 371, 61))
         self.password.setText("")
-        self.password.setEchoMode(QtWidgets.QLineEdit.PasswordEchoOnEdit)
+        self.password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password.setClearButtonEnabled(True)
         self.password.setObjectName("password")
         self.remember_me = QtWidgets.QCheckBox(self.frame)
