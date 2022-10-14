@@ -168,7 +168,7 @@ background:transparent;</string>
      <enum>QLineEdit::Normal</enum>
     </property>
     <property name="cursorPosition">
-     <number>5</number>
+     <number>18</number>
     </property>
     <property name="placeholderText">
      <string>Telefon raqam</string>
@@ -417,6 +417,29 @@ color:white
     </property>
     <property name="text">
      <string>✕</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+color:silver;
+background:transparent;</string>
+    </property>
+    <property name="text">
+     <string>Kirish</string>
     </property>
    </widget>
   </widget>

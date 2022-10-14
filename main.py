@@ -1,18 +1,23 @@
 import sys
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
 from PyQt5.QtCore import Qt
-from login import *
+from design.Ui_Login import *
 
-class Login(QDialog, Ui_Login):
+from classes.login import Login
+
+class Main(QDialog):
     def __init__(self):
         super().__init__()
-        self.setupUi(self)
-        self.btn_close.clicked.connect(self.close)
-        self.btn_minimize.clicked.connect(self.showMinimized)
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
+        login = Login()
+        login.exec()
+        # self.setupUi(self)
+        # self.btn_close.clicked.connect(self.close)
+        # self.btn_minimize.clicked.connect(self.showMinimized)
+        # self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        # self.setWindowFlag(Qt.FramelessWindowHint)
+        # self.setAttribute(Qt.WA_TranslucentBackground)
+        # self.btn_newAccount.clicked.connect(self.newAccount)
+
         # self.setWindowOpacity(0.6)
 
     def mousePressEvent(self, event):
@@ -26,9 +31,8 @@ class Login(QDialog, Ui_Login):
             self.move(event.globalPos() - self.movePosition)
             event.accept()
 
-
 if __name__=="__main__":
     app=QApplication(sys.argv)
-    win=Login()
+    win=Main()
     win.show()
-    sys.exit(app.exec())
+    sys.exit(app.exec_())

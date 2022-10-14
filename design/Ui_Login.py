@@ -87,7 +87,7 @@ class Ui_Login(object):
         self.username.setGeometry(QtCore.QRect(30, 110, 371, 61))
         self.username.setMaxLength(18)
         self.username.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.username.setCursorPosition(5)
+        self.username.setCursorPosition(18)
         self.username.setClearButtonEnabled(True)
         self.username.setObjectName("username")
         self.password = QtWidgets.QLineEdit(self.frame)
@@ -202,6 +202,15 @@ class Ui_Login(object):
 "color:white\n"
 "}")
         self.btn_close.setObjectName("btn_close")
+        self.label_2 = QtWidgets.QLabel(self.frame_2)
+        self.label_2.setGeometry(QtCore.QRect(20, 10, 101, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("\n"
+"color:silver;\n"
+"background:transparent;")
+        self.label_2.setObjectName("label_2")
         self.frame_3.raise_()
         self.frame.raise_()
         self.frame_2.raise_()
@@ -223,4 +232,5 @@ class Ui_Login(object):
         self.btn_sign.setText(_translate("Login", "Kirish"))
         self.btn_minimize.setText(_translate("Login", "_"))
         self.btn_close.setText(_translate("Login", "✕"))
+        self.label_2.setText(_translate("Login", "Kirish"))
 import images_rc
