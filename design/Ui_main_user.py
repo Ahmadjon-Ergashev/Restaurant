@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_minimize.setObjectName("btn_minimize")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(0, 40, 1302, 763))
+        self.tabWidget.setGeometry(QtCore.QRect(321, 40, 981, 763))
         self.tabWidget.setAutoFillBackground(False)
         self.tabWidget.setStyleSheet("QWidget{\n"
 "background-image: url(:/images/img/back_1.jpg);\n"
@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
 "\n"
 " }\n"
 "QTabBar::tab{\n"
-" width: 305px;\n"
+" width: 225px;\n"
 "  background: rgba(0,0,0,0.6);\n"
 "  color: white;\n"
 "  padding: 10px;\n"
@@ -168,10 +168,60 @@ class Ui_MainWindow(object):
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
         self.tabWidget.addTab(self.tab_profil, "")
+        self.tabWidget_2 = QtWidgets.QTabWidget(self.centralwidget)
+        self.tabWidget_2.setGeometry(QtCore.QRect(-4, 39, 325, 761))
+        self.tabWidget_2.setStyleSheet("QWidget{\n"
+"background:rgba(0,0,0,0.5);\n"
+"}\n"
+"QWidget:hover{\n"
+"background:rgba(0,0,0,0.7);\n"
+"}\n"
+"QWidget{\n"
+"  font-size: 14px;\n"
+"  font-weight: 500;\n"
+"  color: transparent;\n"
+"  background-clip: text;\n"
+"  border: none;\n"
+"  -webkit-background-clip: text;\n"
+"}\n"
+"QTabWidget::tab-bar {\n"
+"\n"
+" }\n"
+"QTabBar::tab{\n"
+" width: 142px;\n"
+"  background: rgba(0,0,0,0.6);\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"\n"
+" QTabBar::tab:selected {\n"
+" \n"
+"background: rgba(195,63,11,0.6);\n"
+" }\n"
+" QTabBar::tab:hover {\n"
+"   background: rgba(82,120,21, 0.7);\n"
+" }\n"
+"QFrame{\n"
+"    background: rgba(0,0,0,0.4);\n"
+"}\n"
+"QFrame:hover{\n"
+"    background: rgba(0,0,0,0.7);\n"
+"}\n"
+"")
+        self.tabWidget_2.setTabPosition(QtWidgets.QTabWidget.South)
+        self.tabWidget_2.setObjectName("tabWidget_2")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.tabWidget_2.addTab(self.tab, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.tabWidget_2.addTab(self.tab_2, "")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -184,4 +234,6 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_users), _translate("MainWindow", "Salatlar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_admin), _translate("MainWindow", "Shirinliklar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_profil), _translate("MainWindow", "Ichimliklar"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab), _translate("MainWindow", "Xarid"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_2), _translate("MainWindow", "Profil"))
 import images_rc
