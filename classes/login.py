@@ -8,6 +8,7 @@ import os
 from design.Ui_Login import Ui_Login
 from classes.registration import Registration
 from classes.warning import Warning
+from classes.main_user import Main_user
 
 class Login(QDialog, Ui_Login):
     def __init__(self):
