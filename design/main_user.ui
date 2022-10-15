@@ -202,7 +202,7 @@ background: rgba(195,63,11,0.6);
    background: rgba(82,120,21, 0.7);
  }
 QFrame{
-	background: rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0.6);
 }
 QFrame:hover{
 	background: rgba(0,0,0,0.7);
@@ -327,18 +327,15 @@ QFrame:hover{
    <widget class="QTabWidget" name="tabWidget_2">
     <property name="geometry">
      <rect>
-      <x>-4</x>
-      <y>39</y>
+      <x>0</x>
+      <y>40</y>
       <width>325</width>
       <height>761</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QWidget{
-background:rgba(0,0,0,0.5);
-}
-QWidget:hover{
-background:rgba(0,0,0,0.7);
+background-image: url(:/images/img/list_back.jpg);
 }
 QWidget{
   font-size: 14px;
@@ -367,7 +364,9 @@ background: rgba(195,63,11,0.6);
    background: rgba(82,120,21, 0.7);
  }
 QFrame{
-	background: rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0.6);
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 QFrame:hover{
 	background: rgba(0,0,0,0.7);
@@ -378,17 +377,49 @@ QFrame:hover{
      <enum>QTabWidget::South</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
       <string>Xarid</string>
      </attribute>
+     <widget class="QFrame" name="frame_7">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>321</width>
+        <height>731</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Profil</string>
      </attribute>
+     <widget class="QFrame" name="frame_6">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>321</width>
+        <height>731</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

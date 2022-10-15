@@ -120,7 +120,7 @@ class Ui_MainWindow(object):
 "   background: rgba(82,120,21, 0.7);\n"
 " }\n"
 "QFrame{\n"
-"    background: rgba(0,0,0,0.4);\n"
+"    background: rgba(0,0,0,0.6);\n"
 "}\n"
 "QFrame:hover{\n"
 "    background: rgba(0,0,0,0.7);\n"
@@ -169,12 +169,9 @@ class Ui_MainWindow(object):
         self.frame_5.setObjectName("frame_5")
         self.tabWidget.addTab(self.tab_profil, "")
         self.tabWidget_2 = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget_2.setGeometry(QtCore.QRect(-4, 39, 325, 761))
+        self.tabWidget_2.setGeometry(QtCore.QRect(0, 40, 325, 761))
         self.tabWidget_2.setStyleSheet("QWidget{\n"
-"background:rgba(0,0,0,0.5);\n"
-"}\n"
-"QWidget:hover{\n"
-"background:rgba(0,0,0,0.7);\n"
+"background-image: url(:/images/img/list_back.jpg);\n"
 "}\n"
 "QWidget{\n"
 "  font-size: 14px;\n"
@@ -203,7 +200,9 @@ class Ui_MainWindow(object):
 "   background: rgba(82,120,21, 0.7);\n"
 " }\n"
 "QFrame{\n"
-"    background: rgba(0,0,0,0.4);\n"
+"    background: rgba(0,0,0,0.6);\n"
+"  filter: blur(8px);\n"
+"  -webkit-filter: blur(8px);\n"
 "}\n"
 "QFrame:hover{\n"
 "    background: rgba(0,0,0,0.7);\n"
@@ -213,15 +212,25 @@ class Ui_MainWindow(object):
         self.tabWidget_2.setObjectName("tabWidget_2")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
+        self.frame_7 = QtWidgets.QFrame(self.tab)
+        self.frame_7.setGeometry(QtCore.QRect(0, 0, 321, 731))
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
         self.tabWidget_2.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
+        self.frame_6 = QtWidgets.QFrame(self.tab_2)
+        self.frame_6.setGeometry(QtCore.QRect(0, 0, 321, 731))
+        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_6.setObjectName("frame_6")
         self.tabWidget_2.addTab(self.tab_2, "")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(1)
-        self.tabWidget_2.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import *
-from PyQt5 import QtCore
+from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QPoint
 import sys
 import pickle as pc
@@ -8,18 +8,17 @@ import os
 from design.Ui_Login import Ui_Login
 from classes.registration import Registration
 from classes.warning import Warning
-from classes.main_user import Main_user
 
 class Login(QDialog, Ui_Login):
     def __init__(self):
-        super(Login, self).__init__()
+        super().__init__()
         self.setupUi(self)
 
         self.btn_close.clicked.connect(self.close)
         self.btn_minimize.clicked.connect(self.showMinimized)
 
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
 
         self.btn_newAccount.clicked.connect(self.newAccount)
         self.btn_sign.clicked.connect(self.sign)
@@ -40,6 +39,8 @@ class Login(QDialog, Ui_Login):
     def sign(self):
         if len(self.username.text())<6 or len(self.password.text())<6:
             Warning("Foydalanovchi nomi yoki parol 6 ta belgidan kam bo'lmasligi kerak").exec_()
+        else:
+            self.close()
         self.Remember()
 
     def Remember(self):
@@ -58,13 +59,13 @@ class Login(QDialog, Ui_Login):
 
 
     def mousePressEvent(self, event):
-        if event.button() == QtCore.Qt.LeftButton:
+        if event.button() == Qt.LeftButton:
             self.moveFlag = True
             self.movePosition = event.globalPos() - self.pos()
             event.accept()
 
     def mouseMoveEvent(self, event):
-        if QtCore.Qt.LeftButton and self.moveFlag:
+        if Qt.LeftButton and self.moveFlag:
             self.move(event.globalPos() - self.movePosition)
             event.accept()
 
