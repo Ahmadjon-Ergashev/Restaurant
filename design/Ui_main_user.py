@@ -147,6 +147,12 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(20, 20, 121, 50))
         self.pushButton.setMinimumSize(QtCore.QSize(50, 50))
         self.pushButton.setObjectName("pushButton")
+        self.gridLayoutWidget = QtWidgets.QWidget(self.frame)
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(120, 90, 981, 721))
+        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout.setObjectName("gridLayout")
         self.tabWidget.addTab(self.tab_ovqat, "")
         self.tab_salat = QtWidgets.QWidget()
         self.tab_salat.setObjectName("tab_salat")
@@ -233,14 +239,78 @@ class Ui_MainWindow(object):
 "border-radius:none;\n"
 "color: white;\n"
 "}\n"
-"\n"
 "QPushButton:hover{\n"
 "background:rgba(0, 0, 0,0.6)\n"
-"}")
+"}\n"
+"\n"
+"    QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 361, 710))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 346, 710))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)

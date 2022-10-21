@@ -271,6 +271,17 @@ background: rgba(255,255,250,0.9);
         <string>PushButton</string>
        </property>
       </widget>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>90</y>
+         <width>981</width>
+         <height>721</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout"/>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_salat">
@@ -437,10 +448,76 @@ background:rgba(0, 0, 0,0.15);
 border-radius:none;
 color: white;
 }
-
 QPushButton:hover{
 background:rgba(0, 0, 0,0.6)
-}</string>
+}
+
+    QScrollBar:vertical
+    {
+        background-color: #2A2929;
+        width: 15px;
+        margin: 15px 3px 15px 3px;
+        border: 1px transparent #2A2929;
+        border-radius: 4px;
+    }
+
+    QScrollBar::handle:vertical
+    {
+        background-color: rgba(195,63,11,0.8);        /* #605F5F; */
+        min-height: 5px;
+        border-radius: 4px;
+    }
+
+    QScrollBar::sub-line:vertical
+    {
+        margin: 3px 0px 3px 0px;
+        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:vertical
+    {
+        margin: 3px 0px 3px 0px;
+        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on
+    {
+        border-image: url(:/qss_icons/rc/up_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on
+    {
+        border-image: url(:/qss_icons/rc/down_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical
+    {
+        background: none;
+    }
+
+    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+    {
+        background: none;
+    }</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOn</enum>
        </property>
        <property name="widgetResizable">
         <bool>true</bool>
@@ -450,7 +527,7 @@ background:rgba(0, 0, 0,0.6)
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>361</width>
+          <width>346</width>
           <height>710</height>
          </rect>
         </property>
