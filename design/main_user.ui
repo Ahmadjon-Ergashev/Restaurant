@@ -207,6 +207,9 @@ QFrame{
 QFrame:hover{
 	background: rgba(0,0,0,0.7);
 }
+QPushButton{
+background: rgba(255,255,250,0.9);
+}
 </string>
     </property>
     <property name="tabPosition">
@@ -216,7 +219,7 @@ QFrame:hover{
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideMiddle</enum>
@@ -227,7 +230,7 @@ QFrame:hover{
     <property name="tabBarAutoHide">
      <bool>true</bool>
     </property>
-    <widget class="QWidget" name="tab_products">
+    <widget class="QWidget" name="tab_ovqat">
      <attribute name="title">
       <string>Ovqatlar</string>
      </attribute>
@@ -249,9 +252,22 @@ QFrame:hover{
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_users">
+    <widget class="QWidget" name="tab_salat">
      <attribute name="title">
       <string>Salatlar</string>
      </attribute>
@@ -275,7 +291,7 @@ QFrame:hover{
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_admin">
+    <widget class="QWidget" name="tab_shirinlik">
      <attribute name="title">
       <string>Shirinliklar</string>
      </attribute>
@@ -299,7 +315,7 @@ QFrame:hover{
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_profil">
+    <widget class="QWidget" name="tab_ichimlik">
      <attribute name="title">
       <string>Ichimliklar</string>
      </attribute>
@@ -379,17 +395,17 @@ QFrame:hover{
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="tab_xarid">
      <attribute name="title">
       <string>Xarid</string>
      </attribute>
-     <widget class="QFrame" name="frame_7">
+     <widget class="QFrame" name="frame_10">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
         <width>321</width>
-        <height>731</height>
+        <height>721</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -398,27 +414,97 @@ QFrame:hover{
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>303</width>
+            <height>703</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="sizeConstraint">
+              <enum>QLayout::SetMaximumSize</enum>
+             </property>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="tab_profil">
      <attribute name="title">
       <string>Profil</string>
      </attribute>
-     <widget class="QFrame" name="frame_6">
+     <widget class="QTabWidget" name="tabWidget_3">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>321</width>
+        <width>331</width>
         <height>731</height>
        </rect>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+      <property name="currentIndex">
+       <number>1</number>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
+      <widget class="QWidget" name="tab_buyurtma">
+       <attribute name="title">
+        <string>Buyurtmalar</string>
+       </attribute>
+       <widget class="QFrame" name="frame_8">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>331</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_setting">
+       <attribute name="title">
+        <string>Sozlash</string>
+       </attribute>
+       <widget class="QFrame" name="frame_9">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>331</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </widget>
    </widget>
