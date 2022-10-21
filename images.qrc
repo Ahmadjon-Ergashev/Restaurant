@@ -1,8 +1,8 @@
 <RCC>
   <qresource prefix="images">
-    <file>img/list_back.jpg</file>
     <file>img/reg_1.jpg</file>
     <file>img/login_2.jpg</file>
+    <file>img/list_back.jpg</file>
     <file>img/alert.png</file>
     <file>img/back_1.jpg</file>
   </qresource>

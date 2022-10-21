@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QFormLayout, QGroupBox, QLabel, QScrollArea, QHBoxLayout, QFrame, QVBoxLayout, QLayout
-from PyQt5.QtCore import QPoint, Qt
+from PyQt5.QtCore import QPoint, Qt, pyqtSlot
 import sys
 
 from design.Ui_main_user import Ui_MainWindow
@@ -46,9 +46,12 @@ class Main_user(QMainWindow, Ui_MainWindow):
         # scroll = QScrollArea()
         # scroll.setWidget(group)
         # scroll.setWidgetResizable(True)
-
         # self.verticalLayout.addWidget(scroll)
-        self.pushButton.clicked.connect(self.add)
+        # layout_2 = QVBoxLayout(self.frame_10)
+        # layout_2.addWidget(scroll)
+        # self.scrollArea.setWidget(group)
+
+        self.pushButton.clicked.connect(lambda: self.add("tekshiruv"))
 
 
     def mousePressEvent(self, event):
@@ -62,22 +65,69 @@ class Main_user(QMainWindow, Ui_MainWindow):
             self.move(event.globalPos() - self.movePosition)
             event.accept()
 
-    def add(self):
-        group = QFrame()
+    def add(self, text):
+        # group = QFrame()
+        #
+        # group.setLayout(layout)
+        # layout.addWidget(QPushButton("hello"))
+        # layout.addWidget(QLabel("label"))
+        # # layout.addWidget(group)
+        # self.layout.addWidget(group)
+        # self.verticalLayout_2.addWidget(QFrame())
+        # self.verticalLayout_2.addWidget(QFrame())
+        # self.verticalLayout_2.addWidget(QFrame())
         layout = QHBoxLayout()
-        group.setLayout(layout)
-        layout.addWidget(QPushButton("hello"))
-        layout.addWidget(QLabel("label"))
-        # layout.addWidget(group)
-        self.verticalLayout_2.addWidget(group)
-        # self.verticalLayout_2.addWidget(QFrame())
-        # self.verticalLayout_2.addWidget(QFrame())
-        # self.verticalLayout_2.addWidget(QFrame())
+        label_name = QLabel(text)
+        label_name.setAlignment(Qt.AlignCenter)
+        button_plus = QPushButton("+", clicked = self.incCount)
+        button_plus.setStyleSheet("QPushButton:hover{\n"
+                                    "background: rgba(82,120,21, 0.7);\n"
+                                    "}")
+        button_plus.setMinimumSize(35, 35)
+        button_plus.setMaximumSize(35, 35)
+        button_minus = QPushButton("-", clicked = self.decCount)
+        button_minus.setStyleSheet("QPushButton:hover{\n"
+                                    "background: rgba(195,63,11,0.6);\n"
+                                    "}")
+        button_minus.setMinimumSize(35, 35)
+        button_minus.setMaximumSize(35, 35)
+        label_count = QLabel("1")
+        label_count.setAlignment(Qt.AlignCenter)
+        label_count.setMinimumSize(35, 35)
+        label_count.setMaximumSize(35, 35)
+
+        button_remove = QPushButton("✕", clicked=self.delete)
+        button_remove.setStyleSheet("QPushButton:hover{\n"
+                                    "background:red;\n"
+                                    "color:white\n"
+                                    "}")
+        button_remove.setMinimumSize(35, 35)
+        button_remove.setMaximumSize(35, 35)
+        button_remove.height = 50
+        layout.addWidget(label_name)
+        layout.addWidget(button_minus)
+        layout.addWidget(label_count)
+        layout.addWidget(button_plus)
+        layout.addWidget(button_remove)
+
+        self.formLayout.addRow(layout)
 
     def delete(self):
-        sender = self.sender()
-        sender.deleteLater()
+        for i in range(self.formLayout.rowCount()):
+            if self.sender()== self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(4).widget():
+                self.formLayout.removeRow(i)
+                return
 
+    def incCount(self):
+        for i in range(self.formLayout.rowCount()):
+            if self.sender() == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(3).widget():
+                self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) + 1))
+
+    def decCount(self):
+        for i in range(self.formLayout.rowCount()):
+            if self.sender() == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(1).widget():
+                if self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text() != "1":
+                    self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) - 1))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

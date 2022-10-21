@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1300, 800)
-        MainWindow.setMinimumSize(QtCore.QSize(1300, 800))
-        MainWindow.setMaximumSize(QtCore.QSize(1300, 800))
+        MainWindow.resize(1350, 800)
+        MainWindow.setMinimumSize(QtCore.QSize(1350, 800))
+        MainWindow.setMaximumSize(QtCore.QSize(1350, 800))
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("QStatusBar{\n"
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget.setObjectName("centralwidget")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_2.setGeometry(QtCore.QRect(0, 0, 1301, 40))
+        self.frame_2.setGeometry(QtCore.QRect(0, 0, 1351, 40))
         self.frame_2.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.frame_2.setStyleSheet("QFrame{\n"
 "background:rgba(0,0,0,0.8);\n"
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
 "background:transparent;")
         self.label_2.setObjectName("label_2")
         self.btn_close = QtWidgets.QPushButton(self.frame_2)
-        self.btn_close.setGeometry(QtCore.QRect(1261, 0, 41, 40))
+        self.btn_close.setGeometry(QtCore.QRect(1310, 0, 41, 40))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.btn_close.setFont(font)
@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_close.setObjectName("btn_close")
         self.btn_minimize = QtWidgets.QPushButton(self.frame_2)
-        self.btn_minimize.setGeometry(QtCore.QRect(1220, 0, 41, 40))
+        self.btn_minimize.setGeometry(QtCore.QRect(1270, 0, 41, 40))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setUnderline(False)
@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_minimize.setObjectName("btn_minimize")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(321, 40, 981, 763))
+        self.tabWidget.setGeometry(QtCore.QRect(371, 40, 981, 763))
         self.tabWidget.setAutoFillBackground(False)
         self.tabWidget.setStyleSheet("QWidget{\n"
 "background-image: url(:/images/img/back_1.jpg);\n"
@@ -144,7 +144,8 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(20, 20, 121, 31))
+        self.pushButton.setGeometry(QtCore.QRect(20, 20, 121, 50))
+        self.pushButton.setMinimumSize(QtCore.QSize(50, 50))
         self.pushButton.setObjectName("pushButton")
         self.tabWidget.addTab(self.tab_ovqat, "")
         self.tab_salat = QtWidgets.QWidget()
@@ -175,7 +176,7 @@ class Ui_MainWindow(object):
         self.frame_5.setObjectName("frame_5")
         self.tabWidget.addTab(self.tab_ichimlik, "")
         self.tabWidget_2 = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget_2.setGeometry(QtCore.QRect(0, 40, 325, 761))
+        self.tabWidget_2.setGeometry(QtCore.QRect(0, 40, 373, 761))
         self.tabWidget_2.setStyleSheet("QWidget{\n"
 "background-image: url(:/images/img/list_back.jpg);\n"
 "}\n"
@@ -191,7 +192,7 @@ class Ui_MainWindow(object):
 "\n"
 " }\n"
 "QTabBar::tab{\n"
-" width: 142px;\n"
+" width: 165px;\n"
 "  background: rgba(0,0,0,0.6);\n"
 "  color: white;\n"
 "  padding: 10px;\n"
@@ -213,43 +214,52 @@ class Ui_MainWindow(object):
 "QFrame:hover{\n"
 "    background: rgba(0,0,0,0.7);\n"
 "}\n"
-"")
+"QLabel{\n"
+"color: white;\n"
+"}")
         self.tabWidget_2.setTabPosition(QtWidgets.QTabWidget.South)
         self.tabWidget_2.setObjectName("tabWidget_2")
         self.tab_xarid = QtWidgets.QWidget()
         self.tab_xarid.setObjectName("tab_xarid")
         self.frame_10 = QtWidgets.QFrame(self.tab_xarid)
-        self.frame_10.setGeometry(QtCore.QRect(0, 0, 321, 721))
+        self.frame_10.setGeometry(QtCore.QRect(0, 0, 371, 721))
         self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_10.setObjectName("frame_10")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_10)
-        self.verticalLayout.setObjectName("verticalLayout")
         self.scrollArea = QtWidgets.QScrollArea(self.frame_10)
+        self.scrollArea.setGeometry(QtCore.QRect(5, 5, 361, 710))
+        self.scrollArea.setStyleSheet("QPushButton{\n"
+"background:rgba(0, 0, 0,0.15);\n"
+"border-radius:none;\n"
+"color: white;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background:rgba(0, 0, 0,0.6)\n"
+"}")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 303, 703))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 361, 710))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
-        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.verticalLayout_3.addLayout(self.verticalLayout_2)
+        self.formLayout = QtWidgets.QFormLayout()
+        self.formLayout.setVerticalSpacing(10)
+        self.formLayout.setObjectName("formLayout")
+        self.verticalLayout_2.addLayout(self.formLayout)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.verticalLayout.addWidget(self.scrollArea)
         self.tabWidget_2.addTab(self.tab_xarid, "")
         self.tab_profil = QtWidgets.QWidget()
         self.tab_profil.setObjectName("tab_profil")
         self.tabWidget_3 = QtWidgets.QTabWidget(self.tab_profil)
-        self.tabWidget_3.setGeometry(QtCore.QRect(0, 0, 331, 731))
+        self.tabWidget_3.setGeometry(QtCore.QRect(0, 0, 375, 731))
         self.tabWidget_3.setObjectName("tabWidget_3")
         self.tab_buyurtma = QtWidgets.QWidget()
         self.tab_buyurtma.setObjectName("tab_buyurtma")
         self.frame_8 = QtWidgets.QFrame(self.tab_buyurtma)
-        self.frame_8.setGeometry(QtCore.QRect(0, 0, 331, 691))
+        self.frame_8.setGeometry(QtCore.QRect(0, 0, 371, 691))
         self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_8.setObjectName("frame_8")
@@ -257,12 +267,15 @@ class Ui_MainWindow(object):
         self.tab_setting = QtWidgets.QWidget()
         self.tab_setting.setObjectName("tab_setting")
         self.frame_9 = QtWidgets.QFrame(self.tab_setting)
-        self.frame_9.setGeometry(QtCore.QRect(0, 0, 331, 691))
+        self.frame_9.setGeometry(QtCore.QRect(0, 0, 371, 691))
         self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_9.setObjectName("frame_9")
         self.tabWidget_3.addTab(self.tab_setting, "")
         self.tabWidget_2.addTab(self.tab_profil, "")
+        self.tabWidget_2.raise_()
+        self.frame_2.raise_()
+        self.tabWidget.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
