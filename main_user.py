@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QFormLayout, QGroupBox, QLabel, QScrollArea, QHBoxLayout, QFrame, QVBoxLayout, QLayout
-from PyQt5.QtCore import QPoint, Qt, pyqtSlot
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QFormLayout, QLabel, QHBoxLayout
+from PyQt5.QtCore import QPoint, Qt
 import sys
 
 from design.Ui_main_user import Ui_MainWindow
@@ -53,7 +53,6 @@ class Main_user(QMainWindow, Ui_MainWindow):
 
         self.pushButton.clicked.connect(lambda: self.add("tekshiruv"))
 
-
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.moveFlag = True
@@ -79,13 +78,13 @@ class Main_user(QMainWindow, Ui_MainWindow):
         layout = QHBoxLayout()
         label_name = QLabel(text)
         label_name.setAlignment(Qt.AlignCenter)
-        button_plus = QPushButton("+", clicked = self.incCount)
+        button_plus = QPushButton("+", clicked=self.incCount)
         button_plus.setStyleSheet("QPushButton:hover{\n"
                                     "background: rgba(82,120,21, 0.7);\n"
                                     "}")
         button_plus.setMinimumSize(35, 35)
         button_plus.setMaximumSize(35, 35)
-        button_minus = QPushButton("-", clicked = self.decCount)
+        button_minus = QPushButton("-", clicked=self.decCount)
         button_minus.setStyleSheet("QPushButton:hover{\n"
                                     "background: rgba(195,63,11,0.6);\n"
                                     "}")
@@ -114,7 +113,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
 
     def delete(self):
         for i in range(self.formLayout.rowCount()):
-            if self.sender()== self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(4).widget():
+            if self.sender() == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(4).widget():
                 self.formLayout.removeRow(i)
                 return
 
@@ -128,6 +127,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
             if self.sender() == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(1).widget():
                 if self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text() != "1":
                     self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) - 1))
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
