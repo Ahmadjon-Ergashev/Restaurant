@@ -156,22 +156,22 @@ background:transparent;</string>
      </rect>
     </property>
     <property name="inputMask">
-     <string>+\9\9\8(99)-999-99-99</string>
+     <string/>
     </property>
     <property name="text">
-     <string>+998()---</string>
+     <string/>
     </property>
     <property name="maxLength">
-     <number>18</number>
+     <number>32767</number>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Normal</enum>
     </property>
     <property name="cursorPosition">
-     <number>18</number>
+     <number>0</number>
     </property>
     <property name="placeholderText">
-     <string>Telefon raqam</string>
+     <string>Username</string>
     </property>
     <property name="clearButtonEnabled">
      <bool>true</bool>

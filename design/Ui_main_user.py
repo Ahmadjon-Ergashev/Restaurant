@@ -137,49 +137,423 @@ class Ui_MainWindow(object):
         self.tabWidget.setObjectName("tabWidget")
         self.tab_ovqat = QtWidgets.QWidget()
         self.tab_ovqat.setObjectName("tab_ovqat")
-        self.frame = QtWidgets.QFrame(self.tab_ovqat)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 1301, 721))
-        self.frame.setStyleSheet("")
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(20, 20, 121, 50))
-        self.pushButton.setMinimumSize(QtCore.QSize(50, 50))
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayoutWidget = QtWidgets.QWidget(self.frame)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(120, 90, 981, 721))
-        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setObjectName("gridLayout")
+        self.scrollArea_2 = QtWidgets.QScrollArea(self.tab_ovqat)
+        self.scrollArea_2.setGeometry(QtCore.QRect(0, 0, 981, 721))
+        self.scrollArea_2.setStyleSheet("QPushButton{\n"
+"    background:rgb(83, 152, 255);\n"
+"    border-radius:10px;\n"
+"    color:#fff;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    border:none;\n"
+"    background:rgb(68, 117, 222)\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"font-size: 14px;\n"
+"text-align: center;\n"
+"color: white;\n"
+"padding: 2px;\n"
+"}\n"
+"QLabel:hover{\n"
+"background: rgba(255,255,255,0.3);\n"
+"border: 1px solid rgb(68, 117, 222);\n"
+"}\n"
+"QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollArea_2.setObjectName("scrollArea_2")
+        self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 981, 721))
+        self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
+        self.formLayout_2 = QtWidgets.QFormLayout(self.scrollAreaWidgetContents_2)
+        self.formLayout_2.setObjectName("formLayout_2")
+        self.grid_Foods = QtWidgets.QGridLayout()
+        self.grid_Foods.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
+        self.grid_Foods.setContentsMargins(36, -1, -1, -1)
+        self.grid_Foods.setHorizontalSpacing(36)
+        self.grid_Foods.setVerticalSpacing(15)
+        self.grid_Foods.setObjectName("grid_Foods")
+        self.formLayout_2.setLayout(0, QtWidgets.QFormLayout.LabelRole, self.grid_Foods)
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.tabWidget.addTab(self.tab_ovqat, "")
         self.tab_salat = QtWidgets.QWidget()
         self.tab_salat.setObjectName("tab_salat")
-        self.frame_3 = QtWidgets.QFrame(self.tab_salat)
-        self.frame_3.setGeometry(QtCore.QRect(0, 0, 1301, 721))
-        self.frame_3.setStyleSheet("")
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
+        self.scrollArea_3 = QtWidgets.QScrollArea(self.tab_salat)
+        self.scrollArea_3.setGeometry(QtCore.QRect(0, 0, 981, 721))
+        self.scrollArea_3.setStyleSheet("QPushButton{\n"
+"    background:rgb(83, 152, 255);\n"
+"    border-radius:10px;\n"
+"    color:#fff;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    border:none;\n"
+"    background:rgb(68, 117, 222)\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"font-size: 14px;\n"
+"text-align: center;\n"
+"color: white;\n"
+"padding: 2px;\n"
+"}\n"
+"QLabel:hover{\n"
+"background: rgba(255,255,255,0.3);\n"
+"border: 1px solid rgb(68, 117, 222);\n"
+"}\n"
+"QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollArea_3.setObjectName("scrollArea_3")
+        self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 981, 721))
+        self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
+        self.formLayout_3 = QtWidgets.QFormLayout(self.scrollAreaWidgetContents_3)
+        self.formLayout_3.setObjectName("formLayout_3")
+        self.grid_Salads = QtWidgets.QGridLayout()
+        self.grid_Salads.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
+        self.grid_Salads.setContentsMargins(36, -1, -1, -1)
+        self.grid_Salads.setHorizontalSpacing(36)
+        self.grid_Salads.setVerticalSpacing(15)
+        self.grid_Salads.setObjectName("grid_Salads")
+        self.formLayout_3.setLayout(0, QtWidgets.QFormLayout.LabelRole, self.grid_Salads)
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
         self.tabWidget.addTab(self.tab_salat, "")
         self.tab_shirinlik = QtWidgets.QWidget()
         self.tab_shirinlik.setObjectName("tab_shirinlik")
-        self.frame_4 = QtWidgets.QFrame(self.tab_shirinlik)
-        self.frame_4.setGeometry(QtCore.QRect(0, 0, 1301, 721))
-        self.frame_4.setStyleSheet("")
-        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_4.setObjectName("frame_4")
+        self.scrollArea_4 = QtWidgets.QScrollArea(self.tab_shirinlik)
+        self.scrollArea_4.setGeometry(QtCore.QRect(0, 0, 981, 721))
+        self.scrollArea_4.setStyleSheet("QPushButton{\n"
+"    background:rgb(83, 152, 255);\n"
+"    border-radius:10px;\n"
+"    color:#fff;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    border:none;\n"
+"    background:rgb(68, 117, 222)\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"font-size: 14px;\n"
+"text-align: center;\n"
+"color: white;\n"
+"padding: 2px;\n"
+"}\n"
+"QLabel:hover{\n"
+"background: rgba(255,255,255,0.3);\n"
+"border: 1px solid rgb(68, 117, 222);\n"
+"}\n"
+"QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.scrollArea_4.setWidgetResizable(True)
+        self.scrollArea_4.setObjectName("scrollArea_4")
+        self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 981, 721))
+        self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
+        self.formLayout_4 = QtWidgets.QFormLayout(self.scrollAreaWidgetContents_4)
+        self.formLayout_4.setObjectName("formLayout_4")
+        self.grid_Sweets = QtWidgets.QGridLayout()
+        self.grid_Sweets.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
+        self.grid_Sweets.setContentsMargins(36, -1, -1, -1)
+        self.grid_Sweets.setHorizontalSpacing(36)
+        self.grid_Sweets.setVerticalSpacing(15)
+        self.grid_Sweets.setObjectName("grid_Sweets")
+        self.formLayout_4.setLayout(0, QtWidgets.QFormLayout.LabelRole, self.grid_Sweets)
+        self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
         self.tabWidget.addTab(self.tab_shirinlik, "")
         self.tab_ichimlik = QtWidgets.QWidget()
         self.tab_ichimlik.setObjectName("tab_ichimlik")
-        self.frame_5 = QtWidgets.QFrame(self.tab_ichimlik)
-        self.frame_5.setGeometry(QtCore.QRect(-40, 0, 1341, 721))
-        self.frame_5.setStyleSheet("")
-        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_5.setObjectName("frame_5")
+        self.scrollArea_5 = QtWidgets.QScrollArea(self.tab_ichimlik)
+        self.scrollArea_5.setGeometry(QtCore.QRect(0, 0, 981, 721))
+        self.scrollArea_5.setStyleSheet("QPushButton{\n"
+"    background:rgb(83, 152, 255);\n"
+"    border-radius:10px;\n"
+"    color:#fff;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    border:none;\n"
+"    background:rgb(68, 117, 222)\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"font-size: 14px;\n"
+"text-align: center;\n"
+"color: white;\n"
+"padding: 2px;\n"
+"}\n"
+"QLabel:hover{\n"
+"background: rgba(255,255,255,0.3);\n"
+"border: 1px solid rgb(68, 117, 222);\n"
+"}\n"
+"QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.scrollArea_5.setWidgetResizable(True)
+        self.scrollArea_5.setObjectName("scrollArea_5")
+        self.scrollAreaWidgetContents_5 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 981, 721))
+        self.scrollAreaWidgetContents_5.setObjectName("scrollAreaWidgetContents_5")
+        self.formLayout_5 = QtWidgets.QFormLayout(self.scrollAreaWidgetContents_5)
+        self.formLayout_5.setObjectName("formLayout_5")
+        self.grid_Drinks = QtWidgets.QGridLayout()
+        self.grid_Drinks.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
+        self.grid_Drinks.setContentsMargins(36, -1, -1, -1)
+        self.grid_Drinks.setHorizontalSpacing(36)
+        self.grid_Drinks.setVerticalSpacing(15)
+        self.grid_Drinks.setObjectName("grid_Drinks")
+        self.formLayout_5.setLayout(0, QtWidgets.QFormLayout.LabelRole, self.grid_Drinks)
+        self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_5)
         self.tabWidget.addTab(self.tab_ichimlik, "")
         self.tabWidget_2 = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget_2.setGeometry(QtCore.QRect(0, 40, 373, 761))
@@ -222,18 +596,59 @@ class Ui_MainWindow(object):
 "}\n"
 "QLabel{\n"
 "color: white;\n"
+"padding: 2px;\n"
+"}\n"
+"QPushButton{\n"
+"background:rgba(0, 0, 0,0.6);\n"
+"border-radius:none;\n"
+"color: white;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background:rgba(0, 0, 0,0.6)\n"
 "}")
         self.tabWidget_2.setTabPosition(QtWidgets.QTabWidget.South)
         self.tabWidget_2.setObjectName("tabWidget_2")
         self.tab_xarid = QtWidgets.QWidget()
         self.tab_xarid.setObjectName("tab_xarid")
         self.frame_10 = QtWidgets.QFrame(self.tab_xarid)
-        self.frame_10.setGeometry(QtCore.QRect(0, 0, 371, 721))
+        self.frame_10.setGeometry(QtCore.QRect(0, 600, 371, 121))
+        self.frame_10.setStyleSheet("QPushButton{\n"
+"background:rgba(0, 0, 0,0.6);\n"
+"border-radius:none;\n"
+"color: white;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background:rgba(0, 0, 0,0.6)\n"
+"}")
         self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_10.setObjectName("frame_10")
-        self.scrollArea = QtWidgets.QScrollArea(self.frame_10)
-        self.scrollArea.setGeometry(QtCore.QRect(5, 5, 361, 710))
+        self.btnCancel = QtWidgets.QPushButton(self.frame_10)
+        self.btnCancel.setGeometry(QtCore.QRect(10, 80, 171, 31))
+        self.btnCancel.setStyleSheet("QPushButton:hover{\n"
+"background: rgba(231,30,21,0.6);\n"
+"}")
+        self.btnCancel.setObjectName("btnCancel")
+        self.btnOk = QtWidgets.QPushButton(self.frame_10)
+        self.btnOk.setGeometry(QtCore.QRect(190, 80, 171, 31))
+        self.btnOk.setStyleSheet("QPushButton:hover{\n"
+"background: rgba(17,148,0, 0.7);\n"
+"}")
+        self.btnOk.setObjectName("btnOk")
+        self.label = QtWidgets.QLabel(self.frame_10)
+        self.label.setGeometry(QtCore.QRect(10, 10, 171, 31))
+        self.label.setObjectName("label")
+        self.label_count = QtWidgets.QLabel(self.frame_10)
+        self.label_count.setGeometry(QtCore.QRect(190, 10, 171, 31))
+        self.label_count.setObjectName("label_count")
+        self.label_4 = QtWidgets.QLabel(self.frame_10)
+        self.label_4.setGeometry(QtCore.QRect(10, 40, 171, 31))
+        self.label_4.setObjectName("label_4")
+        self.label_sum = QtWidgets.QLabel(self.frame_10)
+        self.label_sum.setGeometry(QtCore.QRect(190, 40, 171, 31))
+        self.label_sum.setObjectName("label_sum")
+        self.scrollArea = QtWidgets.QScrollArea(self.tab_xarid)
+        self.scrollArea.setGeometry(QtCore.QRect(0, 0, 371, 601))
         self.scrollArea.setStyleSheet("QPushButton{\n"
 "background:rgba(0, 0, 0,0.15);\n"
 "border-radius:none;\n"
@@ -310,7 +725,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 346, 710))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 356, 601))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
@@ -349,7 +764,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
         self.tabWidget_2.setCurrentIndex(0)
         self.tabWidget_3.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -360,11 +775,16 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Asosiy"))
         self.btn_close.setText(_translate("MainWindow", "✕"))
         self.btn_minimize.setText(_translate("MainWindow", "_"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_ovqat), _translate("MainWindow", "Ovqatlar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_salat), _translate("MainWindow", "Salatlar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_shirinlik), _translate("MainWindow", "Shirinliklar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_ichimlik), _translate("MainWindow", "Ichimliklar"))
+        self.btnCancel.setText(_translate("MainWindow", "Bekor qilish"))
+        self.btnOk.setText(_translate("MainWindow", "Buyurtma berish"))
+        self.label.setText(_translate("MainWindow", "Umumiy soni"))
+        self.label_count.setText(_translate("MainWindow", "0"))
+        self.label_4.setText(_translate("MainWindow", "Umumiy summasi"))
+        self.label_sum.setText(_translate("MainWindow", "0"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_xarid), _translate("MainWindow", "Xarid"))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_buyurtma), _translate("MainWindow", "Buyurtmalar"))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_setting), _translate("MainWindow", "Sozlash"))
