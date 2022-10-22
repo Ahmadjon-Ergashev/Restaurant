@@ -1,10 +1,13 @@
 from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5.QtCore import QPoint, Qt
 import sys
-import pickle as pc
+import time
 
 from design.Ui_Registration import Ui_Registration
 from classes.warning import Warning
+from classes.sql import logIn, registr
+
+
 
 class Registration(QDialog, Ui_Registration):
     def __init__(self):
@@ -24,6 +27,12 @@ class Registration(QDialog, Ui_Registration):
             Warning("Iltimos maydonlarni to'ldiring").exec()
         elif self.password_2.text() != self.password_3.text():
             Warning("Iltimos parollarni tekshiring").exec()
+        elif logIn(self.phone_2.text(), self.password_2.text()):
+            Warning("Ushbu telefon raqami bilan oldin ro'yxatdan o'tilgan").exec()
+        else:
+            registr(self.phone_2.text(), self.password_2.text(), self.name_2.text(), self.surname_2.text())
+            time.sleep(0.5)
+            self.close()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:

@@ -1,13 +1,13 @@
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.QtCore import Qt
-from PyQt5.QtCore import QPoint
+
 import sys
 import pickle as pc
-import os
 
 from design.Ui_Login import Ui_Login
 from classes.registration import Registration
 from classes.warning import Warning
+from classes.sql import logIn, getUserid
 
 class Login(QDialog, Ui_Login):
     def __init__(self):
@@ -23,13 +23,13 @@ class Login(QDialog, Ui_Login):
         self.btn_newAccount.clicked.connect(self.newAccount)
         self.btn_sign.clicked.connect(self.sign)
 
-        # print(str(os.getcwd()))
-        # os.path.dirname(os.path.dirname(__file__)) + "\\userPickles\\lastlog.pc"
+        self.login = None
+        self.userid = None
 
         try:
             with open('userPickles/lastlog.pc', 'rb') as file:
                 log = pc.load(file)
-                if len(log)>0:
+                if len(log) > 0:
                     self.remember_me.setChecked(True)
                     self.username.setText(log[0])
                     self.password.setText(log[1])
@@ -37,11 +37,16 @@ class Login(QDialog, Ui_Login):
             pass
 
     def sign(self):
-        if len(self.username.text())<6 or len(self.password.text())<6:
+        if len(self.username.text()) < 6 or len(self.password.text()) < 6:
             Warning("Foydalanovchi nomi yoki parol 6 ta belgidan kam bo'lmasligi kerak").exec_()
         else:
-            self.close()
-        self.Remember()
+            if logIn(self.username.text(), self.password.text()):
+                self.login = True
+                self.userid = getUserid(self.username.text(), self.password.text())
+                self.Remember()
+                self.close()
+            else:
+                Warning("Telefon raqam yoki parol xato").exec()
 
     def Remember(self):
         if self.remember_me.isChecked():
@@ -72,8 +77,9 @@ class Login(QDialog, Ui_Login):
     def newAccount(self):
         Registration().exec()
 
-if __name__=="__main__":
-    app=QApplication(sys.argv)
-    win=Login()
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    win = Login()
     win.show()
     sys.exit(app.exec())

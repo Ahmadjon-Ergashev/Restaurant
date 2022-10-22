@@ -1,13 +1,14 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QFormLayout, QLabel, QHBoxLayout
-from PyQt5.QtCore import QPoint, Qt
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QFormLayout, QLabel, QHBoxLayout, QSystemTrayIcon
+from PyQt5.QtCore import QPoint, Qt, QSize
+from PyQt5.QtGui import QPixmap, QIcon
 import sys
-
-from design.Ui_main_user import Ui_MainWindow
+import ctypes
+from design.Ui_main_user import Ui_Asosiy
+from classes.warning import Warning
 from classes.login import Login
 from classes.sql import *
 
-class Main_user(QMainWindow, Ui_MainWindow):
+class Main_user(QMainWindow, Ui_Asosiy):
     def __init__(self):
         login = Login()
         login.exec_()
@@ -16,14 +17,26 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.btn_close.clicked.connect(self.close)
         self.btn_minimize.clicked.connect(self.showMinimized)
+        self.btnCancel_2.clicked.connect(self.cancel_setting)
+        self.btnCancel.clicked.connect(self.cancel)
+        self.btnOk_2.clicked.connect(self.save_setting)
+        self.btn_updatepassword.clicked.connect(self.updatePassword)
+
+        if login.login is None:
+            sys.exit()
+        self.id = login.userid
+        self.name, self.surname, self.phone, self.address = getUserInfo(login.userid)
+        self.label_user.setText(self.name + " " + self.surname)
 
         self.orders = dict()
-
+        self.cancel_setting()
         self.load(self.grid_Foods, products("Ovqatlar"))
         self.load(self.grid_Salads, products("Salatlar"))
         self.load(self.grid_Sweets, products("Shirinliklar"))
         self.load(self.grid_Drinks, products("Ichimliklar"))
-        self.btnCancel.clicked.connect(self.cancel)
+
+        if self.address is None:
+            Warning("Iltimos buyurtma berish uchun manzilingizni kiriting").exec()
 
     def load(self, layout, result):
         x = 0
@@ -43,7 +56,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
             label_name.setMaximumSize(200, 150)
             label_name.setAlignment(Qt.AlignCenter)
             label_name.setWordWrap(True)
-            label_price = QLabel(str(data[3]))
+            label_price = QLabel(self.formatPrice(data[3]) + " so'm")
             label_price.setMinimumSize(200, 30)
             label_price.setMaximumSize(200, 150)
             label_price.setAlignment(Qt.AlignCenter)
@@ -58,11 +71,64 @@ class Main_user(QMainWindow, Ui_MainWindow):
             else:
                 y += 1
 
+    def updatePassword(self):
+        if (checkPassword(self.id, self.old_password.text())) is False:
+            Warning("Eski parol xato kiritildi").exec()
+        elif self.password_1.text() != self.password_2.text():
+            Warning("Yangi parol tasdiqlanmadi").exec()
+        else:
+            updatePassword(self.id, self.password_1.text())
+            self.old_password.setText(self.password_1.text())
+            self.password_1.clear()
+            self.password_2.clear()
+            Warning("Parol Yangilandi").exec()
+
+    def cancel_setting(self):
+        if self.btnCancel_2.text() == "Bekor qilish":
+            self.edit_name.setText(self.name)
+            self.edit_surname.setText(self.surname)
+            self.edit_phone.setText(self.phone)
+            self.edit_address.setText(self.address)
+            self.edit_name.setReadOnly(True)
+            self.edit_surname.setReadOnly(True)
+            self.edit_phone.setReadOnly(True)
+            self.edit_address.setReadOnly(True)
+
+            self.btnCancel_2.setText("Taxrirlash")
+        else:
+            self.edit_name.setReadOnly(False)
+            self.edit_surname.setReadOnly(False)
+            self.edit_phone.setReadOnly(False)
+            self.edit_address.setReadOnly(False)
+            self.btnCancel_2.setText("Bekor qilish")
+
+    def save_setting(self):
+        if self.edit_name.text() == self.name and self.edit_surname.text() == self.surname and \
+                self.edit_phone.text() == self.phone and  self.edit_address.toPlainText() == self.address:
+            Warning("Profil ma'lumotlari o'zgartirilmagan").exec()
+        elif self.edit_name.text() == "" or self.edit_surname.text() == "" or \
+                self.edit_phone.text() == "" or self.edit_address.toPlainText() == "":
+            Warning("Iltimos maydonlarni to'ldiring").exec()
+        else:
+            updateUserInfo(self.id, self.edit_name.text(), self.edit_surname.text(),
+                           self.edit_phone.text(), self.edit_address.toPlainText())
+            self.name = self.edit_name.text()
+            self.surname = self.edit_surname.text()
+            self.phone = self.edit_phone.text()
+            self.label_user.setText(self.name + " " + self.surname)
+            self.edit_name.setReadOnly(True)
+            self.edit_surname.setReadOnly(True)
+            self.edit_phone.setReadOnly(True)
+            self.btnCancel_2.setText("Taxrirlash")
+            Warning("Profil ma'lumotlari yangilandi").exec()
+
     def load_img(self, path):
         pixmap = QPixmap(path)
         return pixmap
 
     def cancel(self):
+        self.orders = dict()
+        self.counting()
         while self.formLayout.rowCount():
             self.formLayout.removeRow(0)
 
@@ -74,8 +140,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
             sum += product["count"] * product["price"]
 
         self.label_count.setText(str(count))
-        self.label_sum.setText(str(sum))
-
+        self.label_sum.setText(self.formatPrice(sum) + " so'm")
 
     def toobject(self, product):
         return {"price": product[3],
@@ -83,7 +148,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
 
     def add(self):
         id = int(self.sender().objectName()[2:])
-        object = get_productByID(id)[0]
+        object = getproductByID(id)[0]
         text = object[2]
         temp = self.toobject(object)
         for i in range(self.formLayout.rowCount()):
@@ -153,9 +218,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
         #     if self.sender() == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(3).widget():
         #         print(self.orders[id])
         #         self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) + 1))
-        #
-        #
-        #
+
         label = self.findChild(QLabel, "count_"+str(id))
         label.setText(str(int(label.text())+1))
         self.orders[id]["count"] += 1
@@ -175,6 +238,15 @@ class Main_user(QMainWindow, Ui_MainWindow):
         #             self.orders[id]["count"] -= 1
         #             self.counting()
 
+    def formatPrice(self, price):
+        text = str(price)[::-1]
+        result = ""
+        while text:
+            result += text[:3] + " "
+            text = text[3:]
+        return result[len(result)-2::-1]
+
+
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.moveFlag = True
@@ -188,6 +260,21 @@ class Main_user(QMainWindow, Ui_MainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    app_icon = QIcon()
+    app_icon.addFile("img/main 128.png", QSize(128, 128))
+    app_icon.addFile("img/main 64.png", QSize(64, 64))
+    app_icon.addFile("img/main 48.png", QSize(48, 48))
+    app_icon.addFile("img/main 32.png", QSize(32, 32))
+    app_icon.addFile("img/main 16.png", QSize(16, 16))
+    app.setWindowIcon(app_icon)
+
+    myappid = 'mycompany.myproduct.subproduct.version'  # arbitrary string
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
+    # tray = QSystemTrayIcon()
+    # tray.setIcon(app_icon)
+    # tray.setVisible(True)
     win = Main_user()
     win.show()
     sys.exit(app.exec_())
+

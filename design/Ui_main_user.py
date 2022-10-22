@@ -11,14 +11,18 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1350, 800)
-        MainWindow.setMinimumSize(QtCore.QSize(1350, 800))
-        MainWindow.setMaximumSize(QtCore.QSize(1350, 800))
-        MainWindow.setStyleSheet("")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_Asosiy(object):
+    def setupUi(self, Asosiy):
+        Asosiy.setObjectName("Asosiy")
+        Asosiy.resize(1350, 800)
+        Asosiy.setMinimumSize(QtCore.QSize(1350, 800))
+        Asosiy.setMaximumSize(QtCore.QSize(1350, 800))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/img/main.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Asosiy.setWindowIcon(icon)
+        Asosiy.setStyleSheet("")
+        Asosiy.setIconSize(QtCore.QSize(32, 32))
+        self.centralwidget = QtWidgets.QWidget(Asosiy)
         self.centralwidget.setStyleSheet("QStatusBar{\n"
 "border: none;\n"
 "}")
@@ -42,7 +46,7 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.label_2 = QtWidgets.QLabel(self.frame_2)
-        self.label_2.setGeometry(QtCore.QRect(10, 10, 141, 21))
+        self.label_2.setGeometry(QtCore.QRect(10, 10, 41, 21))
         font = QtGui.QFont()
         font.setPointSize(9)
         self.label_2.setFont(font)
@@ -87,6 +91,14 @@ class Ui_MainWindow(object):
 "background:rgba(0, 0, 0,0.6)\n"
 "}")
         self.btn_minimize.setObjectName("btn_minimize")
+        self.label_user = QtWidgets.QLabel(self.frame_2)
+        self.label_user.setGeometry(QtCore.QRect(60, 10, 881, 21))
+        self.label_user.setStyleSheet("\n"
+"color:silver;\n"
+"background:transparent;\n"
+"font-size: 14px;")
+        self.label_user.setText("")
+        self.label_user.setObjectName("label_user")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setGeometry(QtCore.QRect(371, 40, 981, 763))
         self.tabWidget.setAutoFillBackground(False)
@@ -556,7 +568,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_5)
         self.tabWidget.addTab(self.tab_ichimlik, "")
         self.tabWidget_2 = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget_2.setGeometry(QtCore.QRect(0, 40, 373, 761))
+        self.tabWidget_2.setGeometry(QtCore.QRect(0, 100, 373, 701))
         self.tabWidget_2.setStyleSheet("QWidget{\n"
 "background-image: url(:/images/img/list_back.jpg);\n"
 "}\n"
@@ -611,7 +623,7 @@ class Ui_MainWindow(object):
         self.tab_xarid = QtWidgets.QWidget()
         self.tab_xarid.setObjectName("tab_xarid")
         self.frame_10 = QtWidgets.QFrame(self.tab_xarid)
-        self.frame_10.setGeometry(QtCore.QRect(0, 600, 371, 121))
+        self.frame_10.setGeometry(QtCore.QRect(0, 530, 371, 191))
         self.frame_10.setStyleSheet("QPushButton{\n"
 "background:rgba(0, 0, 0,0.6);\n"
 "border-radius:none;\n"
@@ -624,13 +636,13 @@ class Ui_MainWindow(object):
         self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_10.setObjectName("frame_10")
         self.btnCancel = QtWidgets.QPushButton(self.frame_10)
-        self.btnCancel.setGeometry(QtCore.QRect(10, 80, 171, 31))
+        self.btnCancel.setGeometry(QtCore.QRect(10, 80, 171, 41))
         self.btnCancel.setStyleSheet("QPushButton:hover{\n"
 "background: rgba(231,30,21,0.6);\n"
 "}")
         self.btnCancel.setObjectName("btnCancel")
         self.btnOk = QtWidgets.QPushButton(self.frame_10)
-        self.btnOk.setGeometry(QtCore.QRect(190, 80, 171, 31))
+        self.btnOk.setGeometry(QtCore.QRect(190, 80, 171, 41))
         self.btnOk.setStyleSheet("QPushButton:hover{\n"
 "background: rgba(17,148,0, 0.7);\n"
 "}")
@@ -648,7 +660,7 @@ class Ui_MainWindow(object):
         self.label_sum.setGeometry(QtCore.QRect(190, 40, 171, 31))
         self.label_sum.setObjectName("label_sum")
         self.scrollArea = QtWidgets.QScrollArea(self.tab_xarid)
-        self.scrollArea.setGeometry(QtCore.QRect(0, 0, 371, 601))
+        self.scrollArea.setGeometry(QtCore.QRect(0, 0, 371, 531))
         self.scrollArea.setStyleSheet("QPushButton{\n"
 "background:rgba(0, 0, 0,0.15);\n"
 "border-radius:none;\n"
@@ -725,7 +737,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 356, 601))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 356, 531))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
@@ -753,40 +765,267 @@ class Ui_MainWindow(object):
         self.tab_setting.setObjectName("tab_setting")
         self.frame_9 = QtWidgets.QFrame(self.tab_setting)
         self.frame_9.setGeometry(QtCore.QRect(0, 0, 371, 691))
+        self.frame_9.setStyleSheet("QLineEdit{\n"
+"    font-size:18px;;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    background:transparent;\n"
+"    border-bottom:1px solid white;\n"
+"}\n"
+"\n"
+"QLineEdit:hover, QTextEdit:hover{\n"
+"    background:rgba(0,0,0,0.04);\n"
+"}\n"
+"QTextEdit{\n"
+"    font-size:18px;;\n"
+"    color:white;\n"
+"    background:transparent;\n"
+"    border:1px solid white;\n"
+"}")
         self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_9.setObjectName("frame_9")
+        self.edit_phone = QtWidgets.QLineEdit(self.frame_9)
+        self.edit_phone.setGeometry(QtCore.QRect(10, 140, 351, 51))
+        self.edit_phone.setMaxLength(18)
+        self.edit_phone.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.edit_phone.setCursorPosition(18)
+        self.edit_phone.setClearButtonEnabled(True)
+        self.edit_phone.setObjectName("edit_phone")
+        self.old_password = QtWidgets.QLineEdit(self.frame_9)
+        self.old_password.setGeometry(QtCore.QRect(10, 390, 351, 51))
+        self.old_password.setText("")
+        self.old_password.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.old_password.setClearButtonEnabled(True)
+        self.old_password.setObjectName("old_password")
+        self.edit_name = QtWidgets.QLineEdit(self.frame_9)
+        self.edit_name.setGeometry(QtCore.QRect(10, 20, 351, 51))
+        self.edit_name.setText("")
+        self.edit_name.setMaxLength(24)
+        self.edit_name.setClearButtonEnabled(True)
+        self.edit_name.setObjectName("edit_name")
+        self.edit_surname = QtWidgets.QLineEdit(self.frame_9)
+        self.edit_surname.setGeometry(QtCore.QRect(10, 80, 351, 51))
+        self.edit_surname.setText("")
+        self.edit_surname.setMaxLength(24)
+        self.edit_surname.setFrame(True)
+        self.edit_surname.setClearButtonEnabled(True)
+        self.edit_surname.setObjectName("edit_surname")
+        self.btn_updatepassword = QtWidgets.QPushButton(self.frame_9)
+        self.btn_updatepassword.setGeometry(QtCore.QRect(20, 570, 331, 41))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(62)
+        self.btn_updatepassword.setFont(font)
+        self.btn_updatepassword.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_updatepassword.setStyleSheet("QPushButton{\n"
+"    background:rgb(83, 152, 255);\n"
+"    border-radius:10px;\n"
+"    color:#fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    border:none;\n"
+"    background:rgb(68, 117, 222)\n"
+"}\n"
+"")
+        self.btn_updatepassword.setObjectName("btn_updatepassword")
+        self.password_1 = QtWidgets.QLineEdit(self.frame_9)
+        self.password_1.setGeometry(QtCore.QRect(10, 450, 351, 51))
+        self.password_1.setText("")
+        self.password_1.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_1.setClearButtonEnabled(True)
+        self.password_1.setObjectName("password_1")
+        self.password_2 = QtWidgets.QLineEdit(self.frame_9)
+        self.password_2.setGeometry(QtCore.QRect(10, 510, 351, 51))
+        self.password_2.setText("")
+        self.password_2.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_2.setClearButtonEnabled(True)
+        self.password_2.setObjectName("password_2")
+        self.btnCancel_2 = QtWidgets.QPushButton(self.frame_9)
+        self.btnCancel_2.setGeometry(QtCore.QRect(10, 330, 171, 51))
+        self.btnCancel_2.setStyleSheet("QPushButton:hover{\n"
+"background: rgba(231,30,21,0.6);\n"
+"}")
+        self.btnCancel_2.setObjectName("btnCancel_2")
+        self.btnOk_2 = QtWidgets.QPushButton(self.frame_9)
+        self.btnOk_2.setGeometry(QtCore.QRect(190, 330, 171, 51))
+        self.btnOk_2.setStyleSheet("QPushButton:hover{\n"
+"background:rgb(68, 117, 222)\n"
+"}")
+        self.btnOk_2.setObjectName("btnOk_2")
+        self.edit_address = QtWidgets.QTextEdit(self.frame_9)
+        self.edit_address.setGeometry(QtCore.QRect(10, 230, 351, 91))
+        self.edit_address.setObjectName("edit_address")
+        self.label_3 = QtWidgets.QLabel(self.frame_9)
+        self.label_3.setGeometry(QtCore.QRect(10, 200, 91, 21))
+        self.label_3.setStyleSheet("background: transparent;")
+        self.label_3.setObjectName("label_3")
         self.tabWidget_3.addTab(self.tab_setting, "")
         self.tabWidget_2.addTab(self.tab_profil, "")
+        self.frame = QtWidgets.QFrame(self.centralwidget)
+        self.frame.setGeometry(QtCore.QRect(0, 40, 371, 61))
+        self.frame.setStyleSheet("QWidget{\n"
+"background-image: url(:/images/img/list_back.jpg);\n"
+"}")
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.frame_3 = QtWidgets.QFrame(self.frame)
+        self.frame_3.setGeometry(QtCore.QRect(0, 0, 371, 61))
+        self.frame_3.setStyleSheet("QFrame{\n"
+"    background: rgba(0,0,0,0.65);\n"
+"  filter: blur(8px);\n"
+"  -webkit-filter: blur(8px);\n"
+"}\n"
+"QFrame:hover{\n"
+"    background: rgba(0,0,0,0.75);\n"
+"}\n"
+"QPushButton{\n"
+"background: rgba(255,255,255,0.3);\n"
+"border-radius: 7px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background: rgba(255,255,255,0.5);\n"
+"}")
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.btnOpen = QtWidgets.QPushButton(self.frame_3)
+        self.btnOpen.setGeometry(QtCore.QRect(10, 0, 51, 51))
+        self.btnOpen.setToolTipDuration(0)
+        self.btnOpen.setStatusTip("")
+        self.btnOpen.setWhatsThis("")
+        self.btnOpen.setAccessibleDescription("")
+        self.btnOpen.setStyleSheet("")
+        self.btnOpen.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/images/img/open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnOpen.setIcon(icon1)
+        self.btnOpen.setIconSize(QtCore.QSize(48, 48))
+        self.btnOpen.setCheckable(False)
+        self.btnOpen.setChecked(False)
+        self.btnOpen.setObjectName("btnOpen")
+        self.btnSave_5 = QtWidgets.QPushButton(self.frame_3)
+        self.btnSave_5.setGeometry(QtCore.QRect(310, 0, 51, 51))
+        self.btnSave_5.setToolTipDuration(0)
+        self.btnSave_5.setStyleSheet("")
+        self.btnSave_5.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/images/img/notification.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnSave_5.setIcon(icon2)
+        self.btnSave_5.setIconSize(QtCore.QSize(48, 48))
+        self.btnSave_5.setObjectName("btnSave_5")
+        self.btnSave_2 = QtWidgets.QPushButton(self.frame_3)
+        self.btnSave_2.setGeometry(QtCore.QRect(130, 0, 51, 51))
+        self.btnSave_2.setToolTipDuration(0)
+        self.btnSave_2.setStyleSheet("")
+        self.btnSave_2.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/images/img/favorite.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnSave_2.setIcon(icon3)
+        self.btnSave_2.setIconSize(QtCore.QSize(48, 48))
+        self.btnSave_2.setObjectName("btnSave_2")
+        self.btnSave = QtWidgets.QPushButton(self.frame_3)
+        self.btnSave.setGeometry(QtCore.QRect(70, 0, 51, 51))
+        self.btnSave.setToolTipDuration(0)
+        self.btnSave.setStyleSheet("")
+        self.btnSave.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/images/img/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnSave.setIcon(icon4)
+        self.btnSave.setIconSize(QtCore.QSize(48, 48))
+        self.btnSave.setObjectName("btnSave")
+        self.btnSave_4 = QtWidgets.QPushButton(self.frame_3)
+        self.btnSave_4.setGeometry(QtCore.QRect(250, 0, 51, 51))
+        self.btnSave_4.setToolTipDuration(0)
+        self.btnSave_4.setStyleSheet("")
+        self.btnSave_4.setText("")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/images/img/list.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnSave_4.setIcon(icon5)
+        self.btnSave_4.setIconSize(QtCore.QSize(48, 48))
+        self.btnSave_4.setObjectName("btnSave_4")
+        self.btnSave_3 = QtWidgets.QPushButton(self.frame_3)
+        self.btnSave_3.setGeometry(QtCore.QRect(190, 0, 51, 51))
+        self.btnSave_3.setToolTipDuration(0)
+        self.btnSave_3.setStyleSheet("")
+        self.btnSave_3.setText("")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/images/img/grid.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnSave_3.setIcon(icon6)
+        self.btnSave_3.setIconSize(QtCore.QSize(48, 48))
+        self.btnSave_3.setObjectName("btnSave_3")
         self.tabWidget_2.raise_()
         self.frame_2.raise_()
         self.tabWidget.raise_()
-        MainWindow.setCentralWidget(self.centralwidget)
+        self.frame.raise_()
+        Asosiy.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
+        self.retranslateUi(Asosiy)
+        self.tabWidget.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
         self.tabWidget_3.setCurrentIndex(1)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(Asosiy)
+        Asosiy.setTabOrder(self.tabWidget, self.scrollArea_2)
+        Asosiy.setTabOrder(self.scrollArea_2, self.scrollArea_3)
+        Asosiy.setTabOrder(self.scrollArea_3, self.scrollArea_4)
+        Asosiy.setTabOrder(self.scrollArea_4, self.scrollArea_5)
+        Asosiy.setTabOrder(self.scrollArea_5, self.tabWidget_2)
+        Asosiy.setTabOrder(self.tabWidget_2, self.scrollArea)
+        Asosiy.setTabOrder(self.scrollArea, self.btnOk)
+        Asosiy.setTabOrder(self.btnOk, self.btnCancel)
+        Asosiy.setTabOrder(self.btnCancel, self.tabWidget_3)
+        Asosiy.setTabOrder(self.tabWidget_3, self.btn_close)
+        Asosiy.setTabOrder(self.btn_close, self.btn_minimize)
+        Asosiy.setTabOrder(self.btn_minimize, self.edit_name)
+        Asosiy.setTabOrder(self.edit_name, self.edit_surname)
+        Asosiy.setTabOrder(self.edit_surname, self.edit_phone)
+        Asosiy.setTabOrder(self.edit_phone, self.btnCancel_2)
+        Asosiy.setTabOrder(self.btnCancel_2, self.btnOk_2)
+        Asosiy.setTabOrder(self.btnOk_2, self.old_password)
+        Asosiy.setTabOrder(self.old_password, self.password_1)
+        Asosiy.setTabOrder(self.password_1, self.password_2)
+        Asosiy.setTabOrder(self.password_2, self.btn_updatepassword)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Asosiy):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_2.setText(_translate("MainWindow", "Asosiy"))
-        self.btn_close.setText(_translate("MainWindow", "✕"))
-        self.btn_minimize.setText(_translate("MainWindow", "_"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_ovqat), _translate("MainWindow", "Ovqatlar"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_salat), _translate("MainWindow", "Salatlar"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_shirinlik), _translate("MainWindow", "Shirinliklar"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_ichimlik), _translate("MainWindow", "Ichimliklar"))
-        self.btnCancel.setText(_translate("MainWindow", "Bekor qilish"))
-        self.btnOk.setText(_translate("MainWindow", "Buyurtma berish"))
-        self.label.setText(_translate("MainWindow", "Umumiy soni"))
-        self.label_count.setText(_translate("MainWindow", "0"))
-        self.label_4.setText(_translate("MainWindow", "Umumiy summasi"))
-        self.label_sum.setText(_translate("MainWindow", "0"))
-        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_xarid), _translate("MainWindow", "Xarid"))
-        self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_buyurtma), _translate("MainWindow", "Buyurtmalar"))
-        self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_setting), _translate("MainWindow", "Sozlash"))
-        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_profil), _translate("MainWindow", "Profil"))
+        Asosiy.setWindowTitle(_translate("Asosiy", "Asosiy"))
+        self.label_2.setText(_translate("Asosiy", "Asosiy"))
+        self.btn_close.setText(_translate("Asosiy", "✕"))
+        self.btn_minimize.setText(_translate("Asosiy", "_"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_ovqat), _translate("Asosiy", "Ovqatlar"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_salat), _translate("Asosiy", "Salatlar"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_shirinlik), _translate("Asosiy", "Shirinliklar"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_ichimlik), _translate("Asosiy", "Ichimliklar"))
+        self.btnCancel.setText(_translate("Asosiy", "Bekor qilish"))
+        self.btnOk.setText(_translate("Asosiy", "Buyurtma berish"))
+        self.label.setText(_translate("Asosiy", "Umumiy soni"))
+        self.label_count.setText(_translate("Asosiy", "0"))
+        self.label_4.setText(_translate("Asosiy", "Umumiy summasi"))
+        self.label_sum.setText(_translate("Asosiy", "0"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_xarid), _translate("Asosiy", "Xarid"))
+        self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_buyurtma), _translate("Asosiy", "Buyurtmalar"))
+        self.edit_phone.setInputMask(_translate("Asosiy", "+\\9\\9\\8(99)-999-99-99"))
+        self.edit_phone.setText(_translate("Asosiy", "+998()---"))
+        self.edit_phone.setPlaceholderText(_translate("Asosiy", "Telefon raqam"))
+        self.old_password.setPlaceholderText(_translate("Asosiy", "Eski parol"))
+        self.edit_name.setPlaceholderText(_translate("Asosiy", "Ism"))
+        self.edit_surname.setPlaceholderText(_translate("Asosiy", "Familiya"))
+        self.btn_updatepassword.setText(_translate("Asosiy", "Parolni o\'zgartirish"))
+        self.btn_updatepassword.setShortcut(_translate("Asosiy", "Return"))
+        self.password_1.setPlaceholderText(_translate("Asosiy", "Yangi parol"))
+        self.password_2.setPlaceholderText(_translate("Asosiy", "Yangi parol qayta"))
+        self.btnCancel_2.setText(_translate("Asosiy", "Bekor qilish"))
+        self.btnOk_2.setText(_translate("Asosiy", "Saqlash"))
+        self.label_3.setText(_translate("Asosiy", "Manzil:"))
+        self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_setting), _translate("Asosiy", "Sozlash"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_profil), _translate("Asosiy", "Profil"))
+        self.btnOpen.setToolTip(_translate("Asosiy", "Shablon yuklash"))
+        self.btnSave_5.setToolTip(_translate("Asosiy", "Bildirishnomalar"))
+        self.btnSave_2.setToolTip(_translate("Asosiy", "Sevimlilar"))
+        self.btnSave.setToolTip(_translate("Asosiy", "Shablon saqlash"))
+        self.btnSave_4.setToolTip(_translate("Asosiy", "Shablonlar"))
+        self.btnSave_3.setToolTip(_translate("Asosiy", "Qora ro\'yxat"))
 import images_rc

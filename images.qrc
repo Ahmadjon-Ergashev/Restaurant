@@ -1,6 +1,13 @@
 <RCC>
   <qresource prefix="images">
+    <file>img/main.png</file>
+    <file>img/notification.png</file>
+    <file>img/list.png</file>
+    <file>img/grid.png</file>
+    <file>img/favorite.png</file>
     <file>img/back_1.jpg</file>
+    <file>img/open.png</file>
+    <file>img/save.png</file>
     <file>img/reg_1.jpg</file>
     <file>img/login_2.jpg</file>
     <file>img/list_back.jpg</file>
