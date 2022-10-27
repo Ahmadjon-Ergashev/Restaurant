@@ -259,6 +259,9 @@ background:transparent;</string>
     <property name="text">
      <string>Kirish</string>
     </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="frame_3">

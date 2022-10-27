@@ -211,7 +211,6 @@ QWidget{
   color: transparent;
   background-clip: text;
   border: none;
-  -webkit-background-clip: text;
 }
 QTabWidget::tab-bar {
 
@@ -291,10 +290,12 @@ font-size: 14px;
 text-align: center;
 color: white;
 padding: 2px;
+border-radius: 10px;
 }
 QLabel:hover{
 background: rgba(255,255,255,0.3);
 border: 1px solid rgb(68, 117, 222);
+border-radius: 5px;
 }
 QScrollBar:vertical
     {
@@ -812,7 +813,6 @@ QWidget{
   color: transparent;
   background-clip: text;
   border: none;
-  -webkit-background-clip: text;
 }
 QTabWidget::tab-bar {
 
@@ -834,8 +834,6 @@ background: rgba(195,63,11,0.6);
  }
 QFrame{
 	background: rgba(0,0,0,0.6);
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
 }
 QFrame:hover{
 	background: rgba(0,0,0,0.7);
@@ -1104,7 +1102,7 @@ background:rgba(0, 0, 0,0.6)
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_buyurtma">
        <attribute name="title">
@@ -1114,10 +1112,19 @@ background:rgba(0, 0, 0,0.6)
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
+          <y>550</y>
           <width>371</width>
-          <height>691</height>
+          <height>141</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QCheckBox{
+	color:silver;
+	background:transparent
+}
+QCheckBox:hover{
+	color:white;
+}</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -1125,6 +1132,237 @@ background:rgba(0, 0, 0,0.6)
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
+        <widget class="QCheckBox" name="check_1">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>101</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <weight>62</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Yuborilgan</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="check_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>101</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <weight>62</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Yo'lda</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="check_3">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>10</y>
+           <width>121</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <weight>62</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Qabul qilingan</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="check_4">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>40</y>
+           <width>121</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <weight>62</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Bekor qilingan</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QScrollArea" name="scrollArea_6">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>371</width>
+          <height>551</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background:rgba(0, 0, 0,0.15);
+border-radius:none;
+color: white;
+}
+QPushButton:hover{
+background:rgba(0, 0, 0,0.6)
+}
+QLabel{
+font-size:14px;
+}
+
+    QScrollBar:vertical
+    {
+        background-color: #2A2929;
+        width: 15px;
+        margin: 15px 3px 15px 3px;
+        border: 1px transparent #2A2929;
+        border-radius: 4px;
+    }
+
+    QScrollBar::handle:vertical
+    {
+        background-color: rgba(195,63,11,0.8);        /* #605F5F; */
+        min-height: 5px;
+        border-radius: 4px;
+    }
+
+    QScrollBar::sub-line:vertical
+    {
+        margin: 3px 0px 3px 0px;
+        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:vertical
+    {
+        margin: 3px 0px 3px 0px;
+        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on
+    {
+        border-image: url(:/qss_icons/rc/up_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on
+    {
+        border-image: url(:/qss_icons/rc/down_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical
+    {
+        background: none;
+    }
+
+    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+    {
+        background: none;
+    }</string>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents_7">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>356</width>
+           <height>551</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinAndMaxSize</enum>
+          </property>
+          <item>
+           <layout class="QFormLayout" name="formHistory">
+            <property name="verticalSpacing">
+             <number>10</number>
+            </property>
+           </layout>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_setting">
@@ -1279,6 +1517,7 @@ QTextEdit{
            <pointsize>-1</pointsize>
            <weight>62</weight>
            <bold>true</bold>
+           <kerning>true</kerning>
           </font>
          </property>
          <property name="cursor">
@@ -1447,8 +1686,6 @@ background-image: url(:/images/img/list_back.jpg);
      <property name="styleSheet">
       <string notr="true">QFrame{
 	background: rgba(0,0,0,0.65);
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
 }
 QFrame:hover{
 	background: rgba(0,0,0,0.75);
@@ -1456,6 +1693,8 @@ QFrame:hover{
 QPushButton{
 background: rgba(255,255,255,0.3);
 border-radius: 7px;
+border: 2px solid rgba(255,255,255,0.7);
+/*rgb(68, 117, 222)*/
 }
 QPushButton:hover{
 background: rgba(255,255,255,0.5);
@@ -1503,8 +1742,8 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="iconSize">
        <size>
-        <width>48</width>
-        <height>48</height>
+        <width>35</width>
+        <height>35</height>
        </size>
       </property>
       <property name="checkable">
@@ -1514,7 +1753,7 @@ background: rgba(255,255,255,0.5);
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnSave_5">
+     <widget class="QPushButton" name="btnNotification">
       <property name="geometry">
        <rect>
         <x>310</x>
@@ -1541,12 +1780,12 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="iconSize">
        <size>
-        <width>48</width>
-        <height>48</height>
+        <width>35</width>
+        <height>35</height>
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnSave_2">
+     <widget class="QPushButton" name="btnFavorite">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -1573,8 +1812,8 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="iconSize">
        <size>
-        <width>48</width>
-        <height>48</height>
+        <width>35</width>
+        <height>35</height>
        </size>
       </property>
      </widget>
@@ -1605,12 +1844,12 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="iconSize">
        <size>
-        <width>48</width>
-        <height>48</height>
+        <width>35</width>
+        <height>35</height>
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnSave_4">
+     <widget class="QPushButton" name="btnTemplate">
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -1637,12 +1876,12 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="iconSize">
        <size>
-        <width>48</width>
-        <height>48</height>
+        <width>30</width>
+        <height>30</height>
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnSave_3">
+     <widget class="QPushButton" name="btnBlack">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -1669,8 +1908,8 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="iconSize">
        <size>
-        <width>48</width>
-        <height>48</height>
+        <width>35</width>
+        <height>35</height>
        </size>
       </property>
      </widget>

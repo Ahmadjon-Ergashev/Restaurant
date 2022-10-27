@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file './design/login.ui'
+# Form implementation generated from reading ui file 'login_user.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -129,6 +129,7 @@ class Ui_Login(object):
 "}\n"
 "\n"
 "")
+        self.btn_newAccount.setAutoDefault(False)
         self.btn_newAccount.setObjectName("btn_newAccount")
         self.btn_sign = QtWidgets.QPushButton(self.frame)
         self.btn_sign.setGeometry(QtCore.QRect(30, 330, 371, 61))
@@ -136,6 +137,8 @@ class Ui_Login(object):
         font.setPointSize(15)
         self.btn_sign.setFont(font)
         self.btn_sign.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_sign.setDefault(True)
+        self.btn_sign.setFlat(True)
         self.btn_sign.setObjectName("btn_sign")
         self.frame_3 = QtWidgets.QFrame(Login)
         self.frame_3.setGeometry(QtCore.QRect(-1, -1, 451, 501))

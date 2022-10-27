@@ -1,26 +1,33 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QFormLayout, QLabel, QHBoxLayout, QSystemTrayIcon
 from PyQt5.QtCore import QPoint, Qt, QSize
 from PyQt5.QtGui import QPixmap, QIcon
+from functools import partial
 import sys
 import ctypes
 from design.Ui_main_user import Ui_Asosiy
 from classes.warning import Warning
+from classes.confirm import Confirm
 from classes.login import Login
 from classes.sql import *
 
 class Main_user(QMainWindow, Ui_Asosiy):
     def __init__(self):
         login = Login()
-        login.exec_()
+        login.exec()
         super(Main_user, self).__init__()
         self.setupUi(self)
         self.setWindowFlag(Qt.FramelessWindowHint)
-        self.btn_close.clicked.connect(self.close)
+        self.btn_close.clicked.connect(self.to_close)
         self.btn_minimize.clicked.connect(self.showMinimized)
         self.btnCancel_2.clicked.connect(self.cancel_setting)
-        self.btnCancel.clicked.connect(self.cancel)
+        self.btnCancel.clicked.connect(lambda: self.clear_order())
         self.btnOk_2.clicked.connect(self.save_setting)
         self.btn_updatepassword.clicked.connect(self.updatePassword)
+        self.btnOk.clicked.connect(self.add_order)
+        self.check_1.clicked.connect(self.load_history)
+        self.check_2.clicked.connect(self.load_history)
+        self.check_3.clicked.connect(self.load_history)
+        self.check_4.clicked.connect(self.load_history)
 
         if login.login is None:
             sys.exit()
@@ -35,6 +42,8 @@ class Main_user(QMainWindow, Ui_Asosiy):
         self.load(self.grid_Sweets, products("Shirinliklar"))
         self.load(self.grid_Drinks, products("Ichimliklar"))
 
+        self.load_history()
+
         if self.address is None:
             Warning("Iltimos buyurtma berish uchun manzilingizni kiriting").exec()
 
@@ -47,8 +56,8 @@ class Main_user(QMainWindow, Ui_Asosiy):
             label_photo.setMinimumSize(200, 200)
             label_photo.setMaximumSize(200, 200)
             button_add = QPushButton("Qo'shish")
-            button_add.setObjectName("b_"+str(data[0]))
-            button_add.clicked.connect(self.add)
+            # button_add.setObjectName("b_"+str(data[0]))
+            button_add.clicked.connect(partial(self.add, data[0]))
             button_add.setMinimumSize(200, 30)
             button_add.setMaximumSize(200, 30)
             label_name = QLabel(data[2])
@@ -71,9 +80,54 @@ class Main_user(QMainWindow, Ui_Asosiy):
             else:
                 y += 1
 
+    def load_history(self):
+        while self.formHistory.rowCount():
+            self.formHistory.removeRow(0)
+
+        result = getOrderHistory(self.id, self.check_1.isChecked(), self.check_2.isChecked(), self.check_3.isChecked(), self.check_4.isChecked())
+        for order in result:
+            layout = QHBoxLayout()
+
+            label_date = QLabel(order[2][:16])
+            label_date.setAlignment(Qt.AlignCenter)
+
+            label_status = QLabel(order[3])
+            label_status.setAlignment(Qt.AlignCenter)
+            label_status.setMinimumSize(120, 35)
+            label_status.setMaximumSize(120, 35)
+            style = "QLabel{\n"
+            if order[3] == "Yuborilgan":
+                style += "color: rgb(107,196,237);\n"
+            elif order[3] == "Yo'lda":
+                style += "color: rgb(230,181,237);\n"
+            elif order[3] == "Qabul qilingan":
+                style += "color: rgb(163,237,179);\n"
+            else:
+                style += "color: rgb(237,121,142);\n"
+            style += "}"
+            label_status.setStyleSheet(style)
+            button_more = QPushButton("")
+            button_more.setStyleSheet("QPushButton:hover{\n"
+                                      "background: rgba(0,0,0, 0.5);\n"
+                                      "}")
+            icon3 = QIcon()
+            icon3.addPixmap(QPixmap(":/images/img/eye.png"), QIcon.Normal, QIcon.Off)
+            button_more.setIcon(icon3)
+            button_more.setIconSize(QSize(25, 25))
+            button_more.setToolTip("Batafsil")
+            button_more.setMinimumSize(35, 35)
+            button_more.setMaximumSize(35, 35)
+
+            layout.addWidget(label_date)
+            layout.addWidget(label_status)
+            layout.addWidget(button_more)
+            self.formHistory.addRow(layout)
+
     def updatePassword(self):
         if (checkPassword(self.id, self.old_password.text())) is False:
             Warning("Eski parol xato kiritildi").exec()
+        elif len(self.password_1.text()) < 6:
+            Warning("Yangi parol 6 yoki undan ortiq belgidan iborat bo'lishi lozim").exec()
         elif self.password_1.text() != self.password_2.text():
             Warning("Yangi parol tasdiqlanmadi").exec()
         else:
@@ -115,6 +169,7 @@ class Main_user(QMainWindow, Ui_Asosiy):
             self.name = self.edit_name.text()
             self.surname = self.edit_surname.text()
             self.phone = self.edit_phone.text()
+            self.address = self.edit_address.text()
             self.label_user.setText(self.name + " " + self.surname)
             self.edit_name.setReadOnly(True)
             self.edit_surname.setReadOnly(True)
@@ -126,11 +181,20 @@ class Main_user(QMainWindow, Ui_Asosiy):
         pixmap = QPixmap(path)
         return pixmap
 
-    def cancel(self):
-        self.orders = dict()
-        self.counting()
-        while self.formLayout.rowCount():
-            self.formLayout.removeRow(0)
+    def clear_order(self, confirm=True):
+        if confirm is False:
+            self.orders = dict()
+            self.counting()
+            while self.formLayout.rowCount():
+                self.formLayout.removeRow(0)
+            return
+        confirm = Confirm("Buyurtmalarni bekor qilishni xohlaysizmi?")
+        confirm.exec()
+        if confirm.confirmation:
+            self.orders = dict()
+            self.counting()
+            while self.formLayout.rowCount():
+                self.formLayout.removeRow(0)
 
     def counting(self):
         count = 0
@@ -146,33 +210,39 @@ class Main_user(QMainWindow, Ui_Asosiy):
         return {"price": product[3],
                 "count": 1}
 
-    def add(self):
-        id = int(self.sender().objectName()[2:])
+    def add(self, id):
+        # for i in range(self.formLayout.rowCount()):
+        #     if text == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(0).widget().text():
+        #         self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) + 1))
+        #         self.orders[id]["count"] += 1
+        #         self.counting()
+        #         return
+        label = self.findChild(QLabel, "count_" + str(id))
+        if label:
+            self.incCount(id)
+            self.orders[id]["count"] += 1
+            self.counting()
+            return
         object = getproductByID(id)[0]
         text = object[2]
         temp = self.toobject(object)
-        for i in range(self.formLayout.rowCount()):
-            if text == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(0).widget().text():
-                self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) + 1))
-                self.orders[id]["count"] += 1
-                self.counting()
-                return
+
         self.orders[id] = temp
         self.counting()
         layout = QHBoxLayout()
         label_name = QLabel(text)
         label_name.setAlignment(Qt.AlignCenter)
 
-        button_plus = QPushButton("+", clicked=self.incCount)
-        button_plus.setObjectName("inc_" + str(id))
+        button_plus = QPushButton("+", clicked=partial(self.incCount, id))
+        # button_plus.setObjectName("inc_" + str(id))
         button_plus.setStyleSheet("QPushButton:hover{\n"
                                     "background: rgba(82,120,21, 0.7);\n"
                                     "}")
         button_plus.setMinimumSize(35, 35)
         button_plus.setMaximumSize(35, 35)
 
-        button_minus = QPushButton("-", clicked=self.decCount)
-        button_minus.setObjectName("dec_"+str(id))
+        button_minus = QPushButton("-", clicked=partial(self.decCount, id))
+        # button_minus.setObjectName("dec_"+str(id))
         button_minus.setStyleSheet("QPushButton:hover{\n"
                                     "background: rgba(195,63,11,0.6);\n"
                                     "}")
@@ -185,8 +255,8 @@ class Main_user(QMainWindow, Ui_Asosiy):
         label_count.setMinimumSize(35, 35)
         label_count.setMaximumSize(35, 35)
 
-        button_remove = QPushButton("✕", clicked=self.delete)
-        button_remove.setObjectName("del_" + str(id))
+        button_remove = QPushButton("✕", clicked=partial(self.delete, id))
+        # button_remove.setObjectName("del_" + str(id))
         button_remove.setStyleSheet("QPushButton:hover{\n"
                                     "background:red;\n"
                                     "color:white\n"
@@ -202,8 +272,8 @@ class Main_user(QMainWindow, Ui_Asosiy):
         layout.addWidget(button_remove)
         self.formLayout.addRow(layout)
 
-    def delete(self):
-        id = int(self.sender().objectName()[4:])
+    def delete(self, id):
+        # id = int(self.sender().objectName()[4:])
         for i in range(self.formLayout.rowCount()):
             if self.sender() == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(4).widget():
                 self.formLayout.removeRow(i)
@@ -211,32 +281,19 @@ class Main_user(QMainWindow, Ui_Asosiy):
                 self.counting()
                 return
 
-    def incCount(self):
-        id = int(self.sender().objectName()[4:])
-        # print(id)
-        # for i in range(self.formLayout.rowCount()):
-        #     if self.sender() == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(3).widget():
-        #         print(self.orders[id])
-        #         self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) + 1))
-
+    def incCount(self, id):
         label = self.findChild(QLabel, "count_"+str(id))
         label.setText(str(int(label.text())+1))
         self.orders[id]["count"] += 1
         self.counting()
 
-    def decCount(self):
-        id = int(self.sender().objectName()[4:])
+    def decCount(self, id):
+        # id = int(self.sender().objectName()[4:])
         label = self.findChild(QLabel, "count_" + str(id))
         if label.text() != "1":
             label.setText(str(int(label.text()) - 1))
             self.orders[id]["count"] -= 1
             self.counting()
-        # for i in range(self.formLayout.rowCount()):
-        #     if self.sender() == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(1).widget():
-        #         if self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text() != "1":
-        #             self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) - 1))
-        #             self.orders[id]["count"] -= 1
-        #             self.counting()
 
     def formatPrice(self, price):
         text = str(price)[::-1]
@@ -246,6 +303,13 @@ class Main_user(QMainWindow, Ui_Asosiy):
             text = text[3:]
         return result[len(result)-2::-1]
 
+    def add_order(self):
+        confirm = Confirm("Buyurtmalarni jo'natishni xohlaysizmi?")
+        confirm.exec()
+        if confirm.confirmation:
+            addorder(self.id, self.orders)
+            self.clear_order(False)
+            self.load_history()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -257,6 +321,12 @@ class Main_user(QMainWindow, Ui_Asosiy):
         if Qt.LeftButton and self.moveFlag:
             self.move(event.globalPos() - self.movePosition)
             event.accept()
+
+    def to_close(self):
+        confirm = Confirm("Chiqishni xohlaysizmi?")
+        confirm.exec()
+        if confirm.confirmation:
+            self.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -111,7 +111,6 @@ class Ui_Asosiy(object):
 "  color: transparent;\n"
 "  background-clip: text;\n"
 "  border: none;\n"
-"  -webkit-background-clip: text;\n"
 "}\n"
 "QTabWidget::tab-bar {\n"
 "\n"
@@ -168,10 +167,12 @@ class Ui_Asosiy(object):
 "text-align: center;\n"
 "color: white;\n"
 "padding: 2px;\n"
+"border-radius: 10px;\n"
 "}\n"
 "QLabel:hover{\n"
 "background: rgba(255,255,255,0.3);\n"
 "border: 1px solid rgb(68, 117, 222);\n"
+"border-radius: 5px;\n"
 "}\n"
 "QScrollBar:vertical\n"
 "    {\n"
@@ -578,7 +579,6 @@ class Ui_Asosiy(object):
 "  color: transparent;\n"
 "  background-clip: text;\n"
 "  border: none;\n"
-"  -webkit-background-clip: text;\n"
 "}\n"
 "QTabWidget::tab-bar {\n"
 "\n"
@@ -600,8 +600,6 @@ class Ui_Asosiy(object):
 " }\n"
 "QFrame{\n"
 "    background: rgba(0,0,0,0.6);\n"
-"  filter: blur(8px);\n"
-"  -webkit-filter: blur(8px);\n"
 "}\n"
 "QFrame:hover{\n"
 "    background: rgba(0,0,0,0.7);\n"
@@ -756,10 +754,152 @@ class Ui_Asosiy(object):
         self.tab_buyurtma = QtWidgets.QWidget()
         self.tab_buyurtma.setObjectName("tab_buyurtma")
         self.frame_8 = QtWidgets.QFrame(self.tab_buyurtma)
-        self.frame_8.setGeometry(QtCore.QRect(0, 0, 371, 691))
+        self.frame_8.setGeometry(QtCore.QRect(0, 550, 371, 141))
+        self.frame_8.setStyleSheet("QCheckBox{\n"
+"    color:silver;\n"
+"    background:transparent\n"
+"}\n"
+"QCheckBox:hover{\n"
+"    color:white;\n"
+"}")
         self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_8.setObjectName("frame_8")
+        self.check_1 = QtWidgets.QCheckBox(self.frame_8)
+        self.check_1.setGeometry(QtCore.QRect(10, 10, 101, 20))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(62)
+        self.check_1.setFont(font)
+        self.check_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.check_1.setStyleSheet("")
+        self.check_1.setChecked(True)
+        self.check_1.setObjectName("check_1")
+        self.check_2 = QtWidgets.QCheckBox(self.frame_8)
+        self.check_2.setGeometry(QtCore.QRect(10, 40, 101, 20))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(62)
+        self.check_2.setFont(font)
+        self.check_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.check_2.setStyleSheet("")
+        self.check_2.setChecked(True)
+        self.check_2.setObjectName("check_2")
+        self.check_3 = QtWidgets.QCheckBox(self.frame_8)
+        self.check_3.setGeometry(QtCore.QRect(190, 10, 121, 20))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(62)
+        self.check_3.setFont(font)
+        self.check_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.check_3.setStyleSheet("")
+        self.check_3.setChecked(True)
+        self.check_3.setObjectName("check_3")
+        self.check_4 = QtWidgets.QCheckBox(self.frame_8)
+        self.check_4.setGeometry(QtCore.QRect(190, 40, 121, 20))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(62)
+        self.check_4.setFont(font)
+        self.check_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.check_4.setStyleSheet("")
+        self.check_4.setChecked(True)
+        self.check_4.setObjectName("check_4")
+        self.scrollArea_6 = QtWidgets.QScrollArea(self.tab_buyurtma)
+        self.scrollArea_6.setGeometry(QtCore.QRect(0, 0, 371, 551))
+        self.scrollArea_6.setStyleSheet("QPushButton{\n"
+"background:rgba(0, 0, 0,0.15);\n"
+"border-radius:none;\n"
+"color: white;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background:rgba(0, 0, 0,0.6)\n"
+"}\n"
+"QLabel{\n"
+"font-size:14px;\n"
+"}\n"
+"\n"
+"    QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.scrollArea_6.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea_6.setWidgetResizable(True)
+        self.scrollArea_6.setObjectName("scrollArea_6")
+        self.scrollAreaWidgetContents_7 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 356, 551))
+        self.scrollAreaWidgetContents_7.setObjectName("scrollAreaWidgetContents_7")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_7)
+        self.verticalLayout_3.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.formHistory = QtWidgets.QFormLayout()
+        self.formHistory.setVerticalSpacing(10)
+        self.formHistory.setObjectName("formHistory")
+        self.verticalLayout_3.addLayout(self.formHistory)
+        self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_7)
         self.tabWidget_3.addTab(self.tab_buyurtma, "")
         self.tab_setting = QtWidgets.QWidget()
         self.tab_setting.setObjectName("tab_setting")
@@ -817,6 +957,7 @@ class Ui_Asosiy(object):
         font.setPointSize(-1)
         font.setBold(True)
         font.setWeight(62)
+        font.setKerning(True)
         self.btn_updatepassword.setFont(font)
         self.btn_updatepassword.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_updatepassword.setStyleSheet("QPushButton{\n"
@@ -876,8 +1017,6 @@ class Ui_Asosiy(object):
         self.frame_3.setGeometry(QtCore.QRect(0, 0, 371, 61))
         self.frame_3.setStyleSheet("QFrame{\n"
 "    background: rgba(0,0,0,0.65);\n"
-"  filter: blur(8px);\n"
-"  -webkit-filter: blur(8px);\n"
 "}\n"
 "QFrame:hover{\n"
 "    background: rgba(0,0,0,0.75);\n"
@@ -885,6 +1024,8 @@ class Ui_Asosiy(object):
 "QPushButton{\n"
 "background: rgba(255,255,255,0.3);\n"
 "border-radius: 7px;\n"
+"border: 2px solid rgba(255,255,255,0.7);\n"
+"/*rgb(68, 117, 222)*/\n"
 "}\n"
 "QPushButton:hover{\n"
 "background: rgba(255,255,255,0.5);\n"
@@ -903,30 +1044,30 @@ class Ui_Asosiy(object):
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/images/img/open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnOpen.setIcon(icon1)
-        self.btnOpen.setIconSize(QtCore.QSize(48, 48))
+        self.btnOpen.setIconSize(QtCore.QSize(35, 35))
         self.btnOpen.setCheckable(False)
         self.btnOpen.setChecked(False)
         self.btnOpen.setObjectName("btnOpen")
-        self.btnSave_5 = QtWidgets.QPushButton(self.frame_3)
-        self.btnSave_5.setGeometry(QtCore.QRect(310, 0, 51, 51))
-        self.btnSave_5.setToolTipDuration(0)
-        self.btnSave_5.setStyleSheet("")
-        self.btnSave_5.setText("")
+        self.btnNotification = QtWidgets.QPushButton(self.frame_3)
+        self.btnNotification.setGeometry(QtCore.QRect(310, 0, 51, 51))
+        self.btnNotification.setToolTipDuration(0)
+        self.btnNotification.setStyleSheet("")
+        self.btnNotification.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/images/img/notification.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnSave_5.setIcon(icon2)
-        self.btnSave_5.setIconSize(QtCore.QSize(48, 48))
-        self.btnSave_5.setObjectName("btnSave_5")
-        self.btnSave_2 = QtWidgets.QPushButton(self.frame_3)
-        self.btnSave_2.setGeometry(QtCore.QRect(130, 0, 51, 51))
-        self.btnSave_2.setToolTipDuration(0)
-        self.btnSave_2.setStyleSheet("")
-        self.btnSave_2.setText("")
+        self.btnNotification.setIcon(icon2)
+        self.btnNotification.setIconSize(QtCore.QSize(35, 35))
+        self.btnNotification.setObjectName("btnNotification")
+        self.btnFavorite = QtWidgets.QPushButton(self.frame_3)
+        self.btnFavorite.setGeometry(QtCore.QRect(130, 0, 51, 51))
+        self.btnFavorite.setToolTipDuration(0)
+        self.btnFavorite.setStyleSheet("")
+        self.btnFavorite.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(":/images/img/favorite.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnSave_2.setIcon(icon3)
-        self.btnSave_2.setIconSize(QtCore.QSize(48, 48))
-        self.btnSave_2.setObjectName("btnSave_2")
+        self.btnFavorite.setIcon(icon3)
+        self.btnFavorite.setIconSize(QtCore.QSize(35, 35))
+        self.btnFavorite.setObjectName("btnFavorite")
         self.btnSave = QtWidgets.QPushButton(self.frame_3)
         self.btnSave.setGeometry(QtCore.QRect(70, 0, 51, 51))
         self.btnSave.setToolTipDuration(0)
@@ -935,28 +1076,28 @@ class Ui_Asosiy(object):
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap(":/images/img/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnSave.setIcon(icon4)
-        self.btnSave.setIconSize(QtCore.QSize(48, 48))
+        self.btnSave.setIconSize(QtCore.QSize(35, 35))
         self.btnSave.setObjectName("btnSave")
-        self.btnSave_4 = QtWidgets.QPushButton(self.frame_3)
-        self.btnSave_4.setGeometry(QtCore.QRect(250, 0, 51, 51))
-        self.btnSave_4.setToolTipDuration(0)
-        self.btnSave_4.setStyleSheet("")
-        self.btnSave_4.setText("")
+        self.btnTemplate = QtWidgets.QPushButton(self.frame_3)
+        self.btnTemplate.setGeometry(QtCore.QRect(250, 0, 51, 51))
+        self.btnTemplate.setToolTipDuration(0)
+        self.btnTemplate.setStyleSheet("")
+        self.btnTemplate.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap(":/images/img/list.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnSave_4.setIcon(icon5)
-        self.btnSave_4.setIconSize(QtCore.QSize(48, 48))
-        self.btnSave_4.setObjectName("btnSave_4")
-        self.btnSave_3 = QtWidgets.QPushButton(self.frame_3)
-        self.btnSave_3.setGeometry(QtCore.QRect(190, 0, 51, 51))
-        self.btnSave_3.setToolTipDuration(0)
-        self.btnSave_3.setStyleSheet("")
-        self.btnSave_3.setText("")
+        self.btnTemplate.setIcon(icon5)
+        self.btnTemplate.setIconSize(QtCore.QSize(30, 30))
+        self.btnTemplate.setObjectName("btnTemplate")
+        self.btnBlack = QtWidgets.QPushButton(self.frame_3)
+        self.btnBlack.setGeometry(QtCore.QRect(190, 0, 51, 51))
+        self.btnBlack.setToolTipDuration(0)
+        self.btnBlack.setStyleSheet("")
+        self.btnBlack.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap(":/images/img/grid.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnSave_3.setIcon(icon6)
-        self.btnSave_3.setIconSize(QtCore.QSize(48, 48))
-        self.btnSave_3.setObjectName("btnSave_3")
+        self.btnBlack.setIcon(icon6)
+        self.btnBlack.setIconSize(QtCore.QSize(35, 35))
+        self.btnBlack.setObjectName("btnBlack")
         self.tabWidget_2.raise_()
         self.frame_2.raise_()
         self.tabWidget.raise_()
@@ -966,7 +1107,7 @@ class Ui_Asosiy(object):
         self.retranslateUi(Asosiy)
         self.tabWidget.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
-        self.tabWidget_3.setCurrentIndex(1)
+        self.tabWidget_3.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Asosiy)
         Asosiy.setTabOrder(self.tabWidget, self.scrollArea_2)
         Asosiy.setTabOrder(self.scrollArea_2, self.scrollArea_3)
@@ -1006,6 +1147,10 @@ class Ui_Asosiy(object):
         self.label_4.setText(_translate("Asosiy", "Umumiy summasi"))
         self.label_sum.setText(_translate("Asosiy", "0"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_xarid), _translate("Asosiy", "Xarid"))
+        self.check_1.setText(_translate("Asosiy", "Yuborilgan"))
+        self.check_2.setText(_translate("Asosiy", "Yo\'lda"))
+        self.check_3.setText(_translate("Asosiy", "Qabul qilingan"))
+        self.check_4.setText(_translate("Asosiy", "Bekor qilingan"))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_buyurtma), _translate("Asosiy", "Buyurtmalar"))
         self.edit_phone.setInputMask(_translate("Asosiy", "+\\9\\9\\8(99)-999-99-99"))
         self.edit_phone.setText(_translate("Asosiy", "+998()---"))
@@ -1023,9 +1168,9 @@ class Ui_Asosiy(object):
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_setting), _translate("Asosiy", "Sozlash"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_profil), _translate("Asosiy", "Profil"))
         self.btnOpen.setToolTip(_translate("Asosiy", "Shablon yuklash"))
-        self.btnSave_5.setToolTip(_translate("Asosiy", "Bildirishnomalar"))
-        self.btnSave_2.setToolTip(_translate("Asosiy", "Sevimlilar"))
+        self.btnNotification.setToolTip(_translate("Asosiy", "Bildirishnomalar"))
+        self.btnFavorite.setToolTip(_translate("Asosiy", "Sevimlilar"))
         self.btnSave.setToolTip(_translate("Asosiy", "Shablon saqlash"))
-        self.btnSave_4.setToolTip(_translate("Asosiy", "Shablonlar"))
-        self.btnSave_3.setToolTip(_translate("Asosiy", "Qora ro\'yxat"))
+        self.btnTemplate.setToolTip(_translate("Asosiy", "Shablonlar"))
+        self.btnBlack.setToolTip(_translate("Asosiy", "Qora ro\'yxat"))
 import images_rc
