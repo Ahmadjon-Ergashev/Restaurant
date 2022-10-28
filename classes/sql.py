@@ -30,9 +30,9 @@ def logIn_admin(username, password):
 def getAdminid(username, password):
     return cursor.execute("Select * from admins where admin_name = ? and password = ?", (username, password, )).fetchall()[0][0]
 
-def updateAdminInfo(id, f_name, l_name, phone, address):
-    cursor.execute("update admins_info set f_name = ?, l_name = ?, phone = ?, address = ? where admin_id = ?",
-                   (f_name, l_name, phone, address, id))
+def updateAdminInfo(id, f_name, l_name, phone, address, male):
+    cursor.execute("update admins_info set f_name = ?, l_name = ?, phone = ?, address = ?, male = ? where admin_id = ?",
+                   (f_name, l_name, phone, address, male, id))
     connection.commit()
 
 def updateAdminPassword(id, password):
@@ -50,8 +50,8 @@ def getUserInfo(id):
     return result[1], result[2], cursor.execute("Select * from users where id = ?", (id,)).fetchall()[0][1], result[3]
 
 def getAdminInfo(id):
-    result = cursor.execute("SELECT * FROM admins_info WHERE admin_id = ?", (id,)).fetchall()[0]
-    return result[1], result[2], result[3], result[4]
+    r = cursor.execute("SELECT * FROM admins_info WHERE admin_id = ?", (id,)).fetchall()[0]
+    return r[1], r[2], r[3], r[4], r[5]
 
 def updateUserInfo(id, f_name, l_name, phone, address):
     cursor.execute("update users_info set f_name = ?, l_name = ?, address = ? where user_id = ?", (f_name, l_name, address, id))

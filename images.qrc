@@ -1,6 +1,13 @@
 <RCC>
   <qresource prefix="images">
     <file>img/eye.png</file>
+    <file>img/profile/delete.png</file>
+    <file>img/profile/edit.png</file>
+    <file>img/profile/global.png</file>
+    <file>img/profile/next.png</file>
+    <file>img/profile/pencil.png</file>
+    <file>img/profile/previous .png</file>
+    <file>img/profile/sign.png</file>
     <file>img/main.png</file>
     <file>img/notification.png</file>
     <file>img/confirm.png</file>

@@ -1517,7 +1517,6 @@ QTextEdit{
            <pointsize>-1</pointsize>
            <weight>62</weight>
            <bold>true</bold>
-           <kerning>true</kerning>
           </font>
          </property>
          <property name="cursor">
