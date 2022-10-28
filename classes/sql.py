@@ -47,14 +47,14 @@ def registr(number, password, f_name, l_name):
 
 def getUserInfo(id):
     result = cursor.execute("SELECT * FROM users_info WHERE user_id = ?", (id,)).fetchall()[0]
-    return result[1], result[2], cursor.execute("Select * from users where id = ?", (id,)).fetchall()[0][1], result[3]
+    return result[1], result[2], cursor.execute("Select * from users where id = ?", (id,)).fetchall()[0][1], result[3], result[4]
 
 def getAdminInfo(id):
     r = cursor.execute("SELECT * FROM admins_info WHERE admin_id = ?", (id,)).fetchall()[0]
     return r[1], r[2], r[3], r[4], r[5]
 
-def updateUserInfo(id, f_name, l_name, phone, address):
-    cursor.execute("update users_info set f_name = ?, l_name = ?, address = ? where user_id = ?", (f_name, l_name, address, id))
+def updateUserInfo(id, f_name, l_name, phone, address, male):
+    cursor.execute("update users_info set f_name = ?, l_name = ?, address = ?, male = ? where user_id = ?", (f_name, l_name, address, male, id))
     connection.commit()
     cursor.execute("update users set phone = ? where id = ?", (phone, id,))
     connection.commit()

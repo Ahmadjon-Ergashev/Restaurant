@@ -9,7 +9,7 @@ from classes.warning import Warning
 from classes.information import Information
 from classes.update_password import Update_password
 from classes.confirm import Confirm
-from classes_admin.login import Login
+from classes.login_admin import Login
 from classes.sql import *
 from classes.image import saveImage
 
@@ -47,7 +47,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.grip.resize(self.gripSize, self.gripSize)
         self.templateAvatarIndex = 0
         self.change = False
-        self.avatar_src = f'data/data_avatar/{self.id}.png'
+        self.avatar_src = f'data/data_avatar/admin/{self.id}.png'
 
     def updatePassword(self):
         Update_password(self.id, True).exec()
@@ -65,7 +65,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.edit_surname.setText(self.surname)
         self.edit_phone.setText(self.phone)
         self.edit_address.setText(self.address)
-        self.updateAvatar(f'data/data_avatar/{self.id}.png')
+        self.updateAvatar(f'data/data_avatar/admin/{self.id}.png')
         if self.male:
             self.radio_male.setChecked(True)
         else:
@@ -85,7 +85,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
                 self.edit_phone.text() == "" or self.edit_address.toPlainText() == "":
             Warning("Iltimos maydonlarni to'ldiring").exec()
         else:
-            saveImage(self.avatar_src, f'data/data_avatar/{self.id}.png')
+            saveImage(self.avatar_src, f'data/data_avatar/admin/{self.id}.png')
             updateAdminInfo(self.id, self.edit_name.text(), self.edit_surname.text(),
                            self.edit_phone.text(), self.edit_address.toPlainText(), self.male)
             self.name = self.edit_name.text()
