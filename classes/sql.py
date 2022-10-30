@@ -5,9 +5,19 @@ connection = sqlite3.connect("data/database.db")
 cursor = connection.cursor()
 connection.commit()
 
+def addAdmin(id, username, name, surname, phone, male, address, password, permissions):
+    cursor.execute("Insert into admins(admin_name, password) values(?, ?)", (username, password,))
+    connection.commit()
+    cursor.execute("Insert into users_info(user_id, f_name, l_name) values(?, ?, ?)",
+                   (getAdminid(username, password), f_name, l_name,))
+    connection.commit()
 
 def products(catagory):
-    return cursor.execute("Select * from products where catagory_id = (select id from catagories where catagory_name=?)", (catagory,)).fetchall()
+    return cursor.execute("Select * from products where catagory_id = (select id from catagories where catagory_name=?)",
+                          (catagory,)).fetchall()
+
+def admins():
+    return cursor.execute("Select * from admins_info").fetchall()
 
 def getproductByID(id):
     return cursor.execute("Select * from products where id = ?", (id,)).fetchall()
@@ -30,9 +40,10 @@ def logIn_admin(username, password):
 def getAdminid(username, password):
     return cursor.execute("Select * from admins where admin_name = ? and password = ?", (username, password, )).fetchall()[0][0]
 
-def updateAdminInfo(id, f_name, l_name, phone, address, male):
+def updateAdminInfo(id, username, f_name, l_name, phone, address, male):
     cursor.execute("update admins_info set f_name = ?, l_name = ?, phone = ?, address = ?, male = ? where admin_id = ?",
                    (f_name, l_name, phone, address, male, id))
+    cursor.execute("update admins set admin_name = ? where id = ?", (username, id))
     connection.commit()
 
 def updateAdminPassword(id, password):
@@ -51,7 +62,11 @@ def getUserInfo(id):
 
 def getAdminInfo(id):
     r = cursor.execute("SELECT * FROM admins_info WHERE admin_id = ?", (id,)).fetchall()[0]
-    return r[1], r[2], r[3], r[4], r[5]
+    username = cursor.execute("SELECT admin_name FROM admins WHERE id = ?", (id,)).fetchall()[0][0]
+    return username, r[1], r[2], r[3], r[4], r[5]
+
+def getAdminPermissions(id):
+    return cursor.execute("SELECT * FROM admins_permissions WHERE admin_id = ?", (id,)).fetchall()[0]
 
 def updateUserInfo(id, f_name, l_name, phone, address, male):
     cursor.execute("update users_info set f_name = ?, l_name = ?, address = ?, male = ? where user_id = ?", (f_name, l_name, address, male, id))

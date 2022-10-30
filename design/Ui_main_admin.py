@@ -712,10 +712,429 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tab_users, "")
         self.tab_admin = QtWidgets.QWidget()
         self.tab_admin.setObjectName("tab_admin")
-        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.tab_admin)
+        self.gridLayout_4 = QtWidgets.QGridLayout(self.tab_admin)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.scrollArea_5 = QtWidgets.QScrollArea(self.tab_admin)
+        self.scrollArea_5.setMinimumSize(QtCore.QSize(400, 0))
+        self.scrollArea_5.setMaximumSize(QtCore.QSize(400, 16777215))
+        self.scrollArea_5.setStyleSheet("QFrame{\n"
+"background: transparent;\n"
+"}\n"
+"QWidget{\n"
+"background: transparent;\n"
+"}\n"
+"QPushButton{\n"
+"    background:rgb(83, 152, 255);\n"
+"    border-radius:10px;\n"
+"    color:#fff;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    border:none;\n"
+"    background:rgb(68, 117, 222)\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"font-size: 12px;\n"
+"text-align: center;\n"
+"color: white;\n"
+"padding: 2px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.scrollArea_5.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea_5.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.scrollArea_5.setWidgetResizable(True)
+        self.scrollArea_5.setObjectName("scrollArea_5")
+        self.scrollAreaWidgetContents_6 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_6.setGeometry(QtCore.QRect(0, 0, 385, 669))
+        self.scrollAreaWidgetContents_6.setStyleSheet("QLineEdit{\n"
+"    font-size:14px;;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    background:transparent;\n"
+"    border-bottom:1px solid white;\n"
+"}\n"
+"\n"
+"QLineEdit:hover, QTextEdit:hover{\n"
+"    background:rgba(0,0,0,0.04);\n"
+"}\n"
+"QTextEdit{\n"
+"    font-size:14px;;\n"
+"    color:white;\n"
+"    background:transparent;\n"
+"    border:1px solid white;\n"
+"}\n"
+"QPushButton{\n"
+"background: rgba(255,255,255,0.3);\n"
+"border-radius: 7px;\n"
+"border: 2px solid rgba(255,255,255,0.7);\n"
+"/*rgb(68, 117, 222)*/\n"
+"}\n"
+"QPushButton:hover{\n"
+"background: rgba(255,255,255,0.5);\n"
+"}\n"
+"QRadioButton{\n"
+"background: transparent;\n"
+"font-size: 14px;\n"
+"color: white;\n"
+"}\n"
+"")
+        self.scrollAreaWidgetContents_6.setObjectName("scrollAreaWidgetContents_6")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_6)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_5.setSpacing(6)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.frame_8 = QtWidgets.QFrame(self.scrollAreaWidgetContents_6)
+        self.frame_8.setMinimumSize(QtCore.QSize(360, 220))
+        self.frame_8.setMaximumSize(QtCore.QSize(16777215, 200))
+        self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_8.setObjectName("frame_8")
+        self.btn_nextAvatarAdmin = QtWidgets.QPushButton(self.frame_8)
+        self.btn_nextAvatarAdmin.setGeometry(QtCore.QRect(10, 140, 60, 60))
+        self.btn_nextAvatarAdmin.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_nextAvatarAdmin.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_nextAvatarAdmin.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/img/profile/next.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_nextAvatarAdmin.setIcon(icon)
+        self.btn_nextAvatarAdmin.setIconSize(QtCore.QSize(48, 48))
+        self.btn_nextAvatarAdmin.setObjectName("btn_nextAvatarAdmin")
+        self.avatarAdmin = QtWidgets.QLabel(self.frame_8)
+        self.avatarAdmin.setGeometry(QtCore.QRect(80, 0, 205, 204))
+        self.avatarAdmin.setMinimumSize(QtCore.QSize(205, 0))
+        self.avatarAdmin.setMaximumSize(QtCore.QSize(205, 205))
+        self.avatarAdmin.setStyleSheet("background: transparent;")
+        self.avatarAdmin.setText("")
+        self.avatarAdmin.setAlignment(QtCore.Qt.AlignCenter)
+        self.avatarAdmin.setWordWrap(False)
+        self.avatarAdmin.setOpenExternalLinks(False)
+        self.avatarAdmin.setObjectName("avatarAdmin")
+        self.btn_removeAvatarAdmin = QtWidgets.QPushButton(self.frame_8)
+        self.btn_removeAvatarAdmin.setGeometry(QtCore.QRect(300, 70, 60, 60))
+        self.btn_removeAvatarAdmin.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_removeAvatarAdmin.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_removeAvatarAdmin.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/images/img/profile/delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_removeAvatarAdmin.setIcon(icon1)
+        self.btn_removeAvatarAdmin.setIconSize(QtCore.QSize(48, 48))
+        self.btn_removeAvatarAdmin.setObjectName("btn_removeAvatarAdmin")
+        self.btn_templateAvatarAdmin = QtWidgets.QPushButton(self.frame_8)
+        self.btn_templateAvatarAdmin.setGeometry(QtCore.QRect(10, 70, 60, 60))
+        self.btn_templateAvatarAdmin.setMinimumSize(QtCore.QSize(0, 60))
+        self.btn_templateAvatarAdmin.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_templateAvatarAdmin.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/images/img/profile/global.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_templateAvatarAdmin.setIcon(icon2)
+        self.btn_templateAvatarAdmin.setIconSize(QtCore.QSize(48, 48))
+        self.btn_templateAvatarAdmin.setObjectName("btn_templateAvatarAdmin")
+        self.btn_addAvatarAdmin = QtWidgets.QPushButton(self.frame_8)
+        self.btn_addAvatarAdmin.setGeometry(QtCore.QRect(300, 0, 60, 60))
+        self.btn_addAvatarAdmin.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_addAvatarAdmin.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_addAvatarAdmin.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/images/img/profile/edit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_addAvatarAdmin.setIcon(icon3)
+        self.btn_addAvatarAdmin.setIconSize(QtCore.QSize(48, 48))
+        self.btn_addAvatarAdmin.setObjectName("btn_addAvatarAdmin")
+        self.btn_previousAvatarAdmin = QtWidgets.QPushButton(self.frame_8)
+        self.btn_previousAvatarAdmin.setGeometry(QtCore.QRect(10, 0, 60, 60))
+        self.btn_previousAvatarAdmin.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_previousAvatarAdmin.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_previousAvatarAdmin.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/images/img/profile/previous .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_previousAvatarAdmin.setIcon(icon4)
+        self.btn_previousAvatarAdmin.setIconSize(QtCore.QSize(48, 48))
+        self.btn_previousAvatarAdmin.setObjectName("btn_previousAvatarAdmin")
+        self.btn_editInfoAdmin = QtWidgets.QPushButton(self.frame_8)
+        self.btn_editInfoAdmin.setGeometry(QtCore.QRect(300, 140, 60, 60))
+        self.btn_editInfoAdmin.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_editInfoAdmin.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_editInfoAdmin.setText("")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/images/img/profile/sign.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_editInfoAdmin.setIcon(icon5)
+        self.btn_editInfoAdmin.setIconSize(QtCore.QSize(48, 48))
+        self.btn_editInfoAdmin.setObjectName("btn_editInfoAdmin")
+        self.verticalLayout_5.addWidget(self.frame_8, 0, QtCore.Qt.AlignTop)
+        self.edit_usernameAdmin = QtWidgets.QLineEdit(self.scrollAreaWidgetContents_6)
+        self.edit_usernameAdmin.setMinimumSize(QtCore.QSize(0, 45))
+        self.edit_usernameAdmin.setObjectName("edit_usernameAdmin")
+        self.verticalLayout_5.addWidget(self.edit_usernameAdmin)
+        self.frame_9 = QtWidgets.QFrame(self.scrollAreaWidgetContents_6)
+        self.frame_9.setMinimumSize(QtCore.QSize(0, 45))
+        self.frame_9.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_9.setObjectName("frame_9")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_9)
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.edit_nameAdmin = QtWidgets.QLineEdit(self.frame_9)
+        self.edit_nameAdmin.setMinimumSize(QtCore.QSize(0, 45))
+        self.edit_nameAdmin.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.edit_nameAdmin.setObjectName("edit_nameAdmin")
+        self.horizontalLayout_5.addWidget(self.edit_nameAdmin)
+        self.edit_surnameAdmin = QtWidgets.QLineEdit(self.frame_9)
+        self.edit_surnameAdmin.setMinimumSize(QtCore.QSize(0, 45))
+        self.edit_surnameAdmin.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.edit_surnameAdmin.setObjectName("edit_surnameAdmin")
+        self.horizontalLayout_5.addWidget(self.edit_surnameAdmin)
+        self.verticalLayout_5.addWidget(self.frame_9, 0, QtCore.Qt.AlignTop)
+        self.frame_11 = QtWidgets.QFrame(self.scrollAreaWidgetContents_6)
+        self.frame_11.setMinimumSize(QtCore.QSize(0, 45))
+        self.frame_11.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.frame_11.setStyleSheet("QLineEdit{\n"
+"    font-size:14px;;\n"
+"    color:white;\n"
+"    border:none;\n"
+"    background:transparent;\n"
+"    border-bottom:1px solid white;\n"
+"}\n"
+"\n"
+"QLineEdit:hover, QTextEdit:hover{\n"
+"    background:rgba(0,0,0,0.04);\n"
+"}")
+        self.frame_11.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_11.setObjectName("frame_11")
+        self.horizontalLayout_10 = QtWidgets.QHBoxLayout(self.frame_11)
+        self.horizontalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_10.setSpacing(6)
+        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
+        self.edit_phoneAdmin = QtWidgets.QLineEdit(self.frame_11)
+        self.edit_phoneAdmin.setMinimumSize(QtCore.QSize(0, 45))
+        self.edit_phoneAdmin.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.edit_phoneAdmin.setObjectName("edit_phoneAdmin")
+        self.horizontalLayout_10.addWidget(self.edit_phoneAdmin)
+        self.radio_maleAdmin = QtWidgets.QRadioButton(self.frame_11)
+        self.radio_maleAdmin.setMinimumSize(QtCore.QSize(90, 0))
+        self.radio_maleAdmin.setMaximumSize(QtCore.QSize(90, 16777215))
+        self.radio_maleAdmin.setChecked(True)
+        self.radio_maleAdmin.setObjectName("radio_maleAdmin")
+        self.horizontalLayout_10.addWidget(self.radio_maleAdmin)
+        self.radio_femaleAdmin = QtWidgets.QRadioButton(self.frame_11)
+        self.radio_femaleAdmin.setEnabled(True)
+        self.radio_femaleAdmin.setMinimumSize(QtCore.QSize(90, 0))
+        self.radio_femaleAdmin.setMaximumSize(QtCore.QSize(90, 16777215))
+        self.radio_femaleAdmin.setChecked(False)
+        self.radio_femaleAdmin.setObjectName("radio_femaleAdmin")
+        self.horizontalLayout_10.addWidget(self.radio_femaleAdmin)
+        self.verticalLayout_5.addWidget(self.frame_11, 0, QtCore.Qt.AlignTop)
+        self.label = QtWidgets.QLabel(self.scrollAreaWidgetContents_6)
+        self.label.setMinimumSize(QtCore.QSize(0, 20))
+        self.label.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.label.setObjectName("label")
+        self.verticalLayout_5.addWidget(self.label, 0, QtCore.Qt.AlignTop)
+        self.edit_addressAdmin = QtWidgets.QTextEdit(self.scrollAreaWidgetContents_6)
+        self.edit_addressAdmin.setMinimumSize(QtCore.QSize(0, 60))
+        self.edit_addressAdmin.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.edit_addressAdmin.setObjectName("edit_addressAdmin")
+        self.verticalLayout_5.addWidget(self.edit_addressAdmin, 0, QtCore.Qt.AlignTop)
+        self.edit_passwordAdmin = QtWidgets.QLineEdit(self.scrollAreaWidgetContents_6)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.edit_passwordAdmin.sizePolicy().hasHeightForWidth())
+        self.edit_passwordAdmin.setSizePolicy(sizePolicy)
+        self.edit_passwordAdmin.setMinimumSize(QtCore.QSize(0, 45))
+        self.edit_passwordAdmin.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.edit_passwordAdmin.setText("")
+        self.edit_passwordAdmin.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.edit_passwordAdmin.setClearButtonEnabled(True)
+        self.edit_passwordAdmin.setObjectName("edit_passwordAdmin")
+        self.verticalLayout_5.addWidget(self.edit_passwordAdmin)
+        self.edit_passwordAgainAdmin = QtWidgets.QLineEdit(self.scrollAreaWidgetContents_6)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.edit_passwordAgainAdmin.sizePolicy().hasHeightForWidth())
+        self.edit_passwordAgainAdmin.setSizePolicy(sizePolicy)
+        self.edit_passwordAgainAdmin.setMinimumSize(QtCore.QSize(0, 45))
+        self.edit_passwordAgainAdmin.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.edit_passwordAgainAdmin.setText("")
+        self.edit_passwordAgainAdmin.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.edit_passwordAgainAdmin.setClearButtonEnabled(True)
+        self.edit_passwordAgainAdmin.setObjectName("edit_passwordAgainAdmin")
+        self.verticalLayout_5.addWidget(self.edit_passwordAgainAdmin)
+        self.label_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents_6)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_5.addWidget(self.label_4)
+        self.frame_10 = QtWidgets.QFrame(self.scrollAreaWidgetContents_6)
+        self.frame_10.setMinimumSize(QtCore.QSize(0, 70))
+        self.frame_10.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.frame_10.setStyleSheet("QCheckBox{\n"
+"background: transparent;\n"
+"font-size: 12px;\n"
+"color: white;\n"
+"}\n"
+"")
+        self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_10.setObjectName("frame_10")
+        self.formLayout_2 = QtWidgets.QFormLayout(self.frame_10)
+        self.formLayout_2.setContentsMargins(15, -1, -1, -1)
+        self.formLayout_2.setHorizontalSpacing(30)
+        self.formLayout_2.setObjectName("formLayout_2")
+        self.check_orders = QtWidgets.QCheckBox(self.frame_10)
+        self.check_orders.setObjectName("check_orders")
+        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.check_orders)
+        self.check_editUser = QtWidgets.QCheckBox(self.frame_10)
+        self.check_editUser.setObjectName("check_editUser")
+        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.check_editUser)
+        self.check_addAdmin = QtWidgets.QCheckBox(self.frame_10)
+        self.check_addAdmin.setObjectName("check_addAdmin")
+        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.check_addAdmin)
+        self.check_addProduct = QtWidgets.QCheckBox(self.frame_10)
+        self.check_addProduct.setObjectName("check_addProduct")
+        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.check_addProduct)
+        self.check_editAdmin = QtWidgets.QCheckBox(self.frame_10)
+        self.check_editAdmin.setObjectName("check_editAdmin")
+        self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.check_editAdmin)
+        self.check_editProduct = QtWidgets.QCheckBox(self.frame_10)
+        self.check_editProduct.setObjectName("check_editProduct")
+        self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.check_editProduct)
+        self.verticalLayout_5.addWidget(self.frame_10, 0, QtCore.Qt.AlignBottom)
+        self.verticalLayout_4.addLayout(self.verticalLayout_5)
+        self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_6)
+        self.gridLayout_4.addWidget(self.scrollArea_5, 1, 1, 1, 1)
+        self.frame_7 = QtWidgets.QFrame(self.tab_admin)
+        self.frame_7.setMinimumSize(QtCore.QSize(400, 60))
+        self.frame_7.setMaximumSize(QtCore.QSize(400, 100))
+        self.frame_7.setStyleSheet("QPushButton{\n"
+"background:rgba(0, 0, 0, 0.7);\n"
+"border: black;\n"
+"border-radius:10px;\n"
+"color: white;\n"
+"font-size: 14px;\n"
+"}\n"
+"\n"
+"")
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.horizontalLayout_11 = QtWidgets.QHBoxLayout(self.frame_7)
+        self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_11.setSpacing(6)
+        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
+        self.btn_cancelAdmin = QtWidgets.QPushButton(self.frame_7)
+        self.btn_cancelAdmin.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_cancelAdmin.setStyleSheet("QPushButton:hover{\n"
+"background: rgba(231,30,21,0.6);\n"
+"}")
+        self.btn_cancelAdmin.setObjectName("btn_cancelAdmin")
+        self.horizontalLayout_11.addWidget(self.btn_cancelAdmin)
+        self.btn_saveAdmin = QtWidgets.QPushButton(self.frame_7)
+        self.btn_saveAdmin.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_saveAdmin.setStyleSheet("QPushButton:hover{\n"
+"background:rgb(68, 117, 222)\n"
+"}")
+        self.btn_saveAdmin.setObjectName("btn_saveAdmin")
+        self.horizontalLayout_11.addWidget(self.btn_saveAdmin)
+        self.gridLayout_4.addWidget(self.frame_7, 2, 1, 1, 1)
+        self.frame_13 = QtWidgets.QFrame(self.tab_admin)
+        self.frame_13.setMinimumSize(QtCore.QSize(0, 60))
+        self.frame_13.setMaximumSize(QtCore.QSize(16777215, 50))
+        self.frame_13.setStyleSheet("QPushButton{\n"
+"background:rgba(0, 0, 0, 0.7);\n"
+"border: black;\n"
+"border-radius:10px;\n"
+"color: white;\n"
+"font-size: 14px;\n"
+"}\n"
+"\n"
+"")
+        self.frame_13.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_13.setObjectName("frame_13")
+        self.horizontalLayout_12 = QtWidgets.QHBoxLayout(self.frame_13)
+        self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_12.setObjectName("horizontalLayout_12")
+        self.btn_deleteAdmin = QtWidgets.QPushButton(self.frame_13)
+        self.btn_deleteAdmin.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_deleteAdmin.setStyleSheet("QPushButton:hover{\n"
+"background: rgba(231,30,21,0.6);\n"
+"}")
+        self.btn_deleteAdmin.setObjectName("btn_deleteAdmin")
+        self.horizontalLayout_12.addWidget(self.btn_deleteAdmin)
+        self.btn_addAdmin = QtWidgets.QPushButton(self.frame_13)
+        self.btn_addAdmin.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_addAdmin.setStyleSheet("QPushButton:hover{\n"
+"background:rgb(68, 117, 222)\n"
+"}")
+        self.btn_addAdmin.setObjectName("btn_addAdmin")
+        self.horizontalLayout_12.addWidget(self.btn_addAdmin)
+        self.gridLayout_4.addWidget(self.frame_13, 0, 1, 1, 1)
         self.scrollArea_6 = QtWidgets.QScrollArea(self.tab_admin)
         self.scrollArea_6.setStyleSheet("QFrame{\n"
 "background: transparent;\n"
@@ -813,124 +1232,15 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollArea_6.setObjectName("scrollArea_6")
         self.scrollAreaWidgetContents_7 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 900, 716))
+        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 876, 698))
         self.scrollAreaWidgetContents_7.setObjectName("scrollAreaWidgetContents_7")
-        self.gridLayout_5 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_7)
-        self.gridLayout_5.setObjectName("gridLayout_5")
+        self.formLayout = QtWidgets.QFormLayout(self.scrollAreaWidgetContents_7)
+        self.formLayout.setObjectName("formLayout")
         self.gridAdmins = QtWidgets.QGridLayout()
         self.gridAdmins.setObjectName("gridAdmins")
-        self.gridLayout_5.addLayout(self.gridAdmins, 0, 0, 1, 1)
+        self.formLayout.setLayout(0, QtWidgets.QFormLayout.LabelRole, self.gridAdmins)
         self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_7)
-        self.horizontalLayout_5.addWidget(self.scrollArea_6)
-        self.scrollArea_5 = QtWidgets.QScrollArea(self.tab_admin)
-        self.scrollArea_5.setMinimumSize(QtCore.QSize(400, 0))
-        self.scrollArea_5.setMaximumSize(QtCore.QSize(400, 16777215))
-        self.scrollArea_5.setStyleSheet("QFrame{\n"
-"background: transparent;\n"
-"}\n"
-"QWidget{\n"
-"background: transparent;\n"
-"}\n"
-"QPushButton{\n"
-"    background:rgb(83, 152, 255);\n"
-"    border-radius:10px;\n"
-"    color:#fff;\n"
-"    font-size: 14px;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    border:none;\n"
-"    background:rgb(68, 117, 222)\n"
-"}\n"
-"\n"
-"QLabel{\n"
-"font-size: 14px;\n"
-"text-align: center;\n"
-"color: white;\n"
-"padding: 2px;\n"
-"border-radius: 10px;\n"
-"}\n"
-"QLabel:hover{\n"
-"background: rgba(255,255,255,0.3);\n"
-"border: 1px solid rgb(68, 117, 222);\n"
-"border-radius: 5px;\n"
-"}\n"
-"QScrollBar:vertical\n"
-"    {\n"
-"        background-color: #2A2929;\n"
-"        width: 15px;\n"
-"        margin: 15px 3px 15px 3px;\n"
-"        border: 1px transparent #2A2929;\n"
-"        border-radius: 4px;\n"
-"    }\n"
-"\n"
-"    QScrollBar::handle:vertical\n"
-"    {\n"
-"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
-"        min-height: 5px;\n"
-"        border-radius: 4px;\n"
-"    }\n"
-"\n"
-"    QScrollBar::sub-line:vertical\n"
-"    {\n"
-"        margin: 3px 0px 3px 0px;\n"
-"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
-"        height: 10px;\n"
-"        width: 10px;\n"
-"        subcontrol-position: top;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"    QScrollBar::add-line:vertical\n"
-"    {\n"
-"        margin: 3px 0px 3px 0px;\n"
-"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
-"        height: 10px;\n"
-"        width: 10px;\n"
-"        subcontrol-position: bottom;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
-"    {\n"
-"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
-"        height: 10px;\n"
-"        width: 10px;\n"
-"        subcontrol-position: top;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
-"    {\n"
-"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
-"        height: 10px;\n"
-"        width: 10px;\n"
-"        subcontrol-position: bottom;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
-"    {\n"
-"        background: none;\n"
-"    }\n"
-"\n"
-"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
-"    {\n"
-"        background: none;\n"
-"    }")
-        self.scrollArea_5.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
-        self.scrollArea_5.setWidgetResizable(True)
-        self.scrollArea_5.setObjectName("scrollArea_5")
-        self.scrollAreaWidgetContents_6 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_6.setGeometry(QtCore.QRect(0, 0, 385, 716))
-        self.scrollAreaWidgetContents_6.setObjectName("scrollAreaWidgetContents_6")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_6)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.formAdminsInfo = QtWidgets.QFormLayout()
-        self.formAdminsInfo.setObjectName("formAdminsInfo")
-        self.verticalLayout_4.addLayout(self.formAdminsInfo)
-        self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_6)
-        self.horizontalLayout_5.addWidget(self.scrollArea_5)
+        self.gridLayout_4.addWidget(self.scrollArea_6, 0, 0, 3, 1)
         self.tabWidget.addTab(self.tab_admin, "")
         self.tab_profil = QtWidgets.QWidget()
         self.tab_profil.setObjectName("tab_profil")
@@ -1000,20 +1310,20 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_7.setSpacing(0)
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
-        self.btnCancel_2 = QtWidgets.QPushButton(self.frame_3)
-        self.btnCancel_2.setMaximumSize(QtCore.QSize(200, 51))
-        self.btnCancel_2.setStyleSheet("QPushButton:hover{\n"
+        self.btn_cancelProfile = QtWidgets.QPushButton(self.frame_3)
+        self.btn_cancelProfile.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_cancelProfile.setStyleSheet("QPushButton:hover{\n"
 "background: rgba(231,30,21,0.6);\n"
 "}")
-        self.btnCancel_2.setObjectName("btnCancel_2")
-        self.horizontalLayout_7.addWidget(self.btnCancel_2)
-        self.btnOk_2 = QtWidgets.QPushButton(self.frame_3)
-        self.btnOk_2.setMaximumSize(QtCore.QSize(200, 51))
-        self.btnOk_2.setStyleSheet("QPushButton:hover{\n"
+        self.btn_cancelProfile.setObjectName("btn_cancelProfile")
+        self.horizontalLayout_7.addWidget(self.btn_cancelProfile)
+        self.btn_saveProfile = QtWidgets.QPushButton(self.frame_3)
+        self.btn_saveProfile.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_saveProfile.setStyleSheet("QPushButton:hover{\n"
 "background:rgb(68, 117, 222)\n"
 "}")
-        self.btnOk_2.setObjectName("btnOk_2")
-        self.horizontalLayout_7.addWidget(self.btnOk_2)
+        self.btn_saveProfile.setObjectName("btn_saveProfile")
+        self.horizontalLayout_7.addWidget(self.btn_saveProfile)
         self.gridLayout_6.addWidget(self.frame_3, 7, 0, 1, 1)
         self.widget = QtWidgets.QWidget(self.frame)
         self.widget.setMinimumSize(QtCore.QSize(450, 0))
@@ -1023,23 +1333,23 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.widget)
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.edit_name = QtWidgets.QLineEdit(self.widget)
-        self.edit_name.setMinimumSize(QtCore.QSize(220, 45))
-        self.edit_name.setMaximumSize(QtCore.QSize(220, 51))
-        self.edit_name.setText("")
-        self.edit_name.setMaxLength(24)
-        self.edit_name.setClearButtonEnabled(True)
-        self.edit_name.setObjectName("edit_name")
-        self.horizontalLayout_6.addWidget(self.edit_name)
-        self.edit_surname = QtWidgets.QLineEdit(self.widget)
-        self.edit_surname.setMinimumSize(QtCore.QSize(220, 45))
-        self.edit_surname.setMaximumSize(QtCore.QSize(220, 51))
-        self.edit_surname.setText("")
-        self.edit_surname.setMaxLength(24)
-        self.edit_surname.setFrame(True)
-        self.edit_surname.setClearButtonEnabled(True)
-        self.edit_surname.setObjectName("edit_surname")
-        self.horizontalLayout_6.addWidget(self.edit_surname)
+        self.edit_nameProfile = QtWidgets.QLineEdit(self.widget)
+        self.edit_nameProfile.setMinimumSize(QtCore.QSize(220, 45))
+        self.edit_nameProfile.setMaximumSize(QtCore.QSize(220, 51))
+        self.edit_nameProfile.setText("")
+        self.edit_nameProfile.setMaxLength(24)
+        self.edit_nameProfile.setClearButtonEnabled(True)
+        self.edit_nameProfile.setObjectName("edit_nameProfile")
+        self.horizontalLayout_6.addWidget(self.edit_nameProfile)
+        self.edit_surnameProfile = QtWidgets.QLineEdit(self.widget)
+        self.edit_surnameProfile.setMinimumSize(QtCore.QSize(220, 45))
+        self.edit_surnameProfile.setMaximumSize(QtCore.QSize(220, 51))
+        self.edit_surnameProfile.setText("")
+        self.edit_surnameProfile.setMaxLength(24)
+        self.edit_surnameProfile.setFrame(True)
+        self.edit_surnameProfile.setClearButtonEnabled(True)
+        self.edit_surnameProfile.setObjectName("edit_surnameProfile")
+        self.horizontalLayout_6.addWidget(self.edit_surnameProfile)
         self.gridLayout_6.addWidget(self.widget, 2, 0, 1, 1)
         self.label_3 = QtWidgets.QLabel(self.frame)
         self.label_3.setMinimumSize(QtCore.QSize(351, 18))
@@ -1047,11 +1357,11 @@ class Ui_MainWindow(object):
         self.label_3.setStyleSheet("")
         self.label_3.setObjectName("label_3")
         self.gridLayout_6.addWidget(self.label_3, 5, 0, 1, 1)
-        self.edit_address = QtWidgets.QTextEdit(self.frame)
-        self.edit_address.setMinimumSize(QtCore.QSize(351, 60))
-        self.edit_address.setMaximumSize(QtCore.QSize(450, 80))
-        self.edit_address.setObjectName("edit_address")
-        self.gridLayout_6.addWidget(self.edit_address, 6, 0, 1, 1)
+        self.edit_addressProfile = QtWidgets.QTextEdit(self.frame)
+        self.edit_addressProfile.setMinimumSize(QtCore.QSize(351, 60))
+        self.edit_addressProfile.setMaximumSize(QtCore.QSize(450, 80))
+        self.edit_addressProfile.setObjectName("edit_addressProfile")
+        self.gridLayout_6.addWidget(self.edit_addressProfile, 6, 0, 1, 1)
         self.frame_4 = QtWidgets.QFrame(self.frame)
         self.frame_4.setMinimumSize(QtCore.QSize(0, 45))
         self.frame_4.setMaximumSize(QtCore.QSize(450, 51))
@@ -1067,15 +1377,15 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_8.setSpacing(9)
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
-        self.edit_phone = QtWidgets.QLineEdit(self.frame_4)
-        self.edit_phone.setMinimumSize(QtCore.QSize(220, 45))
-        self.edit_phone.setMaximumSize(QtCore.QSize(220, 51))
-        self.edit_phone.setMaxLength(18)
-        self.edit_phone.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.edit_phone.setCursorPosition(18)
-        self.edit_phone.setClearButtonEnabled(True)
-        self.edit_phone.setObjectName("edit_phone")
-        self.horizontalLayout_8.addWidget(self.edit_phone)
+        self.edit_phoneProfile = QtWidgets.QLineEdit(self.frame_4)
+        self.edit_phoneProfile.setMinimumSize(QtCore.QSize(220, 45))
+        self.edit_phoneProfile.setMaximumSize(QtCore.QSize(220, 51))
+        self.edit_phoneProfile.setMaxLength(18)
+        self.edit_phoneProfile.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.edit_phoneProfile.setCursorPosition(18)
+        self.edit_phoneProfile.setClearButtonEnabled(True)
+        self.edit_phoneProfile.setObjectName("edit_phoneProfile")
+        self.horizontalLayout_8.addWidget(self.edit_phoneProfile)
         self.frame_6 = QtWidgets.QFrame(self.frame_4)
         self.frame_6.setMinimumSize(QtCore.QSize(220, 45))
         self.frame_6.setMaximumSize(QtCore.QSize(220, 51))
@@ -1085,16 +1395,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.frame_6)
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.radio_male = QtWidgets.QRadioButton(self.frame_6)
-        self.radio_male.setMinimumSize(QtCore.QSize(100, 0))
-        self.radio_male.setMaximumSize(QtCore.QSize(100, 16777215))
-        self.radio_male.setObjectName("radio_male")
-        self.horizontalLayout_9.addWidget(self.radio_male)
-        self.radio_female = QtWidgets.QRadioButton(self.frame_6)
-        self.radio_female.setMinimumSize(QtCore.QSize(100, 0))
-        self.radio_female.setMaximumSize(QtCore.QSize(100, 16777215))
-        self.radio_female.setObjectName("radio_female")
-        self.horizontalLayout_9.addWidget(self.radio_female)
+        self.radio_maleProfile = QtWidgets.QRadioButton(self.frame_6)
+        self.radio_maleProfile.setMinimumSize(QtCore.QSize(100, 0))
+        self.radio_maleProfile.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.radio_maleProfile.setObjectName("radio_maleProfile")
+        self.horizontalLayout_9.addWidget(self.radio_maleProfile)
+        self.radio_femaleProfile = QtWidgets.QRadioButton(self.frame_6)
+        self.radio_femaleProfile.setMinimumSize(QtCore.QSize(100, 0))
+        self.radio_femaleProfile.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.radio_femaleProfile.setObjectName("radio_femaleProfile")
+        self.horizontalLayout_9.addWidget(self.radio_femaleProfile)
         self.horizontalLayout_8.addWidget(self.frame_6)
         self.gridLayout_6.addWidget(self.frame_4, 4, 0, 1, 1)
         self.frame_5 = QtWidgets.QFrame(self.frame)
@@ -1116,86 +1426,80 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setHorizontalSpacing(0)
         self.gridLayout_2.setVerticalSpacing(5)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.avatar = QtWidgets.QLabel(self.frame_5)
-        self.avatar.setMinimumSize(QtCore.QSize(220, 0))
-        self.avatar.setMaximumSize(QtCore.QSize(220, 220))
-        self.avatar.setText("")
-        self.avatar.setAlignment(QtCore.Qt.AlignCenter)
-        self.avatar.setWordWrap(False)
-        self.avatar.setOpenExternalLinks(False)
-        self.avatar.setObjectName("avatar")
-        self.gridLayout_2.addWidget(self.avatar, 0, 0, 3, 1)
-        self.btn_previous = QtWidgets.QPushButton(self.frame_5)
-        self.btn_previous.setMinimumSize(QtCore.QSize(60, 60))
-        self.btn_previous.setMaximumSize(QtCore.QSize(60, 60))
-        self.btn_previous.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/images/img/profile/previous .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_previous.setIcon(icon)
-        self.btn_previous.setIconSize(QtCore.QSize(48, 48))
-        self.btn_previous.setObjectName("btn_previous")
-        self.gridLayout_2.addWidget(self.btn_previous, 1, 1, 1, 1)
-        self.btn_template = QtWidgets.QPushButton(self.frame_5)
-        self.btn_template.setMinimumSize(QtCore.QSize(0, 60))
-        self.btn_template.setMaximumSize(QtCore.QSize(60, 60))
-        self.btn_template.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/images/img/profile/global.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_template.setIcon(icon1)
-        self.btn_template.setIconSize(QtCore.QSize(48, 48))
-        self.btn_template.setObjectName("btn_template")
-        self.gridLayout_2.addWidget(self.btn_template, 1, 2, 1, 1)
-        self.btn_next = QtWidgets.QPushButton(self.frame_5)
-        self.btn_next.setMinimumSize(QtCore.QSize(60, 60))
-        self.btn_next.setMaximumSize(QtCore.QSize(60, 60))
-        self.btn_next.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/images/img/profile/next.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_next.setIcon(icon2)
-        self.btn_next.setIconSize(QtCore.QSize(48, 48))
-        self.btn_next.setObjectName("btn_next")
-        self.gridLayout_2.addWidget(self.btn_next, 1, 3, 1, 1)
-        self.btn_edit = QtWidgets.QPushButton(self.frame_5)
-        self.btn_edit.setMinimumSize(QtCore.QSize(60, 60))
-        self.btn_edit.setMaximumSize(QtCore.QSize(60, 60))
-        self.btn_edit.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/images/img/profile/edit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_edit.setIcon(icon3)
-        self.btn_edit.setIconSize(QtCore.QSize(48, 48))
-        self.btn_edit.setObjectName("btn_edit")
-        self.gridLayout_2.addWidget(self.btn_edit, 0, 1, 1, 1)
-        self.btn_remove = QtWidgets.QPushButton(self.frame_5)
-        self.btn_remove.setMinimumSize(QtCore.QSize(60, 60))
-        self.btn_remove.setMaximumSize(QtCore.QSize(60, 60))
-        self.btn_remove.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/images/img/profile/delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_remove.setIcon(icon4)
-        self.btn_remove.setIconSize(QtCore.QSize(48, 48))
-        self.btn_remove.setObjectName("btn_remove")
-        self.gridLayout_2.addWidget(self.btn_remove, 0, 2, 1, 1)
-        self.btn_edit_2 = QtWidgets.QPushButton(self.frame_5)
-        self.btn_edit_2.setMinimumSize(QtCore.QSize(60, 60))
-        self.btn_edit_2.setMaximumSize(QtCore.QSize(60, 60))
-        self.btn_edit_2.setText("")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/images/img/profile/sign.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_edit_2.setIcon(icon5)
-        self.btn_edit_2.setIconSize(QtCore.QSize(48, 48))
-        self.btn_edit_2.setObjectName("btn_edit_2")
-        self.gridLayout_2.addWidget(self.btn_edit_2, 2, 2, 1, 1)
-        self.btn_updatepassword = QtWidgets.QPushButton(self.frame_5)
-        self.btn_updatepassword.setMinimumSize(QtCore.QSize(60, 60))
-        self.btn_updatepassword.setMaximumSize(QtCore.QSize(60, 60))
-        self.btn_updatepassword.setText("")
+        self.avatarProfile = QtWidgets.QLabel(self.frame_5)
+        self.avatarProfile.setMinimumSize(QtCore.QSize(205, 0))
+        self.avatarProfile.setMaximumSize(QtCore.QSize(205, 205))
+        self.avatarProfile.setStyleSheet("background: transparent;")
+        self.avatarProfile.setText("")
+        self.avatarProfile.setAlignment(QtCore.Qt.AlignCenter)
+        self.avatarProfile.setWordWrap(False)
+        self.avatarProfile.setOpenExternalLinks(False)
+        self.avatarProfile.setObjectName("avatarProfile")
+        self.gridLayout_2.addWidget(self.avatarProfile, 0, 0, 3, 1)
+        self.btn_previousAvatarProfile = QtWidgets.QPushButton(self.frame_5)
+        self.btn_previousAvatarProfile.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_previousAvatarProfile.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_previousAvatarProfile.setText("")
+        self.btn_previousAvatarProfile.setIcon(icon4)
+        self.btn_previousAvatarProfile.setIconSize(QtCore.QSize(48, 48))
+        self.btn_previousAvatarProfile.setObjectName("btn_previousAvatarProfile")
+        self.gridLayout_2.addWidget(self.btn_previousAvatarProfile, 1, 1, 1, 1)
+        self.btn_templateAvatarProfile = QtWidgets.QPushButton(self.frame_5)
+        self.btn_templateAvatarProfile.setMinimumSize(QtCore.QSize(0, 60))
+        self.btn_templateAvatarProfile.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_templateAvatarProfile.setText("")
+        self.btn_templateAvatarProfile.setIcon(icon2)
+        self.btn_templateAvatarProfile.setIconSize(QtCore.QSize(48, 48))
+        self.btn_templateAvatarProfile.setObjectName("btn_templateAvatarProfile")
+        self.gridLayout_2.addWidget(self.btn_templateAvatarProfile, 1, 2, 1, 1)
+        self.btn_nextAvatarProfile = QtWidgets.QPushButton(self.frame_5)
+        self.btn_nextAvatarProfile.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_nextAvatarProfile.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_nextAvatarProfile.setText("")
+        self.btn_nextAvatarProfile.setIcon(icon)
+        self.btn_nextAvatarProfile.setIconSize(QtCore.QSize(48, 48))
+        self.btn_nextAvatarProfile.setObjectName("btn_nextAvatarProfile")
+        self.gridLayout_2.addWidget(self.btn_nextAvatarProfile, 1, 3, 1, 1)
+        self.btn_addAvatarProfile = QtWidgets.QPushButton(self.frame_5)
+        self.btn_addAvatarProfile.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_addAvatarProfile.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_addAvatarProfile.setText("")
+        self.btn_addAvatarProfile.setIcon(icon3)
+        self.btn_addAvatarProfile.setIconSize(QtCore.QSize(48, 48))
+        self.btn_addAvatarProfile.setObjectName("btn_addAvatarProfile")
+        self.gridLayout_2.addWidget(self.btn_addAvatarProfile, 0, 1, 1, 1)
+        self.btn_removeAvatarProfile = QtWidgets.QPushButton(self.frame_5)
+        self.btn_removeAvatarProfile.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_removeAvatarProfile.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_removeAvatarProfile.setText("")
+        self.btn_removeAvatarProfile.setIcon(icon1)
+        self.btn_removeAvatarProfile.setIconSize(QtCore.QSize(48, 48))
+        self.btn_removeAvatarProfile.setObjectName("btn_removeAvatarProfile")
+        self.gridLayout_2.addWidget(self.btn_removeAvatarProfile, 0, 2, 1, 1)
+        self.btn_editInfoProfile = QtWidgets.QPushButton(self.frame_5)
+        self.btn_editInfoProfile.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_editInfoProfile.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_editInfoProfile.setText("")
+        self.btn_editInfoProfile.setIcon(icon5)
+        self.btn_editInfoProfile.setIconSize(QtCore.QSize(48, 48))
+        self.btn_editInfoProfile.setObjectName("btn_editInfoProfile")
+        self.gridLayout_2.addWidget(self.btn_editInfoProfile, 2, 2, 1, 1)
+        self.btn_updatepasswordProfile = QtWidgets.QPushButton(self.frame_5)
+        self.btn_updatepasswordProfile.setMinimumSize(QtCore.QSize(60, 60))
+        self.btn_updatepasswordProfile.setMaximumSize(QtCore.QSize(60, 60))
+        self.btn_updatepasswordProfile.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap(":/images/img/profile/pencil.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_updatepassword.setIcon(icon6)
-        self.btn_updatepassword.setIconSize(QtCore.QSize(48, 48))
-        self.btn_updatepassword.setObjectName("btn_updatepassword")
-        self.gridLayout_2.addWidget(self.btn_updatepassword, 2, 3, 1, 1)
-        self.gridLayout_6.addWidget(self.frame_5, 3, 0, 1, 1)
+        self.btn_updatepasswordProfile.setIcon(icon6)
+        self.btn_updatepasswordProfile.setIconSize(QtCore.QSize(48, 48))
+        self.btn_updatepasswordProfile.setObjectName("btn_updatepasswordProfile")
+        self.gridLayout_2.addWidget(self.btn_updatepasswordProfile, 2, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.frame_5, 0, 0, 1, 1)
+        self.edit_usernameProfile = QtWidgets.QLineEdit(self.frame)
+        self.edit_usernameProfile.setMinimumSize(QtCore.QSize(350, 45))
+        self.edit_usernameProfile.setMaximumSize(QtCore.QSize(450, 51))
+        self.edit_usernameProfile.setObjectName("edit_usernameProfile")
+        self.gridLayout_6.addWidget(self.edit_usernameProfile, 1, 0, 1, 1)
         self.horizontalLayout_4.addWidget(self.frame)
         self.tabWidget.addTab(self.tab_profil, "")
         self.verticalLayout.addWidget(self.tabWidget)
@@ -1214,23 +1518,50 @@ class Ui_MainWindow(object):
         self.btn_close.setText(_translate("MainWindow", "✕"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_products), _translate("MainWindow", "Mahsulotlar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_users), _translate("MainWindow", "Foydalanuvchilar"))
+        self.btn_nextAvatarAdmin.setToolTip(_translate("MainWindow", "Keyingi shablon avatar"))
+        self.btn_removeAvatarAdmin.setToolTip(_translate("MainWindow", "Default avatarni tanlash"))
+        self.btn_templateAvatarAdmin.setToolTip(_translate("MainWindow", "Shablon avatar"))
+        self.btn_addAvatarAdmin.setToolTip(_translate("MainWindow", "Avatar tanlash"))
+        self.btn_previousAvatarAdmin.setToolTip(_translate("MainWindow", "Oldingi shavlon avatar"))
+        self.btn_editInfoAdmin.setToolTip(_translate("MainWindow", "Taxrirlash"))
+        self.edit_usernameAdmin.setPlaceholderText(_translate("MainWindow", "Username"))
+        self.edit_nameAdmin.setPlaceholderText(_translate("MainWindow", "Ism"))
+        self.edit_surnameAdmin.setPlaceholderText(_translate("MainWindow", "Familiya"))
+        self.edit_phoneAdmin.setInputMask(_translate("MainWindow", "+\\9\\9\\8(99)-999-99-99 "))
+        self.radio_maleAdmin.setText(_translate("MainWindow", "Erkak"))
+        self.radio_femaleAdmin.setText(_translate("MainWindow", "Ayol"))
+        self.label.setText(_translate("MainWindow", "Manzil"))
+        self.edit_passwordAdmin.setPlaceholderText(_translate("MainWindow", "Yangi parol"))
+        self.edit_passwordAgainAdmin.setPlaceholderText(_translate("MainWindow", "Yangi parol qayta"))
+        self.label_4.setText(_translate("MainWindow", "Ruxsatlar"))
+        self.check_orders.setText(_translate("MainWindow", "Buyurtmalar"))
+        self.check_editUser.setText(_translate("MainWindow", "Foydalanuvchi taxrirlash"))
+        self.check_addAdmin.setText(_translate("MainWindow", "Admin qo\'shish"))
+        self.check_addProduct.setText(_translate("MainWindow", "Mahsulot qo\'shish"))
+        self.check_editAdmin.setText(_translate("MainWindow", "Admin taxrirlash"))
+        self.check_editProduct.setText(_translate("MainWindow", "Mahsulot taxrirlash"))
+        self.btn_cancelAdmin.setText(_translate("MainWindow", "Bekor qilish"))
+        self.btn_saveAdmin.setText(_translate("MainWindow", "Saqlash"))
+        self.btn_deleteAdmin.setText(_translate("MainWindow", "Adminni o\'chirish"))
+        self.btn_addAdmin.setText(_translate("MainWindow", "Admin qo\'shish"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_admin), _translate("MainWindow", "Adminlar"))
-        self.btnCancel_2.setText(_translate("MainWindow", "Bekor qilish"))
-        self.btnOk_2.setText(_translate("MainWindow", "Saqlash"))
-        self.edit_name.setPlaceholderText(_translate("MainWindow", "Ism"))
-        self.edit_surname.setPlaceholderText(_translate("MainWindow", "Familiya"))
+        self.btn_cancelProfile.setText(_translate("MainWindow", "Bekor qilish"))
+        self.btn_saveProfile.setText(_translate("MainWindow", "Saqlash"))
+        self.edit_nameProfile.setPlaceholderText(_translate("MainWindow", "Ism"))
+        self.edit_surnameProfile.setPlaceholderText(_translate("MainWindow", "Familiya"))
         self.label_3.setText(_translate("MainWindow", "Manzil:"))
-        self.edit_phone.setInputMask(_translate("MainWindow", "+\\9\\9\\8(99)-999-99-99"))
-        self.edit_phone.setText(_translate("MainWindow", "+998()---"))
-        self.edit_phone.setPlaceholderText(_translate("MainWindow", "Telefon raqam"))
-        self.radio_male.setText(_translate("MainWindow", "Erkak"))
-        self.radio_female.setText(_translate("MainWindow", "Ayol"))
-        self.btn_previous.setToolTip(_translate("MainWindow", "Oldingi shavlon avatar"))
-        self.btn_template.setToolTip(_translate("MainWindow", "Shablon avatar"))
-        self.btn_next.setToolTip(_translate("MainWindow", "Keyingi shablon avatar"))
-        self.btn_edit.setToolTip(_translate("MainWindow", "Avatar tanlash"))
-        self.btn_remove.setToolTip(_translate("MainWindow", "Default avatarni tanlash"))
-        self.btn_edit_2.setToolTip(_translate("MainWindow", "Taxrirlash"))
-        self.btn_updatepassword.setToolTip(_translate("MainWindow", "Parol almashtirish"))
+        self.edit_phoneProfile.setInputMask(_translate("MainWindow", "+\\9\\9\\8(99)-999-99-99"))
+        self.edit_phoneProfile.setText(_translate("MainWindow", "+998()---"))
+        self.edit_phoneProfile.setPlaceholderText(_translate("MainWindow", "Telefon raqam"))
+        self.radio_maleProfile.setText(_translate("MainWindow", "Erkak"))
+        self.radio_femaleProfile.setText(_translate("MainWindow", "Ayol"))
+        self.btn_previousAvatarProfile.setToolTip(_translate("MainWindow", "Oldingi shavlon avatar"))
+        self.btn_templateAvatarProfile.setToolTip(_translate("MainWindow", "Shablon avatar"))
+        self.btn_nextAvatarProfile.setToolTip(_translate("MainWindow", "Keyingi shablon avatar"))
+        self.btn_addAvatarProfile.setToolTip(_translate("MainWindow", "Avatar tanlash"))
+        self.btn_removeAvatarProfile.setToolTip(_translate("MainWindow", "Default avatarni tanlash"))
+        self.btn_editInfoProfile.setToolTip(_translate("MainWindow", "Taxrirlash"))
+        self.btn_updatepasswordProfile.setToolTip(_translate("MainWindow", "Parol almashtirish"))
+        self.edit_usernameProfile.setPlaceholderText(_translate("MainWindow", "Username"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_profil), _translate("MainWindow", "Profil"))
 import images_rc

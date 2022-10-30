@@ -890,7 +890,7 @@ class Ui_Asosiy(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollArea_6.setObjectName("scrollArea_6")
         self.scrollAreaWidgetContents_7 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 356, 551))
+        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 354, 549))
         self.scrollAreaWidgetContents_7.setObjectName("scrollAreaWidgetContents_7")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_3.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
@@ -904,6 +904,7 @@ class Ui_Asosiy(object):
         self.tab_setting = QtWidgets.QWidget()
         self.tab_setting.setObjectName("tab_setting")
         self.frame_9 = QtWidgets.QFrame(self.tab_setting)
+        self.frame_9.setEnabled(True)
         self.frame_9.setGeometry(QtCore.QRect(0, 0, 371, 691))
         self.frame_9.setStyleSheet("QLineEdit{\n"
 "    font-size:18px;;\n"
@@ -930,7 +931,13 @@ class Ui_Asosiy(object):
 "}\n"
 "QPushButton:hover{\n"
 "background: rgba(255,255,255,0.5);\n"
-"}")
+"}\n"
+"QRadioButton{\n"
+"background: transparent;\n"
+"font-size: 14px;\n"
+"color: white;\n"
+"}\n"
+"")
         self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_9.setObjectName("frame_9")
@@ -975,16 +982,17 @@ class Ui_Asosiy(object):
 "}")
         self.btnOk_2.setObjectName("btnOk_2")
         self.edit_address = QtWidgets.QTextEdit(self.frame_9)
-        self.edit_address.setGeometry(QtCore.QRect(10, 420, 351, 121))
+        self.edit_address.setGeometry(QtCore.QRect(10, 440, 351, 101))
         self.edit_address.setObjectName("edit_address")
         self.label_3 = QtWidgets.QLabel(self.frame_9)
-        self.label_3.setGeometry(QtCore.QRect(10, 390, 91, 21))
+        self.label_3.setGeometry(QtCore.QRect(10, 420, 91, 21))
         self.label_3.setStyleSheet("background: transparent;")
         self.label_3.setObjectName("label_3")
         self.avatar = QtWidgets.QLabel(self.frame_9)
         self.avatar.setGeometry(QtCore.QRect(80, 0, 210, 204))
-        self.avatar.setMinimumSize(QtCore.QSize(210, 0))
-        self.avatar.setMaximumSize(QtCore.QSize(210, 220))
+        self.avatar.setMinimumSize(QtCore.QSize(205, 0))
+        self.avatar.setMaximumSize(QtCore.QSize(205, 205))
+        self.avatar.setStyleSheet("background: transparent;")
         self.avatar.setText("")
         self.avatar.setAlignment(QtCore.Qt.AlignCenter)
         self.avatar.setWordWrap(False)
@@ -1050,6 +1058,19 @@ class Ui_Asosiy(object):
         self.btn_previous.setIcon(icon6)
         self.btn_previous.setIconSize(QtCore.QSize(48, 48))
         self.btn_previous.setObjectName("btn_previous")
+        self.radio_female = QtWidgets.QRadioButton(self.frame_9)
+        self.radio_female.setEnabled(True)
+        self.radio_female.setGeometry(QtCore.QRect(220, 400, 100, 17))
+        self.radio_female.setMinimumSize(QtCore.QSize(100, 0))
+        self.radio_female.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.radio_female.setChecked(False)
+        self.radio_female.setObjectName("radio_female")
+        self.radio_male = QtWidgets.QRadioButton(self.frame_9)
+        self.radio_male.setGeometry(QtCore.QRect(70, 400, 100, 17))
+        self.radio_male.setMinimumSize(QtCore.QSize(100, 0))
+        self.radio_male.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.radio_male.setChecked(True)
+        self.radio_male.setObjectName("radio_male")
         self.tabWidget_3.addTab(self.tab_setting, "")
         self.tabWidget_2.addTab(self.tab_profil, "")
         self.frame = QtWidgets.QFrame(self.centralwidget)
@@ -1209,6 +1230,8 @@ class Ui_Asosiy(object):
         self.btn_next.setToolTip(_translate("Asosiy", "Keyingi shablon avatar"))
         self.btn_template.setToolTip(_translate("Asosiy", "Shablon avatar"))
         self.btn_previous.setToolTip(_translate("Asosiy", "Oldingi shavlon avatar"))
+        self.radio_female.setText(_translate("Asosiy", "Ayol"))
+        self.radio_male.setText(_translate("Asosiy", "Erkak"))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_setting), _translate("Asosiy", "Sozlash"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_profil), _translate("Asosiy", "Profil"))
         self.btnOpen.setToolTip(_translate("Asosiy", "Shablon yuklash"))
