@@ -957,23 +957,1039 @@ QScrollBar:vertical
        <attribute name="title">
         <string>Adminlar</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="1" column="1">
+         <widget class="QScrollArea" name="scrollArea_5">
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+background: transparent;
+}
+QWidget{
+background: transparent;
+}
+QPushButton{
+	background:rgb(83, 152, 255);
+	border-radius:10px;
+	color:#fff;
+	font-size: 14px;
+}
+
+QPushButton:hover{
+	border:none;
+	background:rgb(68, 117, 222)
+}
+
+QLabel{
+font-size: 12px;
+text-align: center;
+color: white;
+padding: 2px;
+border-radius: 10px;
+}
+QScrollBar:vertical
+    {
+        background-color: #2A2929;
+        width: 15px;
+        margin: 15px 3px 15px 3px;
+        border: 1px transparent #2A2929;
+        border-radius: 4px;
+    }
+
+    QScrollBar::handle:vertical
+    {
+        background-color: rgba(195,63,11,0.8);        /* #605F5F; */
+        min-height: 5px;
+        border-radius: 4px;
+    }
+
+    QScrollBar::sub-line:vertical
+    {
+        margin: 3px 0px 3px 0px;
+        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:vertical
+    {
+        margin: 3px 0px 3px 0px;
+        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on
+    {
+        border-image: url(:/qss_icons/rc/up_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on
+    {
+        border-image: url(:/qss_icons/rc/down_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical
+    {
+        background: none;
+    }
+
+    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+    {
+        background: none;
+    }</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustToContents</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_6">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>385</width>
+             <height>669</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit{
+	font-size:14px;;
+	color:white;
+	border:none;
+	background:transparent;
+	border-bottom:1px solid white;
+}
+
+QLineEdit:hover, QTextEdit:hover{
+	background:rgba(0,0,0,0.04);
+}
+QTextEdit{
+	font-size:14px;;
+	color:white;
+	background:transparent;
+	border:1px solid white;
+}
+QPushButton{
+background: rgba(255,255,255,0.3);
+border-radius: 7px;
+border: 2px solid rgba(255,255,255,0.7);
+/*rgb(68, 117, 222)*/
+}
+QPushButton:hover{
+background: rgba(255,255,255,0.5);
+}
+QRadioButton{
+background: transparent;
+font-size: 14px;
+color: white;
+}
+</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <item alignment="Qt::AlignTop">
+               <widget class="QFrame" name="frame_8">
+                <property name="minimumSize">
+                 <size>
+                  <width>360</width>
+                  <height>220</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>200</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <widget class="QPushButton" name="btn_nextAvatarAdmin">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>140</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Keyingi shablon avatar</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/profile/next.png</normaloff>:/images/img/profile/next.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="avatarAdmin">
+                 <property name="geometry">
+                  <rect>
+                   <x>80</x>
+                   <y>0</y>
+                   <width>205</width>
+                   <height>204</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>205</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>205</width>
+                   <height>205</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background: transparent;</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>false</bool>
+                 </property>
+                 <property name="openExternalLinks">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="btn_removeAvatarAdmin">
+                 <property name="geometry">
+                  <rect>
+                   <x>300</x>
+                   <y>70</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Default avatarni tanlash</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/profile/delete.png</normaloff>:/images/img/profile/delete.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="btn_templateAvatarAdmin">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>70</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Shablon avatar</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/profile/global.png</normaloff>:/images/img/profile/global.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="btn_addAvatarAdmin">
+                 <property name="geometry">
+                  <rect>
+                   <x>300</x>
+                   <y>0</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Avatar tanlash</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/profile/edit.png</normaloff>:/images/img/profile/edit.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="btn_previousAvatarAdmin">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>0</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Oldingi shavlon avatar</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/profile/previous .png</normaloff>:/images/img/profile/previous .png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="btn_editInfoAdmin">
+                 <property name="geometry">
+                  <rect>
+                   <x>300</x>
+                   <y>140</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Taxrirlash</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/profile/sign.png</normaloff>:/images/img/profile/sign.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="edit_usernameAdmin">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="placeholderText">
+                 <string>Username</string>
+                </property>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignTop">
+               <widget class="QFrame" name="frame_9">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>51</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="edit_nameAdmin">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>45</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>51</height>
+                    </size>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Ism</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="edit_surnameAdmin">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>45</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>51</height>
+                    </size>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Familiya</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignTop">
+               <widget class="QFrame" name="frame_11">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit{
+	font-size:14px;;
+	color:white;
+	border:none;
+	background:transparent;
+	border-bottom:1px solid white;
+}
+
+QLineEdit:hover, QTextEdit:hover{
+	background:rgba(0,0,0,0.04);
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_10">
+                 <property name="spacing">
+                  <number>6</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="edit_phoneAdmin">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>45</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>51</height>
+                    </size>
+                   </property>
+                   <property name="inputMask">
+                    <string>+\9\9\8(99)-999-99-99 </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="radio_maleAdmin">
+                   <property name="minimumSize">
+                    <size>
+                     <width>90</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>90</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Erkak</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="radio_femaleAdmin">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>90</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>90</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Ayol</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignTop">
+               <widget class="QLabel" name="label">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Manzil</string>
+                </property>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignTop">
+               <widget class="QTextEdit" name="edit_addressAdmin">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>80</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="edit_passwordAdmin">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>51</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="echoMode">
+                 <enum>QLineEdit::Password</enum>
+                </property>
+                <property name="placeholderText">
+                 <string>Yangi parol</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="edit_passwordAgainAdmin">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>51</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="echoMode">
+                 <enum>QLineEdit::Password</enum>
+                </property>
+                <property name="placeholderText">
+                 <string>Yangi parol qayta</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Ruxsatlar</string>
+                </property>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignBottom">
+               <widget class="QFrame" name="frame_10">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QCheckBox{
+background: transparent;
+font-size: 12px;
+color: white;
+}
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QFormLayout" name="formLayout_2">
+                 <property name="horizontalSpacing">
+                  <number>30</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>15</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QCheckBox" name="check_orders">
+                   <property name="text">
+                    <string>Buyurtmalar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QCheckBox" name="check_editUser">
+                   <property name="text">
+                    <string>Foydalanuvchi taxrirlash</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QCheckBox" name="check_addAdmin">
+                   <property name="text">
+                    <string>Admin qo'shish</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QCheckBox" name="check_addProduct">
+                   <property name="text">
+                    <string>Mahsulot qo'shish</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QCheckBox" name="check_editAdmin">
+                   <property name="text">
+                    <string>Admin taxrirlash</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QCheckBox" name="check_editProduct">
+                   <property name="text">
+                    <string>Mahsulot taxrirlash</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QFrame" name="frame_7">
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background:rgba(0, 0, 0, 0.7);
+border: black;
+border-radius:10px;
+color: white;
+font-size: 14px;
+}
+
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="btn_cancelAdmin">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>51</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton:hover{
+background: rgba(231,30,21,0.6);
+}</string>
+             </property>
+             <property name="text">
+              <string>Bekor qilish</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_saveAdmin">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>51</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton:hover{
+background:rgb(68, 117, 222)
+}</string>
+             </property>
+             <property name="text">
+              <string>Saqlash</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QFrame" name="frame_13">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background:rgba(0, 0, 0, 0.7);
+border: black;
+border-radius:10px;
+color: white;
+font-size: 14px;
+}
+
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="btn_deleteAdmin">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>51</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton:hover{
+background: rgba(231,30,21,0.6);
+}</string>
+             </property>
+             <property name="text">
+              <string>Adminni o'chirish</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_addAdmin">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>51</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton:hover{
+background:rgb(68, 117, 222)
+}</string>
+             </property>
+             <property name="text">
+              <string>Admin qo'shish</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="3">
          <widget class="QScrollArea" name="scrollArea_6">
           <property name="styleSheet">
            <string notr="true">QFrame{
@@ -1078,145 +2094,13 @@ QScrollBar:vertical
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>900</width>
-             <height>716</height>
+             <width>876</width>
+             <height>698</height>
             </rect>
            </property>
-           <layout class="QGridLayout" name="gridLayout_5">
+           <layout class="QFormLayout" name="formLayout">
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridAdmins"/>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-        <item>
-         <widget class="QScrollArea" name="scrollArea_5">
-          <property name="minimumSize">
-           <size>
-            <width>400</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>400</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QFrame{
-background: transparent;
-}
-QWidget{
-background: transparent;
-}
-QPushButton{
-	background:rgb(83, 152, 255);
-	border-radius:10px;
-	color:#fff;
-	font-size: 14px;
-}
-
-QPushButton:hover{
-	border:none;
-	background:rgb(68, 117, 222)
-}
-
-QLabel{
-font-size: 14px;
-text-align: center;
-color: white;
-padding: 2px;
-border-radius: 10px;
-}
-QLabel:hover{
-background: rgba(255,255,255,0.3);
-border: 1px solid rgb(68, 117, 222);
-border-radius: 5px;
-}
-QScrollBar:vertical
-    {
-        background-color: #2A2929;
-        width: 15px;
-        margin: 15px 3px 15px 3px;
-        border: 1px transparent #2A2929;
-        border-radius: 4px;
-    }
-
-    QScrollBar::handle:vertical
-    {
-        background-color: rgba(195,63,11,0.8);        /* #605F5F; */
-        min-height: 5px;
-        border-radius: 4px;
-    }
-
-    QScrollBar::sub-line:vertical
-    {
-        margin: 3px 0px 3px 0px;
-        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
-        height: 10px;
-        width: 10px;
-        subcontrol-position: top;
-        subcontrol-origin: margin;
-    }
-
-    QScrollBar::add-line:vertical
-    {
-        margin: 3px 0px 3px 0px;
-        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
-        height: 10px;
-        width: 10px;
-        subcontrol-position: bottom;
-        subcontrol-origin: margin;
-    }
-
-    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on
-    {
-        border-image: url(:/qss_icons/rc/up_arrow.png);
-        height: 10px;
-        width: 10px;
-        subcontrol-position: top;
-        subcontrol-origin: margin;
-    }
-
-    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on
-    {
-        border-image: url(:/qss_icons/rc/down_arrow.png);
-        height: 10px;
-        width: 10px;
-        subcontrol-position: bottom;
-        subcontrol-origin: margin;
-    }
-
-    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical
-    {
-        background: none;
-    }
-
-    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
-    {
-        background: none;
-    }</string>
-          </property>
-          <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOn</enum>
-          </property>
-          <property name="widgetResizable">
-           <bool>true</bool>
-          </property>
-          <widget class="QWidget" name="scrollAreaWidgetContents_6">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>385</width>
-             <height>716</height>
-            </rect>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <item>
-             <layout class="QFormLayout" name="formAdminsInfo"/>
             </item>
            </layout>
           </widget>
@@ -1351,7 +2235,7 @@ background:rgba(0, 0, 0,0.6)
                <number>0</number>
               </property>
               <item>
-               <widget class="QPushButton" name="btnCancel_2">
+               <widget class="QPushButton" name="btn_cancelProfile">
                 <property name="maximumSize">
                  <size>
                   <width>200</width>
@@ -1369,7 +2253,7 @@ background: rgba(231,30,21,0.6);
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="btnOk_2">
+               <widget class="QPushButton" name="btn_saveProfile">
                 <property name="maximumSize">
                  <size>
                   <width>200</width>
@@ -1420,7 +2304,7 @@ background:rgb(68, 117, 222)
                <number>0</number>
               </property>
               <item>
-               <widget class="QLineEdit" name="edit_name">
+               <widget class="QLineEdit" name="edit_nameProfile">
                 <property name="minimumSize">
                  <size>
                   <width>220</width>
@@ -1448,7 +2332,7 @@ background:rgb(68, 117, 222)
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="edit_surname">
+               <widget class="QLineEdit" name="edit_surnameProfile">
                 <property name="minimumSize">
                  <size>
                   <width>220</width>
@@ -1504,7 +2388,7 @@ background:rgb(68, 117, 222)
             </widget>
            </item>
            <item row="6" column="0">
-            <widget class="QTextEdit" name="edit_address">
+            <widget class="QTextEdit" name="edit_addressProfile">
              <property name="minimumSize">
               <size>
                <width>351</width>
@@ -1563,7 +2447,7 @@ color: white;
                <number>0</number>
               </property>
               <item>
-               <widget class="QLineEdit" name="edit_phone">
+               <widget class="QLineEdit" name="edit_phoneProfile">
                 <property name="minimumSize">
                  <size>
                   <width>220</width>
@@ -1633,7 +2517,7 @@ color: white;
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QRadioButton" name="radio_male">
+                  <widget class="QRadioButton" name="radio_maleProfile">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -1652,7 +2536,7 @@ color: white;
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radio_female">
+                  <widget class="QRadioButton" name="radio_femaleProfile">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -1676,7 +2560,7 @@ color: white;
              </layout>
             </widget>
            </item>
-           <item row="3" column="0">
+           <item row="0" column="0">
             <widget class="QFrame" name="frame_5">
              <property name="maximumSize">
               <size>
@@ -1721,18 +2605,21 @@ background: rgba(255,255,255,0.5);
                <number>5</number>
               </property>
               <item row="0" column="0" rowspan="3">
-               <widget class="QLabel" name="avatar">
+               <widget class="QLabel" name="avatarProfile">
                 <property name="minimumSize">
                  <size>
-                  <width>220</width>
+                  <width>205</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>220</width>
-                  <height>220</height>
+                  <width>205</width>
+                  <height>205</height>
                  </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background: transparent;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -1749,7 +2636,7 @@ background: rgba(255,255,255,0.5);
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QPushButton" name="btn_previous">
+               <widget class="QPushButton" name="btn_previousAvatarProfile">
                 <property name="minimumSize">
                  <size>
                   <width>60</width>
@@ -1781,7 +2668,7 @@ background: rgba(255,255,255,0.5);
                </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QPushButton" name="btn_template">
+               <widget class="QPushButton" name="btn_templateAvatarProfile">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -1813,7 +2700,7 @@ background: rgba(255,255,255,0.5);
                </widget>
               </item>
               <item row="1" column="3">
-               <widget class="QPushButton" name="btn_next">
+               <widget class="QPushButton" name="btn_nextAvatarProfile">
                 <property name="minimumSize">
                  <size>
                   <width>60</width>
@@ -1845,7 +2732,7 @@ background: rgba(255,255,255,0.5);
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QPushButton" name="btn_edit">
+               <widget class="QPushButton" name="btn_addAvatarProfile">
                 <property name="minimumSize">
                  <size>
                   <width>60</width>
@@ -1877,7 +2764,7 @@ background: rgba(255,255,255,0.5);
                </widget>
               </item>
               <item row="0" column="2">
-               <widget class="QPushButton" name="btn_remove">
+               <widget class="QPushButton" name="btn_removeAvatarProfile">
                 <property name="minimumSize">
                  <size>
                   <width>60</width>
@@ -1909,7 +2796,7 @@ background: rgba(255,255,255,0.5);
                </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QPushButton" name="btn_edit_2">
+               <widget class="QPushButton" name="btn_editInfoProfile">
                 <property name="minimumSize">
                  <size>
                   <width>60</width>
@@ -1941,7 +2828,7 @@ background: rgba(255,255,255,0.5);
                </widget>
               </item>
               <item row="2" column="3">
-               <widget class="QPushButton" name="btn_updatepassword">
+               <widget class="QPushButton" name="btn_updatepasswordProfile">
                 <property name="minimumSize">
                  <size>
                   <width>60</width>
@@ -1973,6 +2860,25 @@ background: rgba(255,255,255,0.5);
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="edit_usernameProfile">
+             <property name="minimumSize">
+              <size>
+               <width>350</width>
+               <height>45</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>450</width>
+               <height>51</height>
+              </size>
+             </property>
+             <property name="placeholderText">
+              <string>Username</string>
+             </property>
             </widget>
            </item>
           </layout>
