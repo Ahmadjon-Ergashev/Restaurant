@@ -166,16 +166,10 @@ class Main_user(QMainWindow, Ui_Asosiy):
             self.edit_surname.setText(self.surname)
             self.edit_phone.setText(self.phone)
             self.edit_address.setText(self.address)
-            if self.male:
-                self.radio_male.setChecked(True)
-            else:
-                self.radio_female.setChecked(True)
             self.edit_name.setReadOnly(True)
             self.edit_surname.setReadOnly(True)
             self.edit_phone.setReadOnly(True)
             self.edit_address.setReadOnly(True)
-            self.radio_male.setEnabled(False)
-            self.radio_female.setEnabled(False)
             self.btnCancel_2.setText("Taxrirlash")
             self.updateAvatar(f'data/data_avatar/user/{self.id}.png')
         else:
@@ -183,9 +177,8 @@ class Main_user(QMainWindow, Ui_Asosiy):
             self.edit_surname.setReadOnly(False)
             self.edit_phone.setReadOnly(False)
             self.edit_address.setReadOnly(False)
-            self.radio_male.setEnabled(True)
-            self.radio_female.setEnabled(True)
             self.btnCancel_2.setText("Bekor qilish")
+
 
     def save_setting(self):
         if not self.change and self.edit_name.text() == self.name and self.edit_surname.text() == self.surname and \
@@ -197,12 +190,11 @@ class Main_user(QMainWindow, Ui_Asosiy):
         else:
             saveImage(self.avatar_src, f'data/data_avatar/user/{self.id}.png')
             updateUserInfo(self.id, self.edit_name.text(), self.edit_surname.text(),
-                           self.edit_phone.text(), self.edit_address.toPlainText(), self.radio_male.isChecked())
+                           self.edit_phone.text(), self.edit_address.toPlainText(), self.male)
             self.name = self.edit_name.text()
             self.surname = self.edit_surname.text()
             self.phone = self.edit_phone.text()
             self.address = self.edit_address.toPlainText()
-            self.male = int(self.radio_male.isChecked())
             self.label_user.setText(self.name + " " + self.surname)
             self.edit_name.setReadOnly(True)
             self.edit_surname.setReadOnly(True)
