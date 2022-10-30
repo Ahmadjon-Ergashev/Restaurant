@@ -7,7 +7,8 @@ import pickle as pc
 from design.Ui_Login_admin import Ui_Login
 from classes.registration import Registration
 from classes.warning import Warning
-from classes.sql import logIn_admin, getAdminid
+from classes.sql import loginAdmin, getAdminid
+
 
 class Login(QDialog, Ui_Login):
     def __init__(self):
@@ -38,7 +39,7 @@ class Login(QDialog, Ui_Login):
         if len(self.username.text()) < 6 or len(self.password.text()) < 6:
             Warning("Foydalanovchi nomi yoki parol 6 ta belgidan kam bo'lmasligi kerak").exec_()
         else:
-            if logIn_admin(self.username.text(), self.password.text()):
+            if loginAdmin(self.username.text(), self.password.text()):
                 self.login = True
                 self.adminid = getAdminid(self.username.text(), self.password.text())
                 self.Remember()
@@ -59,7 +60,6 @@ class Login(QDialog, Ui_Login):
                     file.truncate()
             except:
                 pass
-
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:

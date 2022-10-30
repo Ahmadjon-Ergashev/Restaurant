@@ -210,7 +210,6 @@ class Main_user(QMainWindow, Ui_Asosiy):
             self.btnCancel_2.setText("Taxrirlash")
             Information("Profil ma'lumotlari yangilandi").exec()
 
-
     def load_img(self, path):
         pixmap = QPixmap(path)
         return pixmap

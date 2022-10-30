@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLabel, QHBoxLayout, QSystemTrayIcon, QSizeGrip
-from PyQt5.QtCore import QPoint, Qt, QSize
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLabel, QSizeGrip
+from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QPixmap, QIcon
 from functools import partial
 import sys
@@ -13,6 +13,7 @@ from classes.login_admin import Login
 from classes.sql import *
 from classes.image import saveImage
 
+
 class Main_user(QMainWindow, Ui_MainWindow):
     def __init__(self):
         login = Login()
@@ -20,25 +21,32 @@ class Main_user(QMainWindow, Ui_MainWindow):
         super(Main_user, self).__init__()
         self.setupUi(self)
         self.setWindowFlag(Qt.FramelessWindowHint)
-        self.btn_close.clicked.connect(self.to_close)
+        self.btn_close.clicked.connect(self.toClose)
         self.btn_minimize.clicked.connect(self.showMinimized)
-        self.btn_cancelProfile.clicked.connect(self.cancel_setting)
-        self.btn_saveProfile.clicked.connect(self.save_setting)
+        self.btn_cancelProfile.clicked.connect(self.cancelSetting)
+        self.btn_saveProfile.clicked.connect(self.saveSetting)
 
         if login.login is None:
             sys.exit()
         self.id = login.adminid
         self.username, self.name, self.surname, self.phone, self.address, self.male = getAdminInfo(self.id)
+        self.permissions = getAdminPermissions(self.id)
         self.label_admin.setText(self.name + " " + self.surname)
 
         self.btn_removeAvatarProfile.clicked.connect(partial(self.updateAvatar, 'img/avatar/avatar.png'))
-        self.btn_templateAvatarProfile.clicked.connect(self.templateAvatar)
-        self.btn_nextAvatarProfile.clicked.connect(self.nexttemplateAvatar)
-        self.btn_previousAvatarProfile.clicked.connect(self.previoustemplateAvatar)
-        self.btn_editInfoProfile.clicked.connect(self.edit_profile)
+        self.btn_templateAvatarProfile.clicked.connect(partial(self.templateAvatar, True))
+        self.btn_nextAvatarProfile.clicked.connect(partial(self.nexttemplateAvatar, True))
+        self.btn_previousAvatarProfile.clicked.connect(partial(self.previoustemplateAvatar, True))
+        self.btn_editInfoProfile.clicked.connect(self.editProfile)
         self.btn_updatepasswordProfile.clicked.connect(self.updatePassword)
 
-        self.cancel_setting()
+        self.btn_removeAvatarAdmin.clicked.connect(partial(self.updateAvatar, 'img/avatar/avatar.png', False))
+        self.btn_templateAvatarAdmin.clicked.connect(partial(self.templateAvatar, False))
+        self.btn_nextAvatarAdmin.clicked.connect(partial(self.nexttemplateAvatar, False))
+        self.btn_previousAvatarAdmin.clicked.connect(partial(self.previoustemplateAvatar, False))
+        # self.btn_editInfoAdmin.clicked.connect(self.editProfile)
+
+        self.cancelSetting()
         self.moveFlag = False
         self.gripSize = 16
         self.grip = QSizeGrip(self)
@@ -48,47 +56,102 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.avatar_src = f'data/data_avatar/admin/{self.id}.png'
 
         self.addingAdmin = False
+        self.adminAvatar_src = ""
+        self.editingAdminId = None
         self.loadAdmins()
-        self.cancel_Info()
-        self.btn_cancelAdmin.clicked.connect(self.cancel_Info)
-        self.btn_editInfoAdmin.clicked.connect(self.edit_info)
+        self.cancelInfo()
+        self.btn_cancelAdmin.clicked.connect(self.cancelInfo)
+        self.btn_editInfoAdmin.clicked.connect(self.editInfo)
         self.btn_addAdmin.clicked.connect(self.addAdmin)
+        self.btn_saveAdmin.clicked.connect(self.saveInfoAdmin)
+        self.btn_cancelAdmin.clicked.connect(partial(self.cancelInfo, True))
+        self.btn_deleteAdmin.clicked.connect(self.deleteAdmin)
 
+    def saveInfoAdmin(self):
+        if not self.permissions[2]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
 
-    def saveAdminInfo(self):
-        if self.addingAdmin:
-            if self.edit_nameAdmin.text() == "" or self.edit_surnameAdmin.text() == "" or \
-               self.edit_phoneAdmin.text() == "" or self.edit_addressAdmin.toPlainText() == "" or \
-               self.edit_usernameAdmin.text() == "" or self.edit_passwordAdmin.text() == "" or \
-               self.edit_passwordAgainAdmin.text() == "":
-                Warning("Iltimos maydonlarni to'ldiring").exec()
-            elif self.edit_passwordAdmin.text() != self.edit_passwordAgainAdmin.text():
-                Warning("Parollar mos emas").exec()
+        permissions = [self.check_orders.isChecked(), self.check_addAdmin.isChecked(),
+                       self.check_editAdmin.isChecked(), self.check_editUser.isChecked(),
+                       self.check_addProduct.isChecked(), self.check_editProduct.isChecked()]
+
+        if self.edit_nameAdmin.text() == "" or self.edit_surnameAdmin.text() == "" or \
+                self.edit_phoneAdmin.text() == "" or self.edit_addressAdmin.toPlainText() == "" or \
+                self.edit_usernameAdmin.text() == "":
+            Warning("Iltimos maydonlarni to'ldiring").exec()
+        elif self.edit_passwordAdmin.text() != self.edit_passwordAgainAdmin.text():
+            Warning("Parollar mos emas").exec()
+        else:
+            if self.addingAdmin:
+                if not checkUsername(self.edit_usernameAdmin.text()):
+                    Warning("Ushbu Username band").exec()
+                elif self.edit_passwordAdmin.text() == "" or self.edit_passwordAgainAdmin.text() == "":
+                    Warning("Iltimos maydonlarni to'ldiring").exec()
+                else:
+                    addAdmin(self.edit_usernameAdmin.text(), self.edit_nameAdmin.text(),
+                             self.edit_surnameAdmin.text(), self.edit_phoneAdmin.text(),
+                             self.radio_maleAdmin.isChecked(), self.edit_addressAdmin.toPlainText(),
+                             self.edit_passwordAdmin.text(), tuple(permissions))
+                    adminId = getAdminid(self.edit_usernameAdmin.text(), self.edit_passwordAdmin.text())
+                    saveImage(self.adminAvatar_src, f'data/data_avatar/admin/{adminId}.png')
+                    Information("Admin qo'shildi").exec()
+                    self.cancelInfo()
+                    self.loadAdmins()
             else:
-                permissions = []
-                permissions.append(self.check_orders.isChecked())
-                permissions.append(self.check_addAdmin.isChecked())
-                permissions.append(self.check_editAdmin.isChecked())
-                permissions.append(self.check_editUser.isChecked())
-                permissions.append(self.check_addProduct.isChecked())
-                permissions.append(self.check_editProduct.isChecked())
+                if not checkUsername(self.edit_usernameAdmin.text()) and \
+                        self.edit_usernameAdmin.text() != getAdminInfo(self.editingAdminId)[0]:
+                    Warning("Ushbu Username band").exec()
+                else:
+                    saveImage(self.adminAvatar_src, f'data/data_avatar/admin/{self.editingAdminId}.png')
+                    updateAdminInfo(self.editingAdminId, self.edit_usernameAdmin.text(), self.edit_nameAdmin.text(),
+                                    self.edit_surnameAdmin.text(), self.edit_phoneAdmin.text(),
+                                    self.edit_addressAdmin.toPlainText(), self.radio_maleAdmin.isChecked(),
+                                    tuple(permissions))
+                    if self.edit_passwordAdmin.text() != "":
+                        updateAdminPassword(self.editingAdminId, self.edit_passwordAdmin.text())
+                    Information("Admin ma'lumotlari yangilandi").exec()
+                    self.cancelInfo()
+                    # self.clearAdmins()
+                    self.loadAdmins()
 
-                saveImage(self.avatar_src, f'data/data_avatar/admin/{self.id}.png')
-                addAdmin(self.id, self.edit_usernameProfile.text(), self.edit_nameProfile.text(),
-                            self.edit_surnameProfile.text(), self.edit_phoneProfile.text(),
-                            self.radio_maleProfile.isChecked(), self.edit_addressProfile.toPlainText(),
-                            self.edit_passwordAdmin.text(), tuple(permissions))
-                self.cancel_setting()
-                Information("Admin qo'shildi").exec()
+    def deleteAdmin(self):
+        if not self.permissions[2]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+
+        if self.editingAdminId == 1:
+            Warning("Kechirasiz superadminni o'chirish mumkin emas").exec()
+            return
+
+        if self.editingAdminId == None:
+            Warning("O'chirish uchun admin tanlang").exec()
+        else:
+            confirm = Confirm(f"{getAdminInfo(self.editingAdminId)[0]} adminni o'chirishni xohlaysizmi")
+            confirm.exec()
+            if confirm.confirmation:
+                deleteAdmin(self.editingAdminId)
+                # self.clearAdmins()
+                self.loadAdmins()
+                self.cancelInfo()
+
+    def clearAdmins(self):
+        for i in reversed(range(self.gridAdmins.count())):
+            self.gridAdmins.itemAt(i).widget().deleteLater()
 
     def addAdmin(self):
-        self.avatarAdmin.setPixmap(self.load_img('img/avatar/avatar.png'))
-        self.edit_info()
+        if not self.permissions[1]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+        self.editInfo()
         self.edit_usernameAdmin.setFocus()
         self.addingAdmin = True
+        self.adminAvatar_src = 'img/avatar/avatar.png'
+        self.avatarAdmin.setPixmap(self.load_img(self.adminAvatar_src))
 
     def viewInfo(self, id):
         self.addingAdmin = False
+        self.editingAdminId = id
         info = getAdminInfo(id)
         permissions = getAdminPermissions(id)
         self.edit_usernameAdmin.setText(info[0])
@@ -101,15 +164,76 @@ class Main_user(QMainWindow, Ui_MainWindow):
         else:
             self.radio_femaleAdmin.setChecked(True)
         self.avatarAdmin.setPixmap(self.load_img(f"data/data_avatar/admin/{id}.png"))
-
         self.check_orders.setChecked(permissions[0])
         self.check_addAdmin.setChecked(permissions[1])
         self.check_editAdmin.setChecked(permissions[2])
         self.check_editUser.setChecked(permissions[3])
         self.check_addProduct.setChecked(permissions[4])
         self.check_editProduct.setChecked(permissions[5])
+        self.editingAdminId = id
+
+    def editInfo(self):
+        if not self.permissions[2]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+        self.edit_usernameAdmin.setReadOnly(False)
+        self.edit_nameAdmin.setReadOnly(False)
+        self.edit_surnameAdmin.setReadOnly(False)
+        self.edit_phoneAdmin.setReadOnly(False)
+        self.radio_maleProfile.setEnabled(True)
+        self.radio_femaleAdmin.setEnabled(True)
+        self.edit_addressAdmin.setReadOnly(False)
+        self.edit_passwordAdmin.setReadOnly(False)
+        self.edit_passwordAgainAdmin.setReadOnly(False)
+        self.check_orders.setEnabled(True)
+        self.check_addAdmin.setEnabled(True)
+        self.check_editAdmin.setEnabled(True)
+        self.check_editUser.setEnabled(True)
+        self.check_addProduct.setEnabled(True)
+        self.check_editProduct.setEnabled(True)
+        self.adminAvatar_src = f'data/data_avatar/admin/{self.editingAdminId}.png'
+
+    def clearInfo(self):
+        self.avatarAdmin.clear()
+        self.edit_nameAdmin.clear()
+        self.edit_surnameAdmin.clear()
+        self.edit_phoneAdmin.clear()
+        self.edit_usernameAdmin.clear()
+        self.radio_maleProfile.setChecked(False)
+        self.radio_femaleAdmin.setChecked(False)
+        self.edit_addressAdmin.clear()
+        self.edit_passwordAdmin.clear()
+        self.edit_passwordAgainAdmin.clear()
+        self.check_orders.setChecked(False)
+        self.check_addAdmin.setChecked(False)
+        self.check_editAdmin.setChecked(False)
+        self.check_editUser.setChecked(False)
+        self.check_addProduct.setChecked(False)
+        self.check_editProduct.setChecked(False)
+
+    def cancelInfo(self, clear=True):
+        if clear:
+            self.clearInfo()
+
+        self.edit_usernameAdmin.setReadOnly(True)
+        self.edit_nameAdmin.setReadOnly(True)
+        self.edit_surnameAdmin.setReadOnly(True)
+        self.edit_phoneAdmin.setReadOnly(True)
+        self.radio_maleProfile.setEnabled(False)
+        self.radio_femaleAdmin.setEnabled(False)
+        self.edit_addressAdmin.setReadOnly(True)
+        self.edit_passwordAdmin.setReadOnly(True)
+        self.edit_passwordAgainAdmin.setReadOnly(True)
+        self.check_orders.setEnabled(False)
+        self.check_addAdmin.setEnabled(False)
+        self.check_editAdmin.setEnabled(False)
+        self.check_editUser.setEnabled(False)
+        self.check_addProduct.setEnabled(False)
+        self.check_editProduct.setEnabled(False)
+        self.editingAdminId = None
 
     def loadAdmins(self):
+        self.clearAdmins()
         result = admins()
         x = 0
         y = 0
@@ -121,7 +245,6 @@ class Main_user(QMainWindow, Ui_MainWindow):
             label_photo.setMinimumSize(205, 220)
             label_photo.setMaximumSize(205, 220)
             button_add = QPushButton("Batafsil")
-            # button_add.setObjectName("b_"+str(data[0]))
             button_add.clicked.connect(partial(self.viewInfo, data[0]))
             button_add.setMinimumSize(200, 30)
             button_add.setMaximumSize(200, 30)
@@ -139,64 +262,16 @@ class Main_user(QMainWindow, Ui_MainWindow):
             # layout.addWidget(label_price, x + 2, y)
             self.gridAdmins.addWidget(button_add, x + 2, y)
 
-            if y == 2:
+            if y == 3:
                 y = 0
                 x += 3
             else:
                 y += 1
 
-    def edit_info(self):
-        self.edit_nameAdmin.setReadOnly(False)
-        self.edit_surnameAdmin.setReadOnly(False)
-        self.edit_phoneAdmin.setReadOnly(False)
-        self.radio_maleProfile.setEnabled(True)
-        self.radio_femaleAdmin.setEnabled(True)
-        self.edit_addressAdmin.setReadOnly(False)
-        self.edit_passwordAdmin.setReadOnly(False)
-        self.edit_passwordAgainAdmin.setReadOnly(False)
-        self.check_orders.setEnabled(True)
-        self.check_addAdmin.setEnabled(True)
-        self.check_editAdmin.setEnabled(True)
-        self.check_editUser.setEnabled(True)
-        self.check_addProduct.setEnabled(True)
-        self.check_editProduct.setEnabled(True)
-
-    def cancel_Info(self):
-        self.avatarAdmin.clear()
-        self.edit_nameAdmin.clear()
-        self.edit_surnameAdmin.clear()
-        self.edit_phoneAdmin.clear()
-        self.radio_maleProfile.setChecked(False)
-        self.radio_femaleAdmin.setChecked(False)
-        self.edit_addressAdmin.clear()
-        self.edit_passwordAdmin.clear()
-        self.edit_passwordAgainAdmin.clear()
-        self.check_orders.setChecked(False)
-        self.check_addAdmin.setChecked(False)
-        self.check_editAdmin.setChecked(False)
-        self.check_editUser.setChecked(False)
-        self.check_addProduct.setChecked(False)
-        self.check_editProduct.setChecked(False)
-
-        self.edit_nameAdmin.setReadOnly(True)
-        self.edit_surnameAdmin.setReadOnly(True)
-        self.edit_phoneAdmin.setReadOnly(True)
-        self.radio_maleProfile.setEnabled(False)
-        self.radio_femaleAdmin.setEnabled(False)
-        self.edit_addressAdmin.setReadOnly(True)
-        self.edit_passwordAdmin.setReadOnly(True)
-        self.edit_passwordAgainAdmin.setReadOnly(True)
-        self.check_orders.setEnabled(False)
-        self.check_addAdmin.setEnabled(False)
-        self.check_editAdmin.setEnabled(False)
-        self.check_editUser.setEnabled(False)
-        self.check_addProduct.setEnabled(False)
-        self.check_editProduct.setEnabled(False)
-
     def updatePassword(self):
         Update_password(self.id, True).exec()
 
-    def edit_profile(self):
+    def editProfile(self):
         self.edit_usernameProfile.setReadOnly(False)
         self.edit_nameProfile.setReadOnly(False)
         self.edit_surnameProfile.setReadOnly(False)
@@ -205,13 +280,13 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.radio_maleProfile.setEnabled(True)
         self.radio_femaleProfile.setEnabled(True)
 
-    def cancel_setting(self):
+    def cancelSetting(self):
         self.edit_nameProfile.setText(self.name)
         self.edit_surnameProfile.setText(self.surname)
         self.edit_phoneProfile.setText(self.phone)
         self.edit_addressProfile.setText(self.address)
         self.edit_usernameProfile.setText(self.username)
-        self.updateAvatar(f'data/data_avatar/admin/{self.id}.png')
+        self.updateAvatar(f'data/data_avatar/admin/{self.id}.png', self.avatarProfile)
         if self.male:
             self.radio_maleProfile.setChecked(True)
         else:
@@ -224,7 +299,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.radio_maleProfile.setEnabled(False)
         self.radio_femaleProfile.setEnabled(False)
 
-    def save_setting(self):
+    def saveSetting(self):
         if not self.change and self.edit_nameProfile.text() == self.name and \
                 self.edit_surnameProfile.text() == self.surname and \
                 self.edit_phoneProfile.text() == self.phone and \
@@ -249,27 +324,43 @@ class Main_user(QMainWindow, Ui_MainWindow):
             self.male = int(self.radio_maleProfile.isChecked())
             self.username = self.edit_usernameProfile.text()
             self.label_admin.setText(self.name + " " + self.surname)
-            self.cancel_setting()
+            self.cancelSetting()
             Information("Profil ma'lumotlari yangilandi").exec()
 
-    def updateAvatar(self, path):
-        self.avatarProfile.setPixmap(self.load_img(path))
-        self.change = True
-        self.avatar_src = path
+    def updateAvatar(self, path, profile=True):
+        if profile:
+            self.avatarProfile.setPixmap(self.load_img(path))
+            self.change = True
+            self.avatar_src = path
+        else:
+            self.avatarAdmin.setPixmap(self.load_img(path))
+            self.adminAvatar_src = path
 
-    def templateAvatar(self):
+    def templateAvatar(self, profile=True):
         self.templateAvatarIndex = 0
-        self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png')
+        if profile:
+            self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png', profile)
+        else:
+            self.updateAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' + \
+                              f'{str(self.templateAvatarIndex)}.png', profile)
 
-    def nexttemplateAvatar(self):
+    def nexttemplateAvatar(self, profile=True):
         self.templateAvatarIndex += 1
         self.templateAvatarIndex %= 17
-        self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png')
+        if profile:
+            self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png', profile)
+        else:
+            self.updateAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' + \
+                              f'{str(self.templateAvatarIndex)}.png', profile)
 
-    def previoustemplateAvatar(self):
+    def previoustemplateAvatar(self, profile=True):
         self.templateAvatarIndex -= 1
         self.templateAvatarIndex %= 17
-        self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png')
+        if profile:
+            self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png', profile)
+        else:
+            self.updateAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' + \
+                              f'{str(self.templateAvatarIndex)}.png', profile)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -294,11 +385,12 @@ class Main_user(QMainWindow, Ui_MainWindow):
             rect.right() - self.gripSize, rect.bottom() - self.gripSize)
         event.accept()
 
-    def to_close(self):
+    def toClose(self):
         confirm = Confirm("Chiqishni xohlaysizmi?")
         confirm.exec()
         if confirm.confirmation:
             self.close()
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -319,4 +411,3 @@ if __name__ == "__main__":
     win = Main_user()
     win.show()
     sys.exit(app.exec_())
-
