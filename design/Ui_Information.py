@@ -15,7 +15,10 @@ class Ui_information(object):
     def setupUi(self, information):
         information.setObjectName("information")
         information.resize(320, 251)
-        information.setStyleSheet("background-image: url(:/images/img/alert.png);")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/img/icon/main.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        information.setWindowIcon(icon)
+        information.setStyleSheet("background-image: url(:/images/img/background/alert.png);")
         self.frame_2 = QtWidgets.QFrame(information)
         self.frame_2.setGeometry(QtCore.QRect(0, 0, 320, 41))
         self.frame_2.setMinimumSize(QtCore.QSize(320, 0))

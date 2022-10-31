@@ -17,6 +17,9 @@ class Ui_Registration(object):
         Registration.resize(620, 650)
         Registration.setMinimumSize(QtCore.QSize(620, 650))
         Registration.setMaximumSize(QtCore.QSize(620, 650))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/img/icon/main.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Registration.setWindowIcon(icon)
         Registration.setStyleSheet("QFrame{\n"
 "    background:rgba(0,0,0,0.4);\n"
 "    border-radius:15px;\n"
@@ -125,7 +128,7 @@ class Ui_Registration(object):
         self.widget.setStyleSheet("QWidget{\n"
 "    border-bottom-left-radius: 25px;\n"
 "    border-bottom-right-radius: 25px;\n"
-"    background-image: url(:/images/img/reg_1.jpg);\n"
+"    background-image: url(:/images/img/background/reg_1.jpg);\n"
 "}")
         self.widget.setObjectName("widget")
         self.frame = QtWidgets.QFrame(Registration)
@@ -211,7 +214,7 @@ class Ui_Registration(object):
 
     def retranslateUi(self, Registration):
         _translate = QtCore.QCoreApplication.translate
-        Registration.setWindowTitle(_translate("Registration", "Dialog"))
+        Registration.setWindowTitle(_translate("Registration", "Registration"))
         self.btn_close.setText(_translate("Registration", "✕"))
         self.btn_minimize.setText(_translate("Registration", "_"))
         self.label_2.setText(_translate("Registration", "Ro\'yxatdan o\'tish"))

@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Login</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../images.qrc">
+    <normaloff>:/images/img/icon/main.png</normaloff>:/images/img/icon/main.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QFrame{
 	background:rgba(0,0,0,0.4);
@@ -317,7 +321,7 @@ color:white;
    </property>
    <property name="styleSheet">
     <string notr="true">QFrame{
-	background-image: url(:/images/img/login_2.jpg);
+	background-image: url(:/images/img/background/login_2.jpg);
 	border-top-left-radius:0px;
 	border-top-right-radius:0px;
 	border-bottom-left-radius:25px;

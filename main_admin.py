@@ -38,10 +38,10 @@ class Main_user(QMainWindow, Ui_MainWindow):
         # Tab Profile
         self.btn_cancelProfile.clicked.connect(self.cancelSetting)
         self.btn_saveProfile.clicked.connect(self.saveSetting)
-        self.btn_removeAvatarProfile.clicked.connect(partial(self.updateAvatar, 'img/avatar/avatar.png', True))
-        self.btn_templateAvatarProfile.clicked.connect(partial(self.templateAvatar, True))
-        self.btn_nextAvatarProfile.clicked.connect(partial(self.nexttemplateAvatar, True))
-        self.btn_previousAvatarProfile.clicked.connect(partial(self.previoustemplateAvatar, True))
+        self.btn_removeAvatarProfile.clicked.connect(partial(self.updateAvatar, 'img/avatar/avatar.png'))
+        self.btn_templateAvatarProfile.clicked.connect(self.templateAvatar)
+        self.btn_nextAvatarProfile.clicked.connect(self.nexttemplateAvatar)
+        self.btn_previousAvatarProfile.clicked.connect(self.previoustemplateAvatar)
         self.btn_editInfoProfile.clicked.connect(self.editProfile)
         self.btn_updatepasswordProfile.clicked.connect(self.updatePassword)
         self.cancelSetting()
@@ -50,10 +50,10 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.avatar_src = f'data/data_avatar/admin/{self.id}.png'
 
         # Tab Admins
-        self.btn_removeAvatarAdmin.clicked.connect(partial(self.updateAvatar, 'img/avatar/avatar.png', False))
-        self.btn_templateAvatarAdmin.clicked.connect(partial(self.templateAvatar, False))
-        self.btn_nextAvatarAdmin.clicked.connect(partial(self.nexttemplateAvatar, False))
-        self.btn_previousAvatarAdmin.clicked.connect(partial(self.previoustemplateAvatar, False))
+        self.btn_removeAvatarAdmin.clicked.connect(partial(self.updateAdminAvatar, 'img/avatar/avatar.png'))
+        self.btn_templateAvatarAdmin.clicked.connect(self.templateAdminAvatar)
+        self.btn_nextAvatarAdmin.clicked.connect(self.nexttemplateAdminAvatar)
+        self.btn_previousAvatarAdmin.clicked.connect(self.previoustemplateAdminAvatar)
         self.btn_editInfoAdmin.clicked.connect(self.editAdminInfo)
         self.btn_addAdmin.clicked.connect(self.addAdmin)
         self.btn_saveAdmin.clicked.connect(self.saveAdminInfo)
@@ -78,6 +78,174 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.userAvatar_src = ""
         self.loadUsers()
         self.cancelUserInfo()
+
+        # Tab Products
+        self.btn_editInfoProduct.clicked.connect(self.editProductInfo)
+        self.btn_cancelProduct.clicked.connect(self.cancelProductInfo)
+        self.btn_saveProduct.clicked.connect(self.saveProductInfo)
+        self.btn_addProduct.clicked.connect(self.addProduct)
+        self.btn_templatePhotoProduct.clicked.connect(self.templateProductPhoto)
+        self.btn_deleteProduct.clicked.connect(self.deleteProduct)
+        self.btn_addPhotoProduct.clicked.connect(self.loadPhoto)
+        self.editingProductId = None
+        self.addingProduct = False
+        self.productPhoto_src = ""
+        self.loadProducts()
+        self.cancelProductInfo()
+
+    # Tab Products
+    def loadProducts(self):
+        self.clearProducts()
+        result = products()
+        x = 0
+        y = 0
+        for data in result:
+            label_photo = QLabel()
+            label_photo.setPixmap(QPixmap(f"data/data_img/{data[0]}.png"))
+            label_photo.setMinimumSize(200, 200)
+            label_photo.setMaximumSize(200, 200)
+            button_add = QPushButton("Batafsil")
+            # button_add.setObjectName("b_"+str(data[0]))
+            button_add.clicked.connect(partial(self.viewProductInfo, data[0]))
+            button_add.setMinimumSize(200, 30)
+            button_add.setMaximumSize(200, 30)
+            label_name = QLabel(data[2])
+            label_name.setMinimumSize(200, 30)
+            label_name.setMaximumSize(200, 150)
+            label_name.setAlignment(Qt.AlignCenter)
+            label_name.setWordWrap(True)
+            self.gridProducts.addWidget(label_photo, x, y)
+            self.gridProducts.addWidget(label_name, x + 1, y)
+            self.gridProducts.addWidget(button_add, x + 2, y)
+
+            if y == 3:
+                y = 0
+                x += 3
+            else:
+                y += 1
+
+    def clearProducts(self):
+        for i in reversed(range(self.gridProducts.count())):
+            self.gridProducts.itemAt(i).widget().deleteLater()
+
+    def viewProductInfo(self, id):
+        self.editingProductId = id
+        info = getproductByID(id)[0]
+        self.edit_nameProduct.setText(info[1])
+        self.edit_priceProduct.setText(str(info[3]))
+        self.edit_descriptionProduct.setPlainText(info[2])
+        self.combo_productCatagory.setCurrentIndex(info[4] - 1)
+        self.productPhoto.setPixmap(self.load_img(f"data/data_img/{id}.png"))
+
+    def clearProductInfo(self):
+        self.productPhoto.clear()
+        self.edit_nameProduct.clear()
+        self.edit_priceProduct.clear()
+        self.edit_descriptionProduct.clear()
+        self.combo_productCatagory.setCurrentIndex(-1)
+
+    def cancelProductInfo(self):
+        self.clearProductInfo()
+
+        self.edit_nameProduct.setReadOnly(True)
+        self.edit_priceProduct.setReadOnly(True)
+        self.edit_descriptionProduct.setReadOnly(True)
+        self.combo_productCatagory.setEnabled(False)
+        self.editingProductId = None
+
+    def editProductInfo(self):
+        if self.editingProductId is None and not self.addingProduct:
+            return
+
+        if not self.permissions[5]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+        self.edit_nameProduct.setReadOnly(False)
+        self.edit_priceProduct.setReadOnly(False)
+        self.edit_descriptionProduct.setReadOnly(False)
+        self.combo_productCatagory.setEnabled(True)
+        self.productPhoto_src = f'data/data_img/{self.editingProductId}.png'
+
+    def saveProductInfo(self):
+        if not self.permissions[5]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+
+        if self.edit_nameProduct.text() == "" or self.edit_priceProduct.text() == "" or \
+                self.edit_descriptionProduct.toPlainText() == "" or self.combo_productCatagory.currentIndex() == -1:
+            Warning("Iltimos maydonlarni to'ldiring").exec()
+            return
+
+        if self.productPhoto_src == "":
+            Warning("Iltimos mahsulot uchun rasm tanlang").exec()
+            return
+
+        if self.addingProduct:
+            addProduct(self.edit_nameProduct.text(), self.edit_priceProduct.text(),
+                       self.edit_descriptionProduct.toPlainText(), self.combo_productCatagory.currentIndex() + 1)
+            productId = getProductid(self.edit_nameProduct.text(), self.edit_priceProduct.text(),
+                                     self.edit_descriptionProduct.toPlainText(),
+                                     self.combo_productCatagory.currentIndex() + 1)
+            saveImage(self.productPhoto_src, f'data/data_img/{productId}.png')
+            Warning("Mahsulot qo'shildi").exec()
+        else:
+            saveImage(self.productPhoto_src, f'data/data_img/{self.editingProductId}.png')
+            updateProductInfo(self.editingProductId, self.edit_nameProduct.text(),
+                              self.edit_priceProduct.text(), self.edit_descriptionProduct.toPlainText(),
+                              self.combo_productCatagory.currentIndex() + 1)
+            Information("Mahsulot ma'lumotlari yangilandi").exec()
+            self.addingProduct = False
+        self.cancelProductInfo()
+        self.loadProducts()
+
+    def addProduct(self):
+        if not self.permissions[4]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+        self.addingProduct = True
+        self.cancelProductInfo()
+        self.editProductInfo()
+        self.edit_nameProduct.setFocus()
+        self.templateProductPhoto()
+
+    def updatePhoto(self, path):
+        self.productPhoto.setPixmap(self.load_img(path))
+        self.productPhoto_src = path
+
+    def templateProductPhoto(self):
+        if self.editingProductId is None and not self.addingProduct:
+            return
+
+        if not self.permissions[5]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+        self.productPhoto_src = "img/product/Template Food.png"
+        self.updatePhoto(self.productPhoto_src)
+
+    def deleteProduct(self):
+        if not self.permissions[5]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+
+        if self.editingProductId is None:
+            Warning("O'chirish uchun mahsulot tanlang").exec()
+            return
+
+        confirm = Confirm(f"{getproductByID(self.editingProductId)[0][1]} mahsulotni o'chirishni xohlaysizmi")
+        confirm.exec()
+        if confirm.confirmation:
+            deleteProduct(self.editingProductId)
+            self.loadProducts()
+            self.cancelProductInfo()
+
+    def loadPhoto(self):
+        if self.editingProductId is None and not self.addingProduct:
+            return
+
+        if not self.permissions[5]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+        Information("tanlanadigan rasmning 200x200 bo'lishi maslaxat beriladi").exec()
 
     # Tab Users
     def loadUsers(self):
@@ -127,6 +295,9 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.editingUserId = id
 
     def editUserInfo(self):
+        if self.editingUserId is None:
+            return
+
         if not self.permissions[3]:
             Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
             return
@@ -190,6 +361,12 @@ class Main_user(QMainWindow, Ui_MainWindow):
                 self.loadUsers()
 
     def updateUserAvatar(self, path):
+        if self.editingUserId is None:
+            return
+
+        if not self.permissions[3]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
         self.avatarUser.setPixmap(self.load_img(path))
         self.userAvatar_src = path
 
@@ -243,7 +420,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.edit_usernameAdmin.setFocus()
         self.addingAdmin = True
         self.adminAvatar_src = 'img/avatar/avatar.png'
-        self.updateAvatar(self.adminAvatar_src, False)
+        self.updateAdminAvatar(self.adminAvatar_src)
 
     def loadAdmins(self):
         self.clearAdmins()
@@ -299,6 +476,8 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.editingAdminId = id
 
     def editAdminInfo(self):
+        if self.addingAdmin or self.editingAdminId is None:
+            return
         if not self.permissions[2]:
             Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
             return
@@ -408,6 +587,32 @@ class Main_user(QMainWindow, Ui_MainWindow):
     def updatePassword(self):
         Update_password(self.id, True).exec()
 
+    def updateAdminAvatar(self, path):
+        if self.addingAdmin or self.editingAdminId is None:
+            return
+        if not self.permissions[2]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+        self.avatarAdmin.setPixmap(self.load_img(path))
+        self.adminAvatar_src = path
+
+    def templateAdminAvatar(self):
+        self.templateAvatarIndex = 0
+        self.updateAdminAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' +
+                               f'{str(self.templateAvatarIndex)}.png')
+
+    def nexttemplateAdminAvatar(self):
+        self.templateAvatarIndex += 1
+        self.templateAvatarIndex %= 17
+        self.updateAdminAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' +
+                               f'{str(self.templateAvatarIndex)}.png')
+
+    def previoustemplateAdminAvatar(self):
+        self.templateAvatarIndex -= 1
+        self.templateAvatarIndex %= 17
+        self.updateAdminAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' +
+                               f'{str(self.templateAvatarIndex)}.png')
+
     # Tab Profile
     def editProfile(self):
         self.edit_usernameProfile.setReadOnly(False)
@@ -424,7 +629,7 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.edit_phoneProfile.setText(self.phone)
         self.edit_addressProfile.setText(self.address)
         self.edit_usernameProfile.setText(self.username)
-        self.updateAvatar(f'data/data_avatar/admin/{self.id}.png', self.avatarProfile)
+        self.updateAvatar(f'data/data_avatar/admin/{self.id}.png')
         if self.male:
             self.radio_maleProfile.setChecked(True)
         else:
@@ -465,41 +670,24 @@ class Main_user(QMainWindow, Ui_MainWindow):
             self.cancelSetting()
             Information("Profil ma'lumotlari yangilandi").exec()
 
-    # Avatar
-    def updateAvatar(self, path, profile=True):
-        if profile:
-            self.avatarProfile.setPixmap(self.load_img(path))
-            self.change = True
-            self.avatar_src = path
-        else:
-            self.avatarAdmin.setPixmap(self.load_img(path))
-            self.adminAvatar_src = path
+    def updateAvatar(self, path):
+        self.avatarProfile.setPixmap(self.load_img(path))
+        self.change = True
+        self.avatar_src = path
 
-    def templateAvatar(self, profile=True):
+    def templateAvatar(self):
         self.templateAvatarIndex = 0
-        if profile:
-            self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png', profile)
-        else:
-            self.updateAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' + \
-                              f'{str(self.templateAvatarIndex)}.png', profile)
+        self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png')
 
-    def nexttemplateAvatar(self, profile=True):
+    def nexttemplateAvatar(self):
         self.templateAvatarIndex += 1
         self.templateAvatarIndex %= 17
-        if profile:
-            self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png', profile)
-        else:
-            self.updateAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' + \
-                              f'{str(self.templateAvatarIndex)}.png', profile)
+        self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png')
 
-    def previoustemplateAvatar(self, profile=True):
+    def previoustemplateAvatar(self):
         self.templateAvatarIndex -= 1
         self.templateAvatarIndex %= 17
-        if profile:
-            self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png', profile)
-        else:
-            self.updateAvatar(f'img/avatar/{str(int(self.radio_maleAdmin.isChecked()))}' + \
-                              f'{str(self.templateAvatarIndex)}.png', profile)
+        self.updateAvatar(f'img/avatar/{str(self.male)}{str(self.templateAvatarIndex)}.png')
 
     # Window
     def mousePressEvent(self, event):

@@ -28,7 +28,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../images.qrc">
-    <normaloff>:/images/img/main.png</normaloff>:/images/img/main.png</iconset>
+    <normaloff>:/images/img/icon/main.png</normaloff>:/images/img/icon/main.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -203,7 +203,7 @@ font-size: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QWidget{
-background-image: url(:/images/img/back_1.jpg);
+background-image: url(:/images/img/background/back_1.jpg);
 }
 QWidget{
   font-size: 20px;
@@ -248,7 +248,7 @@ background: rgba(255,255,250,0.9);
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideMiddle</enum>
@@ -369,8 +369,8 @@ QScrollBar:vertical
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>981</width>
-         <height>721</height>
+         <width>979</width>
+         <height>719</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="formLayout_2">
@@ -502,8 +502,8 @@ QScrollBar:vertical
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>981</width>
-         <height>721</height>
+         <width>979</width>
+         <height>719</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="formLayout_3">
@@ -635,8 +635,8 @@ QScrollBar:vertical
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>981</width>
-         <height>721</height>
+         <width>979</width>
+         <height>719</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="formLayout_4">
@@ -805,7 +805,7 @@ QScrollBar:vertical
     </property>
     <property name="styleSheet">
      <string notr="true">QWidget{
-background-image: url(:/images/img/list_back.jpg);
+background-image: url(:/images/img/background/list_back.jpg);
 }
 QWidget{
   font-size: 14px;
@@ -1102,7 +1102,7 @@ background:rgba(0, 0, 0,0.6)
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_buyurtma">
        <attribute name="title">
@@ -1346,8 +1346,8 @@ font-size:14px;
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>354</width>
-           <height>549</height>
+           <width>356</width>
+           <height>551</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1574,7 +1574,7 @@ background:rgb(68, 117, 222)
           <rect>
            <x>80</x>
            <y>0</y>
-           <width>210</width>
+           <width>205</width>
            <height>204</height>
           </rect>
          </property>
@@ -1635,7 +1635,7 @@ background:rgb(68, 117, 222)
          </property>
          <property name="icon">
           <iconset resource="../images.qrc">
-           <normaloff>:/images/img/profile/delete.png</normaloff>:/images/img/profile/delete.png</iconset>
+           <normaloff>:/images/img/icon/delete.png</normaloff>:/images/img/icon/delete.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1673,7 +1673,7 @@ background:rgb(68, 117, 222)
          </property>
          <property name="icon">
           <iconset resource="../images.qrc">
-           <normaloff>:/images/img/profile/edit.png</normaloff>:/images/img/profile/edit.png</iconset>
+           <normaloff>:/images/img/icon/edit.png</normaloff>:/images/img/icon/edit.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1711,7 +1711,7 @@ background:rgb(68, 117, 222)
          </property>
          <property name="icon">
           <iconset resource="../images.qrc">
-           <normaloff>:/images/img/profile/pencil.png</normaloff>:/images/img/profile/pencil.png</iconset>
+           <normaloff>:/images/img/icon/pencil.png</normaloff>:/images/img/icon/pencil.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1749,7 +1749,7 @@ background:rgb(68, 117, 222)
          </property>
          <property name="icon">
           <iconset resource="../images.qrc">
-           <normaloff>:/images/img/profile/next.png</normaloff>:/images/img/profile/next.png</iconset>
+           <normaloff>:/images/img/icon/next.png</normaloff>:/images/img/icon/next.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1787,7 +1787,7 @@ background:rgb(68, 117, 222)
          </property>
          <property name="icon">
           <iconset resource="../images.qrc">
-           <normaloff>:/images/img/profile/global.png</normaloff>:/images/img/profile/global.png</iconset>
+           <normaloff>:/images/img/icon/global.png</normaloff>:/images/img/icon/global.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1825,7 +1825,7 @@ background:rgb(68, 117, 222)
          </property>
          <property name="icon">
           <iconset resource="../images.qrc">
-           <normaloff>:/images/img/profile/previous .png</normaloff>:/images/img/profile/previous .png</iconset>
+           <normaloff>:/images/img/icon/previous .png</normaloff>:/images/img/icon/previous .png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1982,7 +1982,7 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="icon">
        <iconset resource="../images.qrc">
-        <normaloff>:/images/img/open.png</normaloff>:/images/img/open.png</iconset>
+        <normaloff>:/images/img/icon/open.png</normaloff>:/images/img/icon/open.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2020,7 +2020,7 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="icon">
        <iconset resource="../images.qrc">
-        <normaloff>:/images/img/notification.png</normaloff>:/images/img/notification.png</iconset>
+        <normaloff>:/images/img/icon/notification.png</normaloff>:/images/img/icon/notification.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2052,7 +2052,7 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="icon">
        <iconset resource="../images.qrc">
-        <normaloff>:/images/img/favorite.png</normaloff>:/images/img/favorite.png</iconset>
+        <normaloff>:/images/img/icon/favorite.png</normaloff>:/images/img/icon/favorite.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2084,7 +2084,7 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="icon">
        <iconset resource="../images.qrc">
-        <normaloff>:/images/img/save.png</normaloff>:/images/img/save.png</iconset>
+        <normaloff>:/images/img/icon/save.png</normaloff>:/images/img/icon/save.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2116,7 +2116,7 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="icon">
        <iconset resource="../images.qrc">
-        <normaloff>:/images/img/list.png</normaloff>:/images/img/list.png</iconset>
+        <normaloff>:/images/img/icon/list.png</normaloff>:/images/img/icon/list.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2148,7 +2148,7 @@ background: rgba(255,255,255,0.5);
       </property>
       <property name="icon">
        <iconset resource="../images.qrc">
-        <normaloff>:/images/img/grid.png</normaloff>:/images/img/grid.png</iconset>
+        <normaloff>:/images/img/icon/grid.png</normaloff>:/images/img/icon/grid.png</iconset>
       </property>
       <property name="iconSize">
        <size>

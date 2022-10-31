@@ -13,8 +13,12 @@
   <property name="windowTitle">
    <string>Confirmation</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../images.qrc">
+    <normaloff>:/images/img/icon/main.png</normaloff>:/images/img/icon/main.png</iconset>
+  </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/img/confirm.png);</string>
+   <string notr="true">background-image: url(:/images/img/background/confirm.png);</string>
   </property>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1298</width>
+    <width>1291</width>
     <height>800</height>
    </rect>
   </property>
@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Admin Paneli</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../images.qrc">
+    <normaloff>:/images/img/icon/main.png</normaloff>:/images/img/icon/main.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -241,7 +245,7 @@ color:white
       </property>
       <property name="styleSheet">
        <string notr="true">QWidget{
-background-image: url(:/images/img/back_1.jpg);
+background-image: url(:images/img/background/back_1.jpg);
 }
 QWidget{
   font-size: 20px;
@@ -290,7 +294,7 @@ QFrame:hover{
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -438,16 +442,11 @@ QPushButton:hover{
 }
 
 QLabel{
-font-size: 14px;
+font-size: 12px;
 text-align: center;
 color: white;
 padding: 2px;
 border-radius: 10px;
-}
-QLabel:hover{
-background: rgba(255,255,255,0.3);
-border: 1px solid rgb(68, 117, 222);
-border-radius: 5px;
 }
 QScrollBar:vertical
     {
@@ -529,11 +528,365 @@ QScrollBar:vertical
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true">QLineEdit{
+	font-size:14px;;
+	color:white;
+	border:none;
+	background:transparent;
+	border-bottom:1px solid white;
+}
+
+QLineEdit:hover, QTextEdit:hover{
+	background:rgba(0,0,0,0.04);
+}
+QTextEdit{
+	font-size:14px;;
+	color:white;
+	background:transparent;
+	border:1px solid white;
+}
+QPushButton{
+background: rgba(255,255,255,0.3);
+border-radius: 7px;
+border: 2px solid rgba(255,255,255,0.7);
+/*rgb(68, 117, 222)*/
+}
+QPushButton:hover{
+background: rgba(255,255,255,0.5);
+}
+QRadioButton{
+background: transparent;
+font-size: 14px;
+color: white;
+}
+</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_productInfo"/>
+             <layout class="QVBoxLayout" name="verticalLayout_productInfo">
+              <item>
+               <widget class="QFrame" name="frame_ProductPhoto">
+                <property name="minimumSize">
+                 <size>
+                  <width>370</width>
+                  <height>220</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>400</width>
+                  <height>220</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <widget class="QLabel" name="productPhoto">
+                 <property name="geometry">
+                  <rect>
+                   <x>40</x>
+                   <y>10</y>
+                   <width>205</width>
+                   <height>205</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>205</width>
+                   <height>205</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>205</width>
+                   <height>205</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="btn_editInfoProduct">
+                 <property name="geometry">
+                  <rect>
+                   <x>290</x>
+                   <y>150</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Taxrirlash</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/icon/sign.png</normaloff>:/images/img/icon/sign.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="btn_templatePhotoProduct">
+                 <property name="geometry">
+                  <rect>
+                   <x>290</x>
+                   <y>80</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Default avatarni tanlash</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/icon/global.png</normaloff>:/images/img/icon/global.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="btn_addPhotoProduct">
+                 <property name="geometry">
+                  <rect>
+                   <x>290</x>
+                   <y>10</y>
+                   <width>60</width>
+                   <height>60</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Avatar tanlash</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../images.qrc">
+                   <normaloff>:/images/img/icon/productPhoto.png</normaloff>:/images/img/icon/productPhoto.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>48</width>
+                   <height>48</height>
+                  </size>
+                 </property>
+                </widget>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="edit_nameProduct">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>51</height>
+                 </size>
+                </property>
+                <property name="placeholderText">
+                 <string>Nomi</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="edit_priceProduct">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>51</height>
+                 </size>
+                </property>
+                <property name="placeholderText">
+                 <string>Naxri</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="combo_productCatagory">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox{
+	background-color: rgba(0,0,0,0.4);;
+	font-size: 14px;
+	color: white;
+}
+QComboBox:hover{
+	background-color: rgba(0,0,0,0.6);
+}
+QComboBox:item {
+	border-top: 4;
+	border-left: 4;
+	border-bottom: 4;
+	border-right: 4;
+	border: 1px solid black;
+	background-color: rgba(195,63,11,0.8);
+	font-size: 14px;
+	color: white;
+	padding: 5px;
+}
+QComboBox:item:selected {
+	border-top: 4;
+	border-left: 4;
+	border-bottom: 4;
+	border-right: 4;
+	border: 1px solid black;
+	background-color: #C87020;
+	color: white;
+}
+QComboBox:item::hover {
+	border-top: 4;
+	border-left: 4;
+	border-bottom: 4;
+	border-right: 4;
+	background-color: #C87020;
+	color: white;
+}
+QComboBox QAbstractItemView
+{
+    border: 2px solid darkgray;
+    color: white;
+    background-color: rgba(0,0,0,0.4);
+}
+QComboBox::drop-down
+{
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 10px;
+     color: white;
+     padding-left: 10px;
+ }
+QComboBox::indicator{
+    background-color:transparent;
+    selection-background-color:transparent;
+    color:transparent;
+    selection-color:transparent;
+}
+</string>
+                </property>
+                <property name="currentText">
+                 <string/>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Ovqatlar</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Salatlar</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Shirinliklar</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ichimliklar</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_descriptionProduct">
+                <property name="text">
+                 <string>Izoh</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTextEdit" name="edit_descriptionProduct"/>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
@@ -727,13 +1080,17 @@ QScrollBar:vertical
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>874</width>
+             <width>867</width>
              <height>698</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout_4">
             <item row="0" column="0">
-             <layout class="QGridLayout" name="gridProducts"/>
+             <layout class="QGridLayout" name="gridProducts">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+             </layout>
             </item>
            </layout>
           </widget>
@@ -946,7 +1303,7 @@ color: white;
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>200</height>
+                  <height>220</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -1009,7 +1366,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/previous .png</normaloff>:/images/img/profile/previous .png</iconset>
+                   <normaloff>:/images/img/icon/previous .png</normaloff>:/images/img/icon/previous .png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1047,7 +1404,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/global.png</normaloff>:/images/img/profile/global.png</iconset>
+                   <normaloff>:/images/img/icon/global.png</normaloff>:/images/img/icon/global.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1085,7 +1442,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/next.png</normaloff>:/images/img/profile/next.png</iconset>
+                   <normaloff>:/images/img/icon/next.png</normaloff>:/images/img/icon/next.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1123,7 +1480,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/sign.png</normaloff>:/images/img/profile/sign.png</iconset>
+                   <normaloff>:/images/img/icon/sign.png</normaloff>:/images/img/icon/sign.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1161,7 +1518,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/delete.png</normaloff>:/images/img/profile/delete.png</iconset>
+                   <normaloff>:/images/img/icon/delete.png</normaloff>:/images/img/icon/delete.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1199,7 +1556,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/edit.png</normaloff>:/images/img/profile/edit.png</iconset>
+                   <normaloff>:/images/img/icon/edit.png</normaloff>:/images/img/icon/edit.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1263,7 +1620,7 @@ color: white;
                  </size>
                 </property>
                 <property name="inputMask">
-                 <string>+\9\9\8(99)-999-99-99 </string>
+                 <string>+\9\9\8(99)-999-99-99</string>
                 </property>
                </widget>
               </item>
@@ -1658,7 +2015,7 @@ QScrollBar:vertical
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>871</width>
+             <width>864</width>
              <height>698</height>
             </rect>
            </property>
@@ -1957,7 +2314,7 @@ color: white;
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>200</height>
+                  <height>220</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -1995,7 +2352,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/next.png</normaloff>:/images/img/profile/next.png</iconset>
+                   <normaloff>:/images/img/icon/next.png</normaloff>:/images/img/icon/next.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2070,7 +2427,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/delete.png</normaloff>:/images/img/profile/delete.png</iconset>
+                   <normaloff>:/images/img/icon/delete.png</normaloff>:/images/img/icon/delete.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2108,7 +2465,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/global.png</normaloff>:/images/img/profile/global.png</iconset>
+                   <normaloff>:/images/img/icon/global.png</normaloff>:/images/img/icon/global.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2146,7 +2503,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/edit.png</normaloff>:/images/img/profile/edit.png</iconset>
+                   <normaloff>:/images/img/icon/edit.png</normaloff>:/images/img/icon/edit.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2184,7 +2541,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/previous .png</normaloff>:/images/img/profile/previous .png</iconset>
+                   <normaloff>:/images/img/icon/previous .png</normaloff>:/images/img/icon/previous .png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2222,7 +2579,7 @@ color: white;
                  </property>
                  <property name="icon">
                   <iconset resource="../images.qrc">
-                   <normaloff>:/images/img/profile/sign.png</normaloff>:/images/img/profile/sign.png</iconset>
+                   <normaloff>:/images/img/icon/sign.png</normaloff>:/images/img/icon/sign.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2384,7 +2741,7 @@ QLineEdit:hover, QTextEdit:hover{
                     </size>
                    </property>
                    <property name="inputMask">
-                    <string>+\9\9\8(99)-999-99-99 </string>
+                    <string>+\9\9\8(99)-999-99-99</string>
                    </property>
                   </widget>
                  </item>
@@ -2908,7 +3265,7 @@ QScrollBar:vertical
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>874</width>
+             <width>867</width>
              <height>698</height>
             </rect>
            </property>
@@ -3471,7 +3828,7 @@ background: rgba(255,255,255,0.5);
                 </property>
                 <property name="icon">
                  <iconset resource="../images.qrc">
-                  <normaloff>:/images/img/profile/previous .png</normaloff>:/images/img/profile/previous .png</iconset>
+                  <normaloff>:/images/img/icon/previous .png</normaloff>:/images/img/icon/previous .png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3503,7 +3860,7 @@ background: rgba(255,255,255,0.5);
                 </property>
                 <property name="icon">
                  <iconset resource="../images.qrc">
-                  <normaloff>:/images/img/profile/global.png</normaloff>:/images/img/profile/global.png</iconset>
+                  <normaloff>:/images/img/icon/global.png</normaloff>:/images/img/icon/global.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3535,7 +3892,7 @@ background: rgba(255,255,255,0.5);
                 </property>
                 <property name="icon">
                  <iconset resource="../images.qrc">
-                  <normaloff>:/images/img/profile/next.png</normaloff>:/images/img/profile/next.png</iconset>
+                  <normaloff>:/images/img/icon/next.png</normaloff>:/images/img/icon/next.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3567,7 +3924,7 @@ background: rgba(255,255,255,0.5);
                 </property>
                 <property name="icon">
                  <iconset resource="../images.qrc">
-                  <normaloff>:/images/img/profile/edit.png</normaloff>:/images/img/profile/edit.png</iconset>
+                  <normaloff>:/images/img/icon/edit.png</normaloff>:/images/img/icon/edit.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3599,7 +3956,7 @@ background: rgba(255,255,255,0.5);
                 </property>
                 <property name="icon">
                  <iconset resource="../images.qrc">
-                  <normaloff>:/images/img/profile/delete.png</normaloff>:/images/img/profile/delete.png</iconset>
+                  <normaloff>:/images/img/icon/delete.png</normaloff>:/images/img/icon/delete.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3631,7 +3988,7 @@ background: rgba(255,255,255,0.5);
                 </property>
                 <property name="icon">
                  <iconset resource="../images.qrc">
-                  <normaloff>:/images/img/profile/sign.png</normaloff>:/images/img/profile/sign.png</iconset>
+                  <normaloff>:/images/img/icon/sign.png</normaloff>:/images/img/icon/sign.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3663,7 +4020,7 @@ background: rgba(255,255,255,0.5);
                 </property>
                 <property name="icon">
                  <iconset resource="../images.qrc">
-                  <normaloff>:/images/img/profile/pencil.png</normaloff>:/images/img/profile/pencil.png</iconset>
+                  <normaloff>:/images/img/icon/pencil.png</normaloff>:/images/img/icon/pencil.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>

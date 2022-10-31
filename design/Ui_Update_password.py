@@ -17,6 +17,9 @@ class Ui_UpdatePassword(object):
         UpdatePassword.resize(450, 500)
         UpdatePassword.setMinimumSize(QtCore.QSize(450, 500))
         UpdatePassword.setMaximumSize(QtCore.QSize(450, 500))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/img/icon/main.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        UpdatePassword.setWindowIcon(icon)
         UpdatePassword.setStyleSheet("QFrame{\n"
 "    background:rgba(0,0,0,0.4);\n"
 "    border-radius:15px;\n"
@@ -130,7 +133,7 @@ class Ui_UpdatePassword(object):
         self.frame_3 = QtWidgets.QFrame(UpdatePassword)
         self.frame_3.setGeometry(QtCore.QRect(-1, -1, 451, 501))
         self.frame_3.setStyleSheet("QFrame{\n"
-"    background-image: url(:/images/img/login_2.jpg);\n"
+"    background-image: url(:/images/img/background/login_2.jpg);\n"
 "    border-top-left-radius:0px;\n"
 "    border-top-right-radius:0px;\n"
 "    border-bottom-left-radius:25px;\n"

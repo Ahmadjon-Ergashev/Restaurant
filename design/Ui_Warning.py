@@ -15,7 +15,10 @@ class Ui_warning(object):
     def setupUi(self, warning):
         warning.setObjectName("warning")
         warning.resize(320, 251)
-        warning.setStyleSheet("background-image: url(:/images/img/alert.png);")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/img/icon/main.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        warning.setWindowIcon(icon)
+        warning.setStyleSheet("background-image: url(:/images/img/background/alert.png);")
         self.frame_2 = QtWidgets.QFrame(warning)
         self.frame_2.setGeometry(QtCore.QRect(0, 0, 320, 41))
         self.frame_2.setMinimumSize(QtCore.QSize(320, 0))
@@ -157,7 +160,7 @@ class Ui_warning(object):
 
     def retranslateUi(self, warning):
         _translate = QtCore.QCoreApplication.translate
-        warning.setWindowTitle(_translate("warning", "Dialog"))
+        warning.setWindowTitle(_translate("warning", "Warning"))
         self.label_2.setText(_translate("warning", "Xato"))
         self.btn_close.setText(_translate("warning", "✕"))
         self.label_6.setText(_translate("warning", "Xato"))

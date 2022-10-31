@@ -1,25 +1,33 @@
 <RCC>
   <qresource prefix="images">
-    <file>img/eye.png</file>
-    <file>img/profile/delete.png</file>
-    <file>img/profile/edit.png</file>
-    <file>img/profile/global.png</file>
-    <file>img/profile/next.png</file>
-    <file>img/profile/pencil.png</file>
-    <file>img/profile/previous .png</file>
-    <file>img/profile/sign.png</file>
-    <file>img/main.png</file>
-    <file>img/notification.png</file>
-    <file>img/confirm.png</file>
-    <file>img/list.png</file>
-    <file>img/grid.png</file>
-    <file>img/favorite.png</file>
-    <file>img/back_1.jpg</file>
-    <file>img/open.png</file>
-    <file>img/save.png</file>
-    <file>img/reg_1.jpg</file>
-    <file>img/login_2.jpg</file>
-    <file>img/list_back.jpg</file>
-    <file>img/alert.png</file>
+    <file>img/background/alert.jpg</file>
+    <file>img/background/alert.png</file>
+    <file>img/background/approve.png</file>
+    <file>img/background/back_1.jpg</file>
+    <file>img/background/confirm.png</file>
+    <file>img/background/list_back.jpg</file>
+    <file>img/background/login_2.jpg</file>
+    <file>img/background/reg_1.jpg</file>
+    <file>img/icon/delete.png</file>
+    <file>img/icon/edit.png</file>
+    <file>img/icon/eye.png</file>
+    <file>img/icon/favorite.png</file>
+    <file>img/icon/global.png</file>
+    <file>img/icon/grid.png</file>
+    <file>img/icon/list.png</file>
+    <file>img/icon/main 16.png</file>
+    <file>img/icon/main 32.png</file>
+    <file>img/icon/main 48.png</file>
+    <file>img/icon/main 64.png</file>
+    <file>img/icon/main 128.png</file>
+    <file>img/icon/main.png</file>
+    <file>img/icon/next.png</file>
+    <file>img/icon/notification.png</file>
+    <file>img/icon/open.png</file>
+    <file>img/icon/pencil.png</file>
+    <file>img/icon/previous .png</file>
+    <file>img/icon/productPhoto.png</file>
+    <file>img/icon/save.png</file>
+    <file>img/icon/sign.png</file>
   </qresource>
 </RCC>

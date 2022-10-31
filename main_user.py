@@ -67,7 +67,7 @@ class Main_user(QMainWindow, Ui_Asosiy):
         y = 0
         for data in result:
             label_photo = QLabel()
-            label_photo.setPixmap(self.load_img(data[4]))
+            label_photo.setPixmap(QPixmap(f"data/data_img/{data[0]}.png"))
             label_photo.setMinimumSize(200, 200)
             label_photo.setMaximumSize(200, 200)
             button_add = QPushButton("Qo'shish")
@@ -126,7 +126,7 @@ class Main_user(QMainWindow, Ui_Asosiy):
                                       "background: rgba(0,0,0, 0.5);\n"
                                       "}")
             icon3 = QIcon()
-            icon3.addPixmap(QPixmap(":/images/img/eye.png"), QIcon.Normal, QIcon.Off)
+            icon3.addPixmap(QPixmap(":/images/img/icon/eye.png"), QIcon.Normal, QIcon.Off)
             button_more.setIcon(icon3)
             button_more.setIconSize(QSize(25, 25))
             button_more.setToolTip("Batafsil")
@@ -244,12 +244,6 @@ class Main_user(QMainWindow, Ui_Asosiy):
                 "count": 1}
 
     def add(self, id):
-        # for i in range(self.formLayout.rowCount()):
-        #     if text == self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(0).widget().text():
-        #         self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().setText(str(int(self.formLayout.itemAt(i, QFormLayout.FieldRole).itemAt(2).widget().text()) + 1))
-        #         self.orders[id]["count"] += 1
-        #         self.counting()
-        #         return
         label = self.findChild(QLabel, "count_" + str(id))
         if label:
             self.incCount(id)

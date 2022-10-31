@@ -15,7 +15,10 @@ class Ui_Confirmation(object):
     def setupUi(self, Confirmation):
         Confirmation.setObjectName("Confirmation")
         Confirmation.resize(320, 251)
-        Confirmation.setStyleSheet("background-image: url(:/images/img/confirm.png);")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/img/icon/main.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Confirmation.setWindowIcon(icon)
+        Confirmation.setStyleSheet("background-image: url(:/images/img/background/confirm.png);")
         self.frame_2 = QtWidgets.QFrame(Confirmation)
         self.frame_2.setGeometry(QtCore.QRect(0, 0, 320, 41))
         self.frame_2.setMinimumSize(QtCore.QSize(320, 0))

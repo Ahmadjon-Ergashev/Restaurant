@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Registration</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../images.qrc">
+    <normaloff>:/images/img/icon/main.png</normaloff>:/images/img/icon/main.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QFrame{
 	background:rgba(0,0,0,0.4);
@@ -204,7 +208,7 @@ background:transparent;</string>
     <string notr="true">QWidget{
 	border-bottom-left-radius: 25px;
 	border-bottom-right-radius: 25px;
-	background-image: url(:/images/img/reg_1.jpg);
+	background-image: url(:/images/img/background/reg_1.jpg);
 }</string>
    </property>
   </widget>
