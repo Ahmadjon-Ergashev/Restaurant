@@ -6,7 +6,7 @@ import sys
 from design.Ui_Update_password import Ui_UpdatePassword
 from classes.warning import Warning
 from classes.information import Information
-from classes.sql import updatePassword, updateAdminPassword, checkPassword, checkAdminPassword
+from classes.sql import updateUserPassword, updateAdminPassword, checkPassword, checkAdminPassword
 
 class Update_password(QDialog, Ui_UpdatePassword):
     def __init__(self, id, admin):
@@ -19,7 +19,7 @@ class Update_password(QDialog, Ui_UpdatePassword):
         if admin:
             self.btn_updatepassword.clicked.connect(self.updateAdminPassword)
         else:
-            self.btn_updatepassword.clicked.connect(self.updatePassword)
+            self.btn_updatepassword.clicked.connect(self.updateUserPassword)
 
 
     def mousePressEvent(self, event):
@@ -33,7 +33,7 @@ class Update_password(QDialog, Ui_UpdatePassword):
             self.move(event.globalPos() - self.movePosition)
             event.accept()
 
-    def updatePassword(self):
+    def updateUserPassword(self):
         if (checkPassword(self.id, self.old_password.text())) is False:
             Warning("Eski parol xato kiritildi").exec()
         elif len(self.password_1.text()) < 6:
@@ -41,7 +41,7 @@ class Update_password(QDialog, Ui_UpdatePassword):
         elif self.password_1.text() != self.password_2.text():
             Warning("Yangi parol tasdiqlanmadi").exec()
         else:
-            updatePassword(self.id, self.password_1.text())
+            updateUserPassword(self.id, self.password_1.text())
             self.old_password.clear()
             self.password_1.clear()
             self.password_2.clear()

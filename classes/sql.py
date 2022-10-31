@@ -25,6 +25,10 @@ def products(catagory):
         (catagory,)).fetchall()
 
 
+def users():
+    return cursor.execute("Select * from users_info").fetchall()
+
+
 def admins():
     return cursor.execute("Select * from admins_info").fetchall()
 
@@ -59,6 +63,13 @@ def checkUsername(username):
         return True
 
 
+def checkPhone(phone):
+    if len(cursor.execute("Select * from users where phone = ?", (phone,)).fetchall()) == 1:
+        return False
+    else:
+        return True
+
+
 def getAdminid(username, password):
     return cursor.execute("Select * from admins where admin_name = ? and password = ?",
                           (username, password,)).fetchall()[0][0]
@@ -81,6 +92,11 @@ def updateAdminPassword(id, password):
     connection.commit()
 
 
+def updateUserPassword(id, password):
+    cursor.execute("update users set password = ? where id = ?", (password, id,))
+    connection.commit()
+
+
 def registr(number, password, f_name, l_name):
     cursor.execute("Insert into users(phone, password) values(?, ?)", (number, password,))
     connection.commit()
@@ -90,6 +106,7 @@ def registr(number, password, f_name, l_name):
 
 
 def getUserInfo(id):
+    """Firt name, Last name, Phone, Address, Gender"""
     result = cursor.execute("SELECT * FROM users_info WHERE user_id = ?", (id,)).fetchall()[0]
     return result[1], result[2], cursor.execute("Select * from users where id = ?",
            (id,)).fetchall()[0][1], result[3], result[4]
@@ -117,11 +134,6 @@ def updateUserInfo(id, f_name, l_name, phone, address, male):
                    (f_name, l_name, address, male, id))
     connection.commit()
     cursor.execute("update users set phone = ? where id = ?", (phone, id,))
-    connection.commit()
-
-
-def updatePassword(id, password):
-    cursor.execute("update users set password = ? where id = ?", (password, id,))
     connection.commit()
 
 
