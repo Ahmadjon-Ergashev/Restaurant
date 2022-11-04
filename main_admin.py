@@ -93,6 +93,113 @@ class Main_user(QMainWindow, Ui_MainWindow):
         self.loadProducts()
         self.cancelProductInfo()
 
+        # Tab Orders
+        self.editingOrderId = None
+        self.loadOrders()
+
+        self.btn_cancelOrders.clicked.connect(self.clearOrdersInfo)
+        self.btn_acceptOrders.clicked.connect(partial(self.setOrderStatus, "Qabul qilingan"))
+        self.btn_rejectOrders.clicked.connect(partial(self.setOrderStatus, "Bekor qilingan"))
+        self.btn_sendOrders.clicked.connect(partial(self.setOrderStatus, "Yuborilgan"))
+        self.btn_deliveredOrders.clicked.connect(partial(self.setOrderStatus, "Yetkazilgan"))
+
+    # Tab Orders
+    def orderToText(self, id):
+        temp = getOrdersByID(id)
+        result = ""
+        if len(temp) > 4:
+            n = 3
+        else:
+            n = len(temp)
+            result = "..."
+        n = len(temp) if len(temp) < 5 else 4
+        for i in range(n):
+            product = getproductByID(temp[i][0])[0]
+            result = product[1] + "\n" + result
+        return result
+
+    def loadOrders(self):
+        self.clearOrders()
+        result = orders_list()
+        x = 0
+        y = 0
+        for data in result:
+            customer = getUserInfo(data[1])
+            label_customer = QLabel(customer[0]+" "+customer[1])
+            label_customer.setMinimumSize(200, 30)
+            label_customer.setMaximumSize(200, 30)
+            label_customer.setAlignment(Qt.AlignCenter)
+            button_add = QPushButton("Batafsil")
+            button_add.setMinimumSize(200, 30)
+            button_add.setMaximumSize(200, 30)
+            button_add.clicked.connect(partial(self.viewOrdersInfo, data[0]))
+            label_order = QLabel(self.orderToText(data[0]))
+            label_order.setMinimumSize(200, 30)
+            label_order.setMaximumSize(200, 150)
+            label_order.setAlignment(Qt.AlignLeft)
+            label_order.setWordWrap(True)
+            self.gridOrders.addWidget(label_customer, x, y)
+            self.gridOrders.addWidget(label_order, x + 1, y)
+            self.gridOrders.addWidget(button_add, x + 2, y)
+
+            if y == 3:
+                y = 0
+                x += 3
+            else:
+                y += 1
+
+    def clearOrders(self):
+        for i in reversed(range(self.gridOrders.count())):
+            self.gridOrders.itemAt(i).widget().deleteLater()
+
+    def viewOrdersInfo(self, id):
+        self.editingOrderId = id
+        order = getOrderListByID(id)
+        orders = getOrdersByID(id)
+        user = getUserInfo(order[1])
+        self.label_customerOrders.setText("Buyurtmachi:\t" + user[0] + " " + user[1])
+        self.label_dateOrders.setText("Vaqti:\t\t" + order[2][:19])
+        self.label_statusOrder.setText("Holati:\t\t" + order[3])
+        if order[4] is None:
+            self.label_adminOrders.setText("Qabul qiluvchi:\tQabul qilinmagan")
+        else:
+            self.label_adminOrders.setText("Qabul qiluvchi:\t" + getAdminInfo(order[4])[0])
+        self.clearOrderElements()
+        for i in range(len(orders)):
+            product = QLabel(getproductByID(orders[i][1])[0][1])
+            product.setMaximumSize(300, 30)
+            product.setMinimumSize(300, 30)
+            count = QLabel(str(orders[0][2]))
+            count.setMaximumSize(50, 30)
+            count.setMinimumSize(50, 30)
+            self.formOrderElements.addRow(product, count)
+
+    def clearOrdersInfo(self):
+        self.label_customerOrders.setText("Buyurtmachi:")
+        self.label_dateOrders.setText("Vaqti:")
+        self.label_statusOrder.setText("Holati:")
+        self.label_adminOrders.setText("Qabul qiluvchi:")
+        self.editingOrderId = None
+        self.clearOrderElements()
+
+    def clearOrderElements(self):
+        while self.formOrderElements.rowCount():
+            self.formOrderElements.removeRow(0)
+
+    def setOrderStatus(self, status):
+        if self.editingOrderId == None:
+            Warning("Iltimos buyurtma tanlang").exec()
+            return
+        if not self.permissions[0]:
+            Warning("Sizda ushbu operatsiyani bajarish huquqi yo'q").exec()
+            return
+        admin_id = getOrderListByID(self.editingOrderId)[4]
+        if admin_id is not None and admin_id != self.id:
+            Warning("Ushbu buyurtma boshqa admin tomonidan qabul qilingan").exec()
+            return
+        setOrderStatus(self.editingOrderId, status, self.id)
+        Warning("Buyurtma holati o'zgartirildi").exec()
+
     # Tab Products
     def loadProducts(self):
         self.clearProducts()

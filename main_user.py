@@ -111,11 +111,11 @@ class Main_user(QMainWindow, Ui_Asosiy):
             label_status.setMinimumSize(120, 35)
             label_status.setMaximumSize(120, 35)
             style = "QLabel{\n"
-            if order[3] == "Yuborilgan":
+            if order[3] == "Qabul qilingan":
                 style += "color: rgb(107,196,237);\n"
-            elif order[3] == "Yo'lda":
+            elif order[3] == "Yuborilgan":
                 style += "color: rgb(230,181,237);\n"
-            elif order[3] == "Qabul qilingan":
+            elif order[3] == "Yetkazilgan":
                 style += "color: rgb(163,237,179);\n"
             else:
                 style += "color: rgb(237,121,142);\n"

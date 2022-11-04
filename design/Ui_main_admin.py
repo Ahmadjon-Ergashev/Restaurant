@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1291, 800)
+        MainWindow.resize(1300, 800)
         MainWindow.setMinimumSize(QtCore.QSize(880, 600))
         MainWindow.setMaximumSize(QtCore.QSize(1300, 800))
         icon = QtGui.QIcon()
@@ -170,6 +170,316 @@ class Ui_MainWindow(object):
         self.tabWidget.setMovable(False)
         self.tabWidget.setTabBarAutoHide(True)
         self.tabWidget.setObjectName("tabWidget")
+        self.tab_orders = QtWidgets.QWidget()
+        self.tab_orders.setStyleSheet("")
+        self.tab_orders.setObjectName("tab_orders")
+        self.gridLayout = QtWidgets.QGridLayout(self.tab_orders)
+        self.gridLayout.setObjectName("gridLayout")
+        self.scrollArea = QtWidgets.QScrollArea(self.tab_orders)
+        self.scrollArea.setStyleSheet("QFrame{\n"
+"background: transparent;\n"
+"}\n"
+"QWidget{\n"
+"background: transparent;\n"
+"}\n"
+"QPushButton{\n"
+"    background:rgb(83, 152, 255);\n"
+"    border-radius:10px;\n"
+"    color:#fff;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    border:none;\n"
+"    background:rgb(68, 117, 222)\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"font-size: 14px;\n"
+"text-align: center;\n"
+"color: white;\n"
+"padding: 2px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QLabel:hover{\n"
+"background: rgba(255,255,255,0.3);\n"
+"border: 1px solid rgb(68, 117, 222);\n"
+"border-radius: 5px;\n"
+"}\n"
+"QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 876, 542))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.formLayout_5 = QtWidgets.QFormLayout(self.scrollAreaWidgetContents)
+        self.formLayout_5.setObjectName("formLayout_5")
+        self.gridOrders = QtWidgets.QGridLayout()
+        self.gridOrders.setObjectName("gridOrders")
+        self.formLayout_5.setLayout(0, QtWidgets.QFormLayout.LabelRole, self.gridOrders)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)
+        self.frame_buttonsOrders = QtWidgets.QFrame(self.tab_orders)
+        self.frame_buttonsOrders.setMinimumSize(QtCore.QSize(400, 150))
+        self.frame_buttonsOrders.setMaximumSize(QtCore.QSize(400, 16777215))
+        self.frame_buttonsOrders.setStyleSheet("QPushButton{\n"
+"background:rgba(0, 0, 0, 0.7);\n"
+"border: black;\n"
+"border-radius:10px;\n"
+"color: white;\n"
+"font-size: 14px;\n"
+"}\n"
+"\n"
+"")
+        self.frame_buttonsOrders.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buttonsOrders.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buttonsOrders.setObjectName("frame_buttonsOrders")
+        self.btn_sendOrders = QtWidgets.QPushButton(self.frame_buttonsOrders)
+        self.btn_sendOrders.setGeometry(QtCore.QRect(270, 10, 120, 51))
+        self.btn_sendOrders.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_sendOrders.setStyleSheet("QPushButton:hover{\n"
+"background:rgb(68, 117, 222)\n"
+"}")
+        self.btn_sendOrders.setObjectName("btn_sendOrders")
+        self.btn_rejectOrders = QtWidgets.QPushButton(self.frame_buttonsOrders)
+        self.btn_rejectOrders.setGeometry(QtCore.QRect(140, 10, 120, 51))
+        self.btn_rejectOrders.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_rejectOrders.setStyleSheet("QPushButton:hover{\n"
+"background: rgba(231,30,21,0.6);\n"
+"}")
+        self.btn_rejectOrders.setObjectName("btn_rejectOrders")
+        self.btn_deliveredOrders = QtWidgets.QPushButton(self.frame_buttonsOrders)
+        self.btn_deliveredOrders.setGeometry(QtCore.QRect(140, 80, 120, 51))
+        self.btn_deliveredOrders.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_deliveredOrders.setStyleSheet("QPushButton:hover{\n"
+"background:rgba(122,60,237, 0.7)\n"
+"}")
+        self.btn_deliveredOrders.setObjectName("btn_deliveredOrders")
+        self.btn_acceptOrders = QtWidgets.QPushButton(self.frame_buttonsOrders)
+        self.btn_acceptOrders.setGeometry(QtCore.QRect(10, 10, 120, 51))
+        self.btn_acceptOrders.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_acceptOrders.setStyleSheet("QPushButton:hover{\n"
+"background: rgba(0,237,107,0.6);\n"
+"}")
+        self.btn_acceptOrders.setObjectName("btn_acceptOrders")
+        self.btn_cancelOrders = QtWidgets.QPushButton(self.frame_buttonsOrders)
+        self.btn_cancelOrders.setGeometry(QtCore.QRect(10, 80, 120, 51))
+        self.btn_cancelOrders.setMaximumSize(QtCore.QSize(200, 51))
+        self.btn_cancelOrders.setStyleSheet("QPushButton:hover{\n"
+"background:rgba(237,0,213, 0.7)\n"
+"}")
+        self.btn_cancelOrders.setObjectName("btn_cancelOrders")
+        self.gridLayout.addWidget(self.frame_buttonsOrders, 1, 1, 1, 1)
+        self.frame_filterOrders = QtWidgets.QFrame(self.tab_orders)
+        self.frame_filterOrders.setMinimumSize(QtCore.QSize(0, 100))
+        self.frame_filterOrders.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.frame_filterOrders.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_filterOrders.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_filterOrders.setObjectName("frame_filterOrders")
+        self.gridLayout.addWidget(self.frame_filterOrders, 1, 0, 1, 1)
+        self.frame_Order = QtWidgets.QFrame(self.tab_orders)
+        self.frame_Order.setMinimumSize(QtCore.QSize(400, 0))
+        self.frame_Order.setMaximumSize(QtCore.QSize(400, 16777215))
+        self.frame_Order.setStyleSheet("QFrame{\n"
+"background: transparent;\n"
+"}\n"
+"QWidget{\n"
+"background: transparent;\n"
+"}\n"
+"QPushButton{\n"
+"    background:rgb(83, 152, 255);\n"
+"    border-radius:10px;\n"
+"    color:#fff;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    border:none;\n"
+"    background:rgb(68, 117, 222)\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"font-size: 14px;\n"
+"text-align: center;\n"
+"color: white;\n"
+"padding: 2px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QLabel:hover{\n"
+"background: rgba(255,255,255,0.3);\n"
+"border: 1px solid rgb(68, 117, 222);\n"
+"border-radius: 5px;\n"
+"}\n"
+"QScrollBar:vertical\n"
+"    {\n"
+"        background-color: #2A2929;\n"
+"        width: 15px;\n"
+"        margin: 15px 3px 15px 3px;\n"
+"        border: 1px transparent #2A2929;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::handle:vertical\n"
+"    {\n"
+"        background-color: rgba(195,63,11,0.8);        /* #605F5F; */\n"
+"        min-height: 5px;\n"
+"        border-radius: 4px;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical\n"
+"    {\n"
+"        margin: 3px 0px 3px 0px;\n"
+"        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/up_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on\n"
+"    {\n"
+"        border-image: url(:/qss_icons/rc/down_arrow.png);\n"
+"        height: 10px;\n"
+"        width: 10px;\n"
+"        subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"\n"
+"    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }\n"
+"\n"
+"    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"    {\n"
+"        background: none;\n"
+"    }")
+        self.frame_Order.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Order.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Order.setObjectName("frame_Order")
+        self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.frame_Order)
+        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.label_customerOrders = QtWidgets.QLabel(self.frame_Order)
+        self.label_customerOrders.setMinimumSize(QtCore.QSize(0, 45))
+        self.label_customerOrders.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.label_customerOrders.setObjectName("label_customerOrders")
+        self.verticalLayout_5.addWidget(self.label_customerOrders)
+        self.label_dateOrders = QtWidgets.QLabel(self.frame_Order)
+        self.label_dateOrders.setMinimumSize(QtCore.QSize(0, 45))
+        self.label_dateOrders.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.label_dateOrders.setObjectName("label_dateOrders")
+        self.verticalLayout_5.addWidget(self.label_dateOrders)
+        self.label_statusOrder = QtWidgets.QLabel(self.frame_Order)
+        self.label_statusOrder.setMinimumSize(QtCore.QSize(0, 45))
+        self.label_statusOrder.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.label_statusOrder.setObjectName("label_statusOrder")
+        self.verticalLayout_5.addWidget(self.label_statusOrder)
+        self.label_adminOrders = QtWidgets.QLabel(self.frame_Order)
+        self.label_adminOrders.setMinimumSize(QtCore.QSize(0, 45))
+        self.label_adminOrders.setMaximumSize(QtCore.QSize(16777215, 51))
+        self.label_adminOrders.setObjectName("label_adminOrders")
+        self.verticalLayout_5.addWidget(self.label_adminOrders)
+        self.scrollArea_OrderElements = QtWidgets.QScrollArea(self.frame_Order)
+        self.scrollArea_OrderElements.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea_OrderElements.setWidgetResizable(True)
+        self.scrollArea_OrderElements.setObjectName("scrollArea_OrderElements")
+        self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 365, 318))
+        self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
+        self.gridLayout_8 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_3)
+        self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_8.setObjectName("gridLayout_8")
+        self.formOrderElements = QtWidgets.QFormLayout()
+        self.formOrderElements.setObjectName("formOrderElements")
+        self.gridLayout_8.addLayout(self.formOrderElements, 0, 0, 1, 1)
+        self.scrollArea_OrderElements.setWidget(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_5.addWidget(self.scrollArea_OrderElements)
+        self.horizontalLayout_16.addLayout(self.verticalLayout_5)
+        self.gridLayout.addWidget(self.frame_Order, 0, 1, 1, 1)
+        self.tabWidget.addTab(self.tab_orders, "")
         self.tab_products = QtWidgets.QWidget()
         self.tab_products.setObjectName("tab_products")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.tab_products)
@@ -605,7 +915,7 @@ class Ui_MainWindow(object):
         self.scrollArea_Products.setWidgetResizable(True)
         self.scrollArea_Products.setObjectName("scrollArea_Products")
         self.scrollAreaWidgetContents_Products = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_Products.setGeometry(QtCore.QRect(0, 0, 867, 698))
+        self.scrollAreaWidgetContents_Products.setGeometry(QtCore.QRect(0, 0, 876, 698))
         self.scrollAreaWidgetContents_Products.setObjectName("scrollAreaWidgetContents_Products")
         self.formLayout_4 = QtWidgets.QFormLayout(self.scrollAreaWidgetContents_Products)
         self.formLayout_4.setObjectName("formLayout_4")
@@ -1044,7 +1354,7 @@ class Ui_MainWindow(object):
         self.scrollArea_Users.setWidgetResizable(True)
         self.scrollArea_Users.setObjectName("scrollArea_Users")
         self.scrollAreaWidgetContents_Users = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_Users.setGeometry(QtCore.QRect(0, 0, 864, 698))
+        self.scrollAreaWidgetContents_Users.setGeometry(QtCore.QRect(0, 0, 873, 698))
         self.scrollAreaWidgetContents_Users.setStyleSheet("QFrame{\n"
 "background: transparent;\n"
 "}\n"
@@ -1657,7 +1967,7 @@ class Ui_MainWindow(object):
         self.scrollArea_Admins.setWidgetResizable(True)
         self.scrollArea_Admins.setObjectName("scrollArea_Admins")
         self.scrollAreaWidgetContents_Admins = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_Admins.setGeometry(QtCore.QRect(0, 0, 867, 698))
+        self.scrollAreaWidgetContents_Admins.setGeometry(QtCore.QRect(0, 0, 876, 698))
         self.scrollAreaWidgetContents_Admins.setObjectName("scrollAreaWidgetContents_Admins")
         self.formLayout = QtWidgets.QFormLayout(self.scrollAreaWidgetContents_Admins)
         self.formLayout.setObjectName("formLayout")
@@ -1942,6 +2252,16 @@ class Ui_MainWindow(object):
         self.label_admin.setText(_translate("MainWindow", "TextLabel"))
         self.btn_minimize.setText(_translate("MainWindow", "_"))
         self.btn_close.setText(_translate("MainWindow", "✕"))
+        self.btn_sendOrders.setText(_translate("MainWindow", "Yuborish"))
+        self.btn_rejectOrders.setText(_translate("MainWindow", "Rad Etish"))
+        self.btn_deliveredOrders.setText(_translate("MainWindow", "Yetkazildi"))
+        self.btn_acceptOrders.setText(_translate("MainWindow", "Qabul qilish"))
+        self.btn_cancelOrders.setText(_translate("MainWindow", "Bekor qilish"))
+        self.label_customerOrders.setText(_translate("MainWindow", "Buyurtmachi:"))
+        self.label_dateOrders.setText(_translate("MainWindow", "Vaqti:"))
+        self.label_statusOrder.setText(_translate("MainWindow", "Holati:"))
+        self.label_adminOrders.setText(_translate("MainWindow", "Qabul qiluvchi:"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_orders), _translate("MainWindow", "Buyurtmalar"))
         self.btn_deleteProduct.setText(_translate("MainWindow", "Mahsulotni o\'chirish"))
         self.btn_addProduct.setText(_translate("MainWindow", "Mahsulot qo\'shish"))
         self.btn_editInfoProduct.setToolTip(_translate("MainWindow", "Taxrirlash"))

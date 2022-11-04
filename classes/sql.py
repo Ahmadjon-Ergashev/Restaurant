@@ -25,9 +25,11 @@ def updateProductInfo(id, name, price, description, catagory):
                    (name, description, price, catagory, id))
     connection.commit()
 
+
 def addProduct(name, price, description, catagory):
     cursor.execute("Insert into products(name, description, price, catagory_id) values(?, ?, ?, ?)", (name, description, price, catagory))
     connection.commit()
+
 
 def deleteProduct(id):
     cursor.execute("Delete from products where id = ?", (id,))
@@ -172,6 +174,18 @@ def checkPassword(id, password):
 
 
 # Orders
+def orders_list():
+    return cursor.execute("Select * from order_list order by time").fetchall()
+
+
+def getOrdersByID(id):
+    return cursor.execute("Select * from orders where id=?", (id,)).fetchall()
+
+
+def getOrderListByID(id):
+    return cursor.execute("Select * from order_list where id=?", (id,)).fetchall()[0]
+
+
 def addorder(id, orders):
     now = datetime.now()
     cursor.execute("Insert into order_list(user_id, time, status) values(?, ?, ?)", (id, now, "Yuborilgan"))
@@ -184,16 +198,21 @@ def addorder(id, orders):
         connection.commit()
 
 
-def getOrderHistory(id, sent, ontheway, delivered, canceled):
+def getOrderHistory(id, sent, accepted, delivered, canceled):
     query = "status = NULL"
     if sent:
         query += " or status = 'Yuborilgan'"
-    if ontheway:
-        query += ' or status = "Yo\'lda"'
+    if accepted:
+        query += ' or status = "Qabul qilingan"'
         # query += " or status = "Yo'lda"'
     if delivered:
-        query += " or status = 'Qabul qilingan'"
+        query += " or status = 'Yetkazilgan'"
     if canceled:
         query += " or status = 'Bekor qilingan'"
     return cursor.execute("SELECT * FROM order_list WHERE user_id = ? and " + query + " order by time desc",
                           (id,)).fetchall()
+
+
+def setOrderStatus(id, status, admin_id):
+    cursor.execute("update order_list set status = ?, admin_id = ? where id = ?", (status, admin_id, id))
+    connection.commit()
