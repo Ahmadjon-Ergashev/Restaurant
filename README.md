@@ -5,6 +5,7 @@ This is a demo application for implementing an online ordering service for order
 
 In the user part of the program, each user can place an order from the available products after registering in the system or after logging into the system. 
 In the admin part of the program, it is possible to receive orders, send notifications to users, change order status, add/change products, add/change admins, give various permissions to admins.
+
 Python's PyQt5 framework was used in the creation of this project and the project was given an amazing design
 
 ![001](https://user-images.githubusercontent.com/86433203/231449953-77e76981-404b-44b4-b7a3-94fded7c4f46.png)
